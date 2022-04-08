@@ -165,6 +165,7 @@ function getContractCode(adr, resp){
             ifStatement = resp.totals.ast.IfStatement;
             functionDefinitionView = resp.totals.ast['FunctionDefinition:View'];
             functionDefinition = resp.totals.ast.FunctionDefinition;
+            stateVariableDeclarationPrivate = resp.totals.ast['stateVariableDeclaration:Private'];
             codeHTML = "<div class='url text-success'>" +
             "<i class='fa fa-code'></i> <b>Contract Name:&nbsp </b> <a href='" + cname + "' target='_blank'>" + cname + "&nbsp;&nbsp;</a>" +
             "</div>" +

@@ -8,7 +8,7 @@ require_once 'init.web.php';
 YOU CAN SET CONFIGURATION VARIABLES HERE BEFORE IT GOES TO NAV, RIBBON, ETC.
 E.G. $page_title = "Custom Title" */
 
-$page_title = "Search";
+$page_title = "Search Repository";
 
 /* ---------------- END PHP Custom Scripts ------------- */
 
