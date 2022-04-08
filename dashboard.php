@@ -45,4 +45,27 @@ include("inc/nav.php");
                 </ul>
             </div>
         </div>
- <!--
+
+        <div class="row">
+            <article class="col-sm-12">
+            <div class="well well-sm well-light padding-10">
+								<h4 class="txt-color-green">Deployment GAS vs <span class="semi-bold">LOC</span> <a href="javascript:void(0);" class="pull-right txt-color-green"><i class="fa fa-refresh"></i></a></h4>  
+                <div class="sparkline" 
+                    data-sparkline-type="compositeline" 
+                    data-sparkline-spotradius-top="5" 
+                    data-sparkline-color-top="#3a6965" 
+                    data-sparkline-line-width-top="3" 
+                    data-sparkline-color-bottom="#2b5c59" 
+                    data-sparkline-spot-color="#2b5c59" 
+                    data-sparkline-minspot-color-top="#97bfbf" 
+                    data-sparkline-maxspot-color-top="#c2cccc" 
+                    data-sparkline-highlightline-color-top="#cce8e4" 
+                    data-sparkline-highlightspot-color-top="#9dbdb9" 
+                    data-sparkline-width="96%" 
+                    data-sparkline-height="78px" 
+                    data-sparkline-line-val="[<?php echo join(', ', $_SESSION["gas"]); ?>]" 
+                    data-sparkline-bar-val="[<?php echo join(', ', $_SESSION["lloc"]); ?>]">
+				</div> 	
+</div>
+            </article>
+        </div>
