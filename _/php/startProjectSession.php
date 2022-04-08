@@ -24,4 +24,21 @@ foreach($json_decoded as $metric){
     $adr_array[]=$metric->ADR;
 }
 
+$_SESSION["gas"] = $gas_array;
+		$_SESSION["sloc"] = $sloc_array;
+		$_SESSION["lloc"] = $lloc_array;
+		$_SESSION["cloc"] = $cloc_array;
+		$_SESSION["nf"] = $nf_array;
+		$_SESSION["wmc"] = $wmc_array;
+		$_SESSION["nl"] = $nl_array;
+		$_SESSION["nle"] = $nle_array;
+		$_SESSION["numpar"] = $numpar_array;
+		$_SESSION["nos"] = $nos_array;
+		$_SESSION["dit"] = $dit_array;
+		$_SESSION["noa"] = $noa_array;
+		$_SESSION["cbo"] = $cbo_array;
+		$_SESSION["na"] = $na_array;
+		$_SESSION["noi"] = $noi_array;
+		$_SESSION["adr"] = $adr_array;
+
 ?>
