@@ -69,3 +69,107 @@ include("inc/nav.php");
 </div>
             </article>
         </div>
+
+             <!-- row -->
+             <div class="row">
+            <article class="col-sm-12">
+                <!-- new widget -->
+                <div class="jarviswidget" id="wid-id-0" data-widget-togglebutton="false" data-widget-editbutton="false" data-widget-fullscreenbutton="false" data-widget-colorbutton="false" data-widget-deletebutton="false">
+                    <h2 style="margin-top:20px; margin-left:20px;"><span class="widget-icon"> <i class="fa fa-terminal"></i> </span>Size Metrics:</h2>	
+                    <section id="widget-grid" class="">
+                        <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">	
+                            <div class="jarviswidget jarviswidget-color-blueDark" id="wid-id-2999" data-widget-editbutton="false">
+                                <header style="margin-bottom:0px; margin-right:0px">
+                                    <span class="widget-icon"> <i class="fa fa-table"></i> </span>
+                                    <h2>Size Metrics</h2>
+                                </header>
+                                <div class="show-stat-microcharts" style="margin-bottom:0px">
+                                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+                                        <ul id="sparks" class="">
+                                            <li class="sparks-info">
+                                                <h5> GAS </h5>
+                                                <div class="sparkline txt-color-green" data-sparkline-type="line" data-sparkline-width="180px" data-fill-color="" data-sparkline-spotradius="3" data-sparkline-height="40px">
+<?php echo join(', ', $_SESSION["gas"]); ?>
+                                                </div>
+                                            </li>
+                                        </ul>	
+                                    </div>
+                                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+                                        <ul id="sparks" class="">
+                                            <li class="sparks-info">
+                                                <h5> SLOC </h5>
+                                                <div class="sparkline txt-color-green" data-sparkline-type="line" data-sparkline-width="180px" data-fill-color="" data-sparkline-spotradius="3" data-sparkline-height="40px">
+<?php echo join(', ', $_SESSION["sloc"]); ?>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+                                        <ul id="sparks" class="">
+                                            <li class="sparks-info">
+                                                <h5> LLOC </h5>
+                                                <div class="sparkline txt-color-green" data-sparkline-type="line" data-sparkline-width="180px" data-fill-color="" data-sparkline-spotradius="3" data-sparkline-height="40px">
+<?php echo join(', ', $_SESSION["lloc"]); ?>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+                                        <ul id="sparks" class="">
+                                            <li class="sparks-info">
+                                                <h5> NF </h5>
+                                                <div class="sparkline txt-color-green" data-sparkline-type="line" data-sparkline-width="180px" data-fill-color="" data-sparkline-spotradius="3" data-sparkline-height="40px">
+<?php echo join(', ', $_SESSION["nf"]); ?>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>									
+                                </div>								
+                            </div>
+        </article>	
+
+                        <div class="row">
+                            <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">	
+
+                            <!-- Widget ID (each widget will need unique ID)-->
+					<div class="jarviswidget jarviswidget-color-blueDark" id="wid-id-3" data-widget-editbutton="false">
+						<!-- widget options:
+						usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
+
+						data-widget-colorbutton="false"
+						data-widget-editbutton="false"
+						data-widget-togglebutton="false"
+						data-widget-deletebutton="false"
+						data-widget-fullscreenbutton="false"
+						data-widget-custombutton="false"
+						data-widget-collapsed="true"
+						data-widget-sortable="false"
+
+						-->
+						<header>
+							<span class="widget-icon"> <i class="fa fa-table"></i> </span>
+							<h2>Size Metrics</h2>
+
+						</header>
+
+						<!-- widget div-->
+						<div>
+
+							<!-- widget edit box -->
+							<div class="jarviswidget-editbox">
+								<!-- This area used as dropdown edit box -->
+
+							</div>
+							<!-- end widget edit box -->
+
+							<!-- widget content -->
+							<div class="widget-body no-padding">
+<?php
+ include ("_/php/dataclasses/_generalMetrics.php");
+?>
+                                        </div>
+                                    </div>
+                                </div>	
+                            </article>
+
+                    </section>
