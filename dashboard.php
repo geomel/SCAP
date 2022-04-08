@@ -6,14 +6,22 @@ use \SmartUI\Util as SmartUtil;
 use \Common\HTMLIndent;
 // if (!isset($_SESSION['pname']))
    // header('Location: index.php');
+//initilize the page
+//initilize the page
 require_once 'init.web.php';
 
+/*---------------- PHP Custom Scripts ---------
+
+YOU CAN SET CONFIGURATION VARIABLES HERE BEFORE IT GOES TO NAV, RIBBON, ETC.
+E.G. $page_title = "Custom Title" */
 
 $page_title = "Blank Page";
 
 /* ---------------- END PHP Custom Scripts ------------- */
 
-
+//include header
+//you can add your custom css in $page_css array.
+//Note: all css files are inside css/ folder
 $page_css[] = "your_style.css";
 include("inc/header.php");
 
@@ -22,6 +30,14 @@ include("inc/header.php");
 $page_nav["dashboard"]["sub"]["social"]["active"] = true;
 include("inc/nav.php");
 ?>
+
+<div id="main" role="main">
+<?php
+		//configure ribbon (breadcrumbs) array("name"=>"url"), leave url empty if no url
+		//$breadcrumbs["New Crumb"] => "http://url.com"
+		$breadcrumbs["Misc"] = "";
+		include("inc/ribbon.php");
+	?>
 
     <!-- MAIN CONTENT -->
     <div id="content">
@@ -45,7 +61,17 @@ include("inc/nav.php");
                 </ul>
             </div>
         </div>
-
+ <!--
+        <div class="well well-sm">
+				<div class="input-group">
+                
+					<input class="form-control input-lg" type="text" id="fa-icon-search" placeholder="Search a Smart Contract Address...">
+					<span class="input-group-addon"><i class="fa fa-fw fa-lg fa-search"></i></span>
+             
+             
+				</div>
+		</div>
+   -->
         <div class="row">
             <article class="col-sm-12">
             <div class="well well-sm well-light padding-10">
@@ -70,8 +96,9 @@ include("inc/nav.php");
             </article>
         </div>
 
-             <!-- row -->
-             <div class="row">
+        
+        <!-- row -->
+        <div class="row">
             <article class="col-sm-12">
                 <!-- new widget -->
                 <div class="jarviswidget" id="wid-id-0" data-widget-togglebutton="false" data-widget-editbutton="false" data-widget-fullscreenbutton="false" data-widget-colorbutton="false" data-widget-deletebutton="false">
@@ -173,8 +200,11 @@ include("inc/nav.php");
                             </article>
 
                     </section>
-<!-- row -->
-<div class="row">
+
+
+
+  <!-- row -->
+  <div class="row">
             <article class="col-sm-12">
                 <!-- new widget -->
                 <div class="jarviswidget" id="wid-id-1" data-widget-togglebutton="false" data-widget-editbutton="false" data-widget-fullscreenbutton="false" data-widget-colorbutton="false" data-widget-deletebutton="false">
