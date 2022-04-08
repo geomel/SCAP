@@ -41,4 +41,5 @@ $_SESSION["gas"] = $gas_array;
 		$_SESSION["noi"] = $noi_array;
 		$_SESSION["adr"] = $adr_array;
 
+        header('Location: ../../dashboard.php');
 ?>
