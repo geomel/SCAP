@@ -1,2 +1,3 @@
-# SCAP = Smart COntracts Analytics Platform
-Smart Contracts Quality Analytics Platforms by SOftware Engineering Group.
+# SCAP = Smart Contracts Analytics Platform
+Smart Contracts Quality Analytics Platforms by Software Engineering Group @UoM.
+
