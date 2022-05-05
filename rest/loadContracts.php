@@ -1,7 +1,8 @@
 <?php
 
+// error_reporting(0);
 
-$con = mysqli_connect("127.0.0.1","root","mysql", "scap");
+$con = mysqli_connect("195.251.210.147:3336","melas","melas", "scap");
 
 
 if (isset($_GET["adr"])){
@@ -49,5 +50,5 @@ if (isset($_GET["adr"])){
 	}
 }
  
- mysql_close($connect);
+ mysqli_close($con);
 

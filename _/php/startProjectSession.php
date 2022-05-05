@@ -1,9 +1,10 @@
 <?php
 session_start();
 
-$json_solmetrics = file_get_contents('http://localhost/full/rest/loadContracts.php?adr=0'); //gets project metrics	
+$json_solmetrics = file_get_contents('http://195.251.210.147:8065/rest/loadContracts.php?adr=0'); // load metrics	
 $json_decoded = json_decode($json_solmetrics);
 
+//echo var_dump($json_decoded);
 
 foreach($json_decoded as $metric){
     $gas_array[]=$metric->GAS;
