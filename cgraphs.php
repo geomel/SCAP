@@ -41,7 +41,9 @@ if (isset($_GET)) {
     $rs = $_GET['rs'];
     $field1 = $_GET['field1'];
     $field2 = $_GET['field2'];
-    $cmd = "Rscript -e 'x <- \"" . join(', ', $_SESSION[$f[0]]) . "\"; y <- \"" . join(', ', $_SESSION[$f[1]]) . "\"; source(\"pearson_cor.r\")'";
+    $var1[] = $_SESSION[$f[0]];
+    $var2[] = $_SESSION[$f[1]];
+    $cmd = "Rscript -e 'x <- \"" . join(', ', $var1) . "\"; y <- \"" . join(', ', $var2) . "\"; source(\"pearson_cor.r\")'";
     $pvalue = shell_exec($cmd);
     $pvalue = substr($pvalue, 3, strlen($pvalue));
 
@@ -266,7 +268,7 @@ if (isset($_GET)) {
 <!-- PAGE RELATED PLUGIN(S) -->
 <script src="<?php echo ASSETS_URL; ?>/js/plugin/datatables/jquery.dataTables.min.js"></script>
 <script src="<?php echo ASSETS_URL; ?>/js/plugin/datatables/dataTables.colVis.min.js"></script>
-<!-- <script src="<?php echo ASSETS_URL; ?>/js/plugin/datatables/dataTables.tableTools.min.js"></script> -->
+<!-- <script src="<?php // echo ASSETS_URL; ?>/js/plugin/datatables/dataTables.tableTools.min.js"></script> -->
 <script src="<?php echo ASSETS_URL; ?>/js/plugin/datatables/dataTables.bootstrap.min.js"></script>
 <script src="<?php echo ASSETS_URL; ?>/js/plugin/datatable-responsive/datatables.responsive.min.js"></script>
 
@@ -349,24 +351,26 @@ $('#datatable_tabletools').dataTable({
         var fieldArrays = new Array();
 
         $("#plotoptions").on('submit', function (e) {
+            console.log("In...")
             var arr = [];
             var checkedBoxes = $("#plotoptions input:checked").each(function () {
                 arr.push($(this).val());
             });
-            if (checkedBoxes.length > 2) { // if nothing selected
+            console.log("Out...")
+            if (checkedBoxes.length > 2) { // More than two options selected
                 $('#select_error').show();
                 $('#select_error').html("<div class='alert alert-error'>" +
                     "<a class='close' data-dismiss='alert'>x</a> <h4>More than two options Selected</h4>" +
                     "<p>Select two options and press Plot</p></div>");
                 return false;
-            } else if (checkedBoxes.length < 2) {
+            } else if (checkedBoxes.length < 2) { // Less than two options selected
                 $('#select_error').show();
                 $('#select_error').html("<div class='alert alert-error'>" +
                     "<a class='close' data-dismiss='alert'>x</a> <h4>Less than two options Selected</h4>" +
                     "<p>Select two options and press Plot</p></div>");
                 return false;
             } else {
-                //alert(arr[0]);
+                alert(arr[0]);
                 var rs = calculateR(arr[0], arr[1]);
                 $("#field1").val(arr[1]);
                 $("#field2").val(arr[0]);
@@ -385,7 +389,7 @@ $('#datatable_tabletools').dataTable({
             console.log(f1, f2, "-----");
             var correlationValue = mathUtils.getPearsonsCorrelation(fieldArrays[0], fieldArrays[1]);
             // var rsquaredValue = linearRegression(fieldArrays[0], fieldArrays[1]);
-             alert(correlationValue);
+            alert(correlationValue);
             return correlationValue.toFixed(4);
             ;
             	$("#plots").html("");
@@ -476,18 +480,6 @@ $('#datatable_tabletools').dataTable({
                 } ?>
                     fieldArrays.push(nle);
                     break;
-                case "testFilesAdded":
-                <?php foreach ($_SESSION['testFilesAdded'] as $key => $value) {
-                    echo "testFilesAdded[" . $key . "]=" . $value . ";";
-                } ?>
-                    fieldArrays.push(testFilesAdded);
-                    break;
-                case "testFilesModified":
-                <?php foreach ($_SESSION['testFilesModified'] as $key => $value) {
-                    echo "testFilesModified[" . $key . "]=" . $value . ";";
-                } ?>
-                    fieldArrays.push(testFilesModified);
-                    break;
                 case "na":
                 <?php foreach ($_SESSION['na'] as $key => $value) {
                     echo "na[" . $key . "]=" . $value . ";";
@@ -517,36 +509,6 @@ $('#datatable_tabletools').dataTable({
                     echo "noi[" . $key . "]=" . $value . ";";
                 } ?>
                     fieldArrays.push(noi);
-                    break;
-                case "loc":
-                <?php foreach ($_SESSION['loc'] as $key => $value) {
-                    echo "loc[" . $key . "]=" . $value . ";";
-                } ?>
-                    fieldArrays.push(loc);
-                    break;
-                case "woc":
-                <?php foreach ($_SESSION['woc'] as $key => $value) {
-                    echo "woc[" . $key . "]=" . $value . ";";
-                } ?>
-                    fieldArrays.push(woc);
-                    break;
-                case "tcc":
-                <?php foreach ($_SESSION['tcc'] as $key => $value) {
-                    echo "tcc[" . $key . "]=" . $value . ";";
-                } ?>
-                    fieldArrays.push(tcc);
-                    break;
-                case "nopa":
-                <?php foreach ($_SESSION['nopa'] as $key => $value) {
-                    echo "nopa[" . $key . "]=" . $value . ";";
-                } ?>
-                    fieldArrays.push(nopa);
-                    break;
-                case "noam":
-                <?php foreach ($_SESSION['noam'] as $key => $value) {
-                    echo "noam[" . $key . "]=" . $value . ";";
-                } ?>
-                    fieldArrays.push(noam);
                     break;
             }
         }

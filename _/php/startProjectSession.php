@@ -23,6 +23,7 @@ foreach($json_decoded as $metric){
     $na_array[]=$metric->NA;
     $noi_array[]=$metric->NOI;
     $adr_array[]=$metric->ADR;
+    $nod_array[]=$metric->NOD;
 }
 
 $_SESSION["gas"] = $gas_array;
@@ -41,6 +42,7 @@ $_SESSION["gas"] = $gas_array;
 		$_SESSION["na"] = $na_array;
 		$_SESSION["noi"] = $noi_array;
 		$_SESSION["adr"] = $adr_array;
+        $_SESSION["nod"] = $nod_array;
 
         header('Location: ../../dashboard.php');
 ?>
