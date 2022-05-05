@@ -43,10 +43,14 @@ if (isset($_GET)) {
     $field2 = $_GET['field2'];
     $var1[] = $_SESSION[$f[0]];
     $var2[] = $_SESSION[$f[1]];
-    $cmd = "Rscript -e 'x <- \"" . join(', ', $var1) . "\"; y <- \"" . join(', ', $var2) . "\"; source(\"pearson_cor.r\")'";
+    if( is_array($_SESSION[$f[0]]) ) {    
+        $cmd = "Rscript -e 'x <- \"" . join(',', $_SESSION[$f[0]]) . "\"; y <- \"" . join(',', $_SESSION[$f[1]]) . "\"; source(\"pearson_cor.r\")'";
+     
+    // $cmd = "Rscript -e 'x <- \"" . join(',', $_SESSION[$f[0]]) . "\"; y <- \"" . join(',', $_SESSION[$f[1]]) . "\"; source(\"pearson_cor.r\")'";
+    // $cmd = "Rscript -e 'x <- \"1,2,3,4,5\"; y <- \"7,8,9,10,11\"; source(\"pearson_cor.r\")'";
     $pvalue = shell_exec($cmd);
-    $pvalue = substr($pvalue, 3, strlen($pvalue));
-
+   // $pvalue = substr($pvalue, 3, strlen($pvalue));
+}
 }
 
 ?>
@@ -193,7 +197,7 @@ if (isset($_GET)) {
                         if (isset($f)) {
                             echo "correlation coefficient = " . $rs . "<br>";
                             echo "p-value = " . $pvalue;
-                            sort($f[0]);
+                            //sort($f[0]);
                            // sort($f[1]);
                             if ($pvalue <= 0.05)
                                 echo " <span class='text-muted'> (Correlation is significant at the 0.05 level)</span>";
