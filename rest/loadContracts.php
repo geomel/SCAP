@@ -11,7 +11,7 @@ if (isset($_GET["adr"])){
 
 	if($adr==0){
 		
-			$query_adr = "SELECT * FROM solmetrics WHERE SLOC >=30 LIMIT 5000";
+			$query_adr = "SELECT * FROM solmetrics WHERE SLOC >=30 LIMIT 500";
 			$dbquery = mysqli_query($con, $query_adr);
 			$arr = array();
 			//$result = mysqli_num_rows($dbquery);

@@ -76,6 +76,9 @@ products-detail.php
 error500.php
 smartui-widget.php
 jqgrid.php
+/node_modules/echarts
+/node_modules/tslib
+/node_modules/zrender
 /t
 /forgit
 /data

@@ -31,7 +31,7 @@ $page_nav["dashboard"]["sub"]["social"]["active"] = true;
 include("inc/nav.php");
 ?>
 
-<div id="main" role="main">
+<div id="main" role="main"> 
 <?php
 		//configure ribbon (breadcrumbs) array("name"=>"url"), leave url empty if no url
 		//$breadcrumbs["New Crumb"] => "http://url.com"
@@ -89,8 +89,8 @@ include("inc/nav.php");
                     data-sparkline-highlightspot-color-top="#9dbdb9" 
                     data-sparkline-width="96%" 
                     data-sparkline-height="78px" 
-                    data-sparkline-line-val="[<?php echo join(', ', $_SESSION["gas"]); ?>]" 
-                    data-sparkline-bar-val="[<?php echo join(', ', $_SESSION["lloc"]); ?>]">
+                    data-sparkline-line-val="[<?php // echo join(', ', $_SESSION["gas"]); ?>]" 
+                    data-sparkline-bar-val="[<?php // echo join(', ', $_SESSION["lloc"]); ?>]">
 				</div> 	
 </div>
             </article>
@@ -116,7 +116,7 @@ include("inc/nav.php");
                                             <li class="sparks-info">
                                                 <h5> GAS </h5>
                                                 <div class="sparkline txt-color-green" data-sparkline-type="line" data-sparkline-width="180px" data-fill-color="" data-sparkline-spotradius="3" data-sparkline-height="40px">
-<?php echo join(', ', $_SESSION["gas"]); ?>
+<?php //  echo join(', ', $_SESSION["gas"]); ?>
                                                 </div>
                                             </li>
                                         </ul>	
@@ -126,7 +126,7 @@ include("inc/nav.php");
                                             <li class="sparks-info">
                                                 <h5> SLOC </h5>
                                                 <div class="sparkline txt-color-green" data-sparkline-type="line" data-sparkline-width="180px" data-fill-color="" data-sparkline-spotradius="3" data-sparkline-height="40px">
-<?php echo join(', ', $_SESSION["sloc"]); ?>
+<?php // echo  join(', ', $_SESSION["sloc"]); ?>
                                                 </div>
                                             </li>
                                         </ul>
@@ -136,7 +136,7 @@ include("inc/nav.php");
                                             <li class="sparks-info">
                                                 <h5> LLOC </h5>
                                                 <div class="sparkline txt-color-green" data-sparkline-type="line" data-sparkline-width="180px" data-fill-color="" data-sparkline-spotradius="3" data-sparkline-height="40px">
-<?php echo join(', ', $_SESSION["lloc"]); ?>
+<?php // echo join(', ', $_SESSION["lloc"]); ?>
                                                 </div>
                                             </li>
                                         </ul>
@@ -146,7 +146,7 @@ include("inc/nav.php");
                                             <li class="sparks-info">
                                                 <h5> NF </h5>
                                                 <div class="sparkline txt-color-green" data-sparkline-type="line" data-sparkline-width="180px" data-fill-color="" data-sparkline-spotradius="3" data-sparkline-height="40px">
-<?php echo join(', ', $_SESSION["nf"]); ?>
+<?php // echo join(', ', $_SESSION["nf"]); ?>
                                                 </div>
                                             </li>
                                         </ul>
@@ -222,7 +222,7 @@ include("inc/nav.php");
                                             <li class="sparks-info">
                                                 <h5>WMC</h5>
                                                 <div class="sparkline txt-color-green" data-sparkline-type="line" data-sparkline-width="180px" data-fill-color="" data-sparkline-spotradius="3" data-sparkline-height="40px">
-<?php echo join(', ', $_SESSION["wmc"]); ?>
+<?php // echo join(', ', $_SESSION["wmc"]); ?>
                                                 </div>
                                             </li>
                                         </ul>	
@@ -232,7 +232,7 @@ include("inc/nav.php");
                                             <li class="sparks-info">
                                                 <h5> NL </h5>
                                                 <div class="sparkline txt-color-green" data-sparkline-type="line" data-sparkline-width="180px" data-fill-color="" data-sparkline-spotradius="3" data-sparkline-height="40px">
-<?php echo join(', ', $_SESSION["nl"]); ?>
+<?php // echo join(', ', $_SESSION["nl"]); ?>
                                                 </div>
                                             </li>
                                         </ul>
@@ -242,7 +242,7 @@ include("inc/nav.php");
                                             <li class="sparks-info">
                                                 <h5> NLE </h5>
                                                 <div class="sparkline txt-color-green" data-sparkline-type="line" data-sparkline-width="180px" data-fill-color="" data-sparkline-spotradius="3" data-sparkline-height="40px">
-<?php echo join(', ', $_SESSION["nle"]); ?>
+<?php // echo join(', ', $_SESSION["nle"]); ?>
                                                 </div>
                                             </li>
                                         </ul>
@@ -252,7 +252,7 @@ include("inc/nav.php");
                                             <li class="sparks-info">
                                                 <h5> NA </h5>
                                                 <div class="sparkline txt-color-green" data-sparkline-type="line" data-sparkline-width="180px" data-fill-color="" data-sparkline-spotradius="3" data-sparkline-height="40px">
-<?php echo join(', ', $_SESSION["na"]); ?>
+<?php // echo join(', ', $_SESSION["na"]); ?>
                                                 </div>
                                             </li>
                                         </ul>
@@ -321,7 +321,7 @@ include("inc/nav.php");
                                             <li class="sparks-info">
                                                 <h5>DIT</h5>
                                                 <div class="sparkline txt-color-green" data-sparkline-type="line" data-sparkline-width="180px" data-fill-color="" data-sparkline-spotradius="3" data-sparkline-height="40px">
-<?php echo join(', ', $_SESSION["dit"]); ?>
+<?php // echo join(', ', $_SESSION["dit"]); ?>
                                                 </div>
                                             </li>
                                         </ul>	
@@ -331,7 +331,7 @@ include("inc/nav.php");
                                             <li class="sparks-info">
                                                 <h5> NOA </h5>
                                                 <div class="sparkline txt-color-green" data-sparkline-type="line" data-sparkline-width="180px" data-fill-color="" data-sparkline-spotradius="3" data-sparkline-height="40px">
-<?php echo join(', ', $_SESSION["noa"]); ?>
+<?php // echo join(', ', $_SESSION["noa"]); ?>
                                                 </div>
                                             </li>
                                         </ul>
@@ -341,7 +341,7 @@ include("inc/nav.php");
                                             <li class="sparks-info">
                                                 <h5> NOD </h5>
                                                 <div class="sparkline txt-color-green" data-sparkline-type="line" data-sparkline-width="180px" data-fill-color="" data-sparkline-spotradius="3" data-sparkline-height="40px">
-<?php echo join(', ', $_SESSION["nod"]); ?>
+<?php // echo join(', ', $_SESSION["nod"]); ?>
                                                 </div>
                                             </li>
                                         </ul>
@@ -351,7 +351,7 @@ include("inc/nav.php");
                                             <li class="sparks-info">
                                                 <h5> CBO </h5>
                                                 <div class="sparkline txt-color-green" data-sparkline-type="line" data-sparkline-width="180px" data-fill-color="" data-sparkline-spotradius="3" data-sparkline-height="40px">
-<?php echo join(', ', $_SESSION["cbo"]); ?>
+<?php // echo join(', ', $_SESSION["cbo"]); ?>
                                                 </div>
                                             </li>
                                         </ul>
@@ -428,20 +428,18 @@ include ("_/php/dataclasses/_softwareMetrics.php");
 
     </div>	
 
+
 <?php
 //include required scripts 
 include("inc/scripts.php");
 ?>
 
-
     <script type="text/javascript">
-        $(document).ready(function () {
+$(document).ready(function () {
             refreshTimeLine();
-        
 
-            /* END TABLE TOOLS */
-
-        })
+// end of init
+ })
 
         function refreshTimeLine() {
             $('#ajax-timeline').load('_/php/_timeline.php', function () {
@@ -463,7 +461,6 @@ include("inc/footer.php");
 <!-- <script src="<?php echo ASSETS_URL; ?>/js/plugin/datatables/dataTables.tableTools.min.js"></script> -->
 <script src="<?php echo ASSETS_URL; ?>/js/plugin/datatables/dataTables.bootstrap.min.js"></script>
 <script src="<?php echo ASSETS_URL; ?>/js/plugin/datatable-responsive/datatables.responsive.min.js"></script>
-
 <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"></script>
 <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.flash.min.js"></script>
 <script type="text/javascript" language="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
@@ -471,6 +468,7 @@ include("inc/footer.php");
 <script type="text/javascript" language="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script>
 <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.html5.min.js"></script>
 <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.print.min.js"></script>
+
 
 <script type="text/javascript">
 
@@ -620,6 +618,10 @@ $(document).ready(function() {
 	});
 
 	/* END TABLETOOLS */
+
+
+
+    
 
 })
 

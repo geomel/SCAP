@@ -338,7 +338,6 @@
 					</ul>
 				</div>
 				<!-- END SHORTCUT AREA -->
-
 		<?php
 			}
 		?>

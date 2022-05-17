@@ -28,7 +28,7 @@ include("inc/header.php");
 //include left panel (navigation)
 //follow the tree in inc/config.ui.php
 $page_nav["composite"]["active"] = true;
-//$page_nav["graphs"]["flot"]["active"] = true;
+//$page_nav["graphs"]["flot"]["active"] = true;x
 include("inc/nav.php");
 
 ?>
@@ -44,12 +44,17 @@ if (isset($_GET)) {
     $var1[] = $_SESSION[$f[0]];
     $var2[] = $_SESSION[$f[1]];
     if( is_array($_SESSION[$f[0]]) ) {    
-        $cmd = "Rscript -e 'x <- \"" . join(',', $_SESSION[$f[0]]) . "\"; y <- \"" . join(',', $_SESSION[$f[1]]) . "\"; source(\"pearson_cor.r\")'";
+        $cmd = "Rscript -e 'x <- \"" . join(',', $_SESSION[$f[0]]) . "\"; y <- \"" . join(',', $_SESSION[$f[1]]) . "\"; source(\"spearman_cor.r\")'";
+       // $cmd = "Rscript -e source(\"spearman_cor.r\")";
+       // Rscript -e 'x <- "11,21,12,13"; y <- "33,32,34,36"; source("spearman_cor.r")
      
     // $cmd = "Rscript -e 'x <- \"" . join(',', $_SESSION[$f[0]]) . "\"; y <- \"" . join(',', $_SESSION[$f[1]]) . "\"; source(\"pearson_cor.r\")'";
     // $cmd = "Rscript -e 'x <- \"1,2,3,4,5\"; y <- \"7,8,9,10,11\"; source(\"pearson_cor.r\")'";
-    $pvalue = shell_exec($cmd);
-   // $pvalue = substr($pvalue, 3, strlen($pvalue));
+    $result = shell_exec($cmd);
+    $pieces = explode(" ", $result);
+    $r = round ($pieces[28],2);
+    $pvalue = $pieces[12];
+    
 }
 }
 
@@ -183,6 +188,7 @@ if (isset($_GET)) {
                         </h3>
                 </form>
             </div>
+            
 
             <div class='col-xs-12 col-sm-12 col-md-12 col-lg-12'>
                 <div class='well well-sm well-light padding-50'>
@@ -195,7 +201,8 @@ if (isset($_GET)) {
                     <div id="plots">
                 <?php
                         if (isset($f)) {
-                            echo "correlation coefficient = " . $rs . "<br>";
+                            echo "Results from the R statistical Language using Spearman rank correlation:<p><p>";
+                            echo "Correlation Coefficient (ρ) = " . $r . "<br>";
                             echo "p-value = " . $pvalue;
                             //sort($f[0]);
                            // sort($f[1]);
@@ -232,7 +239,6 @@ if (isset($_GET)) {
                 </div>
             </div>
             <div class="row">
-            <div id="correlation_graph"></div>
                 <div class='col-xs-12 col-sm-8 col-md-6 col-lg-8' style="margin-top: 50px; margin-left:10px;">
                     <?php
                     if (isset($f)) {
@@ -265,7 +271,6 @@ if (isset($_GET)) {
     <?php
         //include required scripts
         include("inc/scripts.php");
-      //  include("inc/correlation_graph.php");
         include("inc/footer.php");
     ?>
 
@@ -276,6 +281,7 @@ if (isset($_GET)) {
 <script src="<?php echo ASSETS_URL; ?>/js/plugin/datatables/dataTables.bootstrap.min.js"></script>
 <script src="<?php echo ASSETS_URL; ?>/js/plugin/datatable-responsive/datatables.responsive.min.js"></script>
 
+
 <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"></script>
 <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.flash.min.js"></script>
 <script type="text/javascript" language="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
@@ -283,7 +289,6 @@ if (isset($_GET)) {
 <script type="text/javascript" language="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script>
 <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.html5.min.js"></script>
 <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.print.min.js"></script>
-<script src="https://d3js.org/d3.v4.js"></script>
 <script type="text/javascript">
         
 
@@ -293,6 +298,7 @@ $(document).ready(function () {
     var breakpointDefinition = {
 			tablet : 1024,
 			phone : 480
+            
 		};
 
            
@@ -374,14 +380,12 @@ $('#datatable_tabletools').dataTable({
                     "<p>Select two options and press Plot</p></div>");
                 return false;
             } else {
-                alert(arr[0]);
                 var rs = calculateR(arr[0], arr[1]);
                 $("#field1").val(arr[1]);
                 $("#field2").val(arr[0]);
                 $("#rsvalue").val(rs);
                 m1 = arr[0].toUpperCase();
                 m2 = arr[1].toUpperCase();
-              //  alert(m2 + " out");
                 $("#correlation_graph").load("inc/correlation_graph.php?m1="+m1+"&m2="+m2);
             }
         });
@@ -393,9 +397,8 @@ $('#datatable_tabletools').dataTable({
             console.log(f1, f2, "-----");
             var correlationValue = mathUtils.getPearsonsCorrelation(fieldArrays[0], fieldArrays[1]);
             // var rsquaredValue = linearRegression(fieldArrays[0], fieldArrays[1]);
-            alert(correlationValue);
             return correlationValue.toFixed(4);
-            ;
+            
             	$("#plots").html("");
             	$("#plots").load("_/php/_combine_graphs.php?f1="+field1+"&f2="+field2);
                // $("#correlation_graph").load("inc/correlation_graph.php?m1="+field1+"&m2="+field2);
