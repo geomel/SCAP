@@ -1,5 +1,5 @@
 <?php
-
+error_reporting(0);
 session_start();
 use \SmartUI\UI;
 use \SmartUI\Util as SmartUtil;
@@ -27,7 +27,7 @@ include("inc/header.php");
 
 //include left panel (navigation)
 //follow the tree in inc/config.ui.php
-$page_nav["composite"]["active"] = true;
+$page_nav["ca"]["active"] = true;
 //$page_nav["graphs"]["flot"]["active"] = true;x
 include("inc/nav.php");
 
@@ -41,10 +41,12 @@ if (isset($_GET)) {
     $rs = $_GET['rs'];
     $field1 = $_GET['field1'];
     $field2 = $_GET['field2'];
-    $var1[] = $_SESSION[$f[0]];
-    $var2[] = $_SESSION[$f[1]];
+   // $var1[] = $_SESSION[$f[0]];
+    $_SESSION["cor1"] = array_slice($_SESSION[$f[0]], 0, 500); 
+  //  $var2[] = $_SESSION[$f[1]];
+    $_SESSION["cor2"] = array_slice($_SESSION[$f[1]], 0, 500); 
     if( is_array($_SESSION[$f[0]]) ) {    
-        $cmd = "Rscript -e 'x <- \"" . join(',', $_SESSION[$f[0]]) . "\"; y <- \"" . join(',', $_SESSION[$f[1]]) . "\"; source(\"spearman_cor.r\")'";
+        $cmd = "Rscript -e 'x <- \"" . join(',', $_SESSION["cor1"]) . "\"; y <- \"" . join(',', $_SESSION["cor2"]) . "\"; source(\"spearman_cor.r\")'";
        // $cmd = "Rscript -e source(\"spearman_cor.r\")";
        // Rscript -e 'x <- "11,21,12,13"; y <- "33,32,34,36"; source("spearman_cor.r")
      
@@ -54,6 +56,8 @@ if (isset($_GET)) {
     $pieces = explode(" ", $result);
     $r = round ($pieces[28],2);
     $pvalue = $pieces[12];
+    unset($_SESSION["cor1"]);
+    unset($_SESSION["cor2"]);
     
 }
 }
@@ -66,7 +70,7 @@ if (isset($_GET)) {
     <?php
     //configure ribbon (breadcrumbs) array("name"=>"url"), leave url empty if no url
     //$breadcrumbs["New Crumb"] => "http://url.com"
-    //$breadcrumbs["Composite Graphs"] = "";
+    // $breadcrumbs["Composite Graphs"] = "";
     include("inc/ribbon.php");
     ?>
 
@@ -90,6 +94,43 @@ if (isset($_GET)) {
             </div>
         </div>
         <hr>
+
+        <div class="row">
+			<div class="col-sm-12">
+				
+				<div class="well">
+					
+					<h1><span class="semi-bold">Gas Mechanism</span> <i class="ultra-light"></i> <br></h1>
+					
+					<p>For the evaluation of the statistical dependence between the calculated metrics we have used the <strong>Spearman rank 
+                        correlation coefficient (ρ)</strong> that measures the degree of similarity between two metrics with the use of the R statistical 
+                        language (as the assumption for normal distribution does not always hold). 
+                    <p>Correlation Coefficients are shown on 
+                        the correlation Matrix for 90000 smart contracts, while the corresponding hypothesis tests whether there is a significant dependence
+                         between some metrics with the actual units of GAS that were consumed during deployment. 
+                    <p> All <code>ρ</code> values have a <code>p-value</code>
+                         a lot smaller than 0,05 (α < 2.2*10^-16) and so we can safely assume that the obtained correlation coefficients are 
+                         statistically significant Spearman’s correlation coeficient (cc) is constrained with a span of values as follows: 
+                     <p>       
+                        <code>-1 <= ρ <= 1</code>. Values closer to 1 indicate a stronger monotonic relation. We are adapting the following categorisation of cc values: 
+                    <p>
+                    <code>strong ρ >= 0.6-1 (green dots)<br>
+                    moderate ρ >= 0.5-0.59 (orange dots)<br>
+                    weak ρ >= 0-0.49 (red dots)<br></code>
+                            <hr>
+                    <p>In our study we are focusing on deployment Gas amounts. SCs are deployed once and live forever on the blockchain hence, 
+                        developers are motivated to optimize Gas before deploying them. For our empirical study, we extracted from Etherscan.io 
+                        the actual amount of gas that was eventually used for the deployment transaction of the SCs analyzed. 
+                    <p>
+				</div>
+                
+                <img src="img/figures/correlation_matrix_1.png" width="1200" height="400">
+				
+			</div>
+	</div>
+
+
+
         <div id="select_error" class='col-xs-12 col-sm-8 col-md-3 col-lg-3'></div>
         <div class="row">
             <div class='col-xs-12 col-sm-12 col-md-12 col-lg-12'>
@@ -273,7 +314,7 @@ if (isset($_GET)) {
         include("inc/scripts.php");
         include("inc/footer.php");
     ?>
-
+<script src="_/js/_loadDataset.js"></script>
 <!-- PAGE RELATED PLUGIN(S) -->
 <script src="<?php echo ASSETS_URL; ?>/js/plugin/datatables/jquery.dataTables.min.js"></script>
 <script src="<?php echo ASSETS_URL; ?>/js/plugin/datatables/dataTables.colVis.min.js"></script>

@@ -196,7 +196,7 @@
 						
 						<!-- logout button -->
 						<div id="logout" class="btn-header transparent pull-right">
-							<span> <a href="<?php echo APP_URL; ?>/login.php" title="Sign Out" data-action="userLogout" data-logout-msg="You can re-load new set of smart contracts without refreshing"><i class="fa fa-sign-out"></i></a> </span>
+							<span> <a href="<?php echo APP_URL; ?>/unset.php" title="Unload Data" data-action="userLogout" data-logout-msg="You can re-load new set of smart contracts without clearing session"><i class="fa fa-sign-out"></i></a> </span>
 						</div>
 						<!-- end logout button -->
 
@@ -221,7 +221,7 @@
 									<img src="img\load.gif" width="20" height="20"></img>																
 								</div>
 								<div id="completion_message" class='btn-header transparent pull-right'>
-								<a style='margin-top:10px; margin-right:' class="btn btn-success btn-header" id="loadDataset" href="javascript:void(0);"><i class="fa fa-cloud-download"></i> Load Dataset</a>
+								<a style='margin-top:10px; margin-right:' class="btn btn-success btn-header" id="loadDataset" href="javascript:void(0);"><i class="fa fa-cloud-download"></i> Load New Dataset</a>
 							</div>
 						</div>
 						<!-- end voice command -->

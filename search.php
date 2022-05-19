@@ -20,7 +20,7 @@ include("inc/header.php");
 
 //include left panel (navigation)
 //follow the tree in inc/config.ui.php
-$page_nav["views"]["sub"]["search"]["active"] = true;
+$page_nav["sa"]["active"] = true;
 include("inc/nav.php");
 
 ?>
@@ -30,7 +30,7 @@ include("inc/nav.php");
 	<?php
 		//configure ribbon (breadcrumbs) array("name"=>"url"), leave url empty if no url
 		//$breadcrumbs["New Crumb"] => "http://url.com"
-		$breadcrumbs["Misc"] = "";
+		$breadcrumbs["Search"] = "";
 		include("inc/ribbon.php");
 	?>
 

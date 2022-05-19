@@ -280,16 +280,16 @@ $("#triggerProjectAnalysis").click(function () {
         $("#completion_message").html("<p><h4>The analysis of the project has started and will complete shortly.</h4>");
     });
 });
-/*
+
 $("#loadDataset").click(function () {
     $('#loading').show();
-    $.post("http://localhost/SCAP/_/php/startProjectSession.php", function (data, status) {
+    $.post("/_/php/startProjectSession.php", function (data, status) {
         $('#loading').hide();
         $("#completion_message").html("<p><h4>New data loaded.</h4>");
         window.location.reload();
     });
 });
-*/
+
 $("#triggerSmellDetection").click(function () {
     purl = $('#projectURL').val();
     
