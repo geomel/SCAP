@@ -7,7 +7,6 @@ echo "<table id='datatable_col_reorder' class='table table-striped table-bordere
 					<th><a href='#' data-toggle='tooltip' title='Number of Ancestors'>NOA</a></th>
 					<th><a href='#' data-toggle='tooltip' title='Number of Descendants'>NOD</a></th>
 					<th><a href='#' data-toggle='tooltip' title='Coupling Between Objects'>CBO</a></th>
-					<th><a href='#' data-toggle='tooltip' title='Number of outgoing invocations (i.e. fan-out)'>NOI</a></th>
 				</tr>
 			</thead>
 		<tbody>";
@@ -19,7 +18,6 @@ echo "<table id='datatable_col_reorder' class='table table-striped table-bordere
 		  echo "<td>" . $_SESSION["noa"][$key] . "</td>";
 		  echo "<td>" . $_SESSION["nod"][$key] . "</td>";
 		  echo "<td>" . round($_SESSION["cbo"][$key],3) . "</td>";
-		  echo "<td>" . round($_SESSION["noi"][$key],3) . "</td>";
 		  echo "</tr>";
 		  }
 	}	  

@@ -26,6 +26,44 @@ ex:
 
 */
 $page_nav = array(
+    "home" => array(
+        "title" => "Home",
+        "url" => APP_URL."/index.php",
+        "icon" => "fa-home"
+    ),
+    "sm" => array(
+        "title" => "Software Metrics",
+        "icon" => "fa-code",
+        "sub" => array(
+            "size" => array(
+                "title" => "Size Metrics",
+                "url" => APP_URL."/size-metrics.php"
+            ),
+            "complexity" => array(
+                "title" => "Complexity Metrics",
+                "url" => APP_URL."/complexity-metrics.php"
+            ),
+            "oo" => array(
+                "title" => "Object Oriented Metrics",
+                "url" => APP_URL."/oo-metrics.php"
+            )
+        )
+    ),
+    "ca" => array(
+        "title" => "Correlation Analysis",
+        "url" => APP_URL."/cgraphs.php",
+        "icon" => "fa-random"
+    ),
+    "sa" => array(
+        "title" => "Summary Analysis",
+        "url" => APP_URL."/cgraphs.php",
+        "icon" => "fa-plus-square"
+    ),
+    "about" => array(
+        "title" => "About",
+        "url" => APP_URL."/about.php",
+        "icon" => "fa-institution (alias)"
+    ),
     "dashboard" => array(
         "title" => "Dashboard",
         "icon" => "fa-home",

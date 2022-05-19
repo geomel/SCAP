@@ -44,5 +44,7 @@ $_SESSION["gas"] = $gas_array;
 		$_SESSION["adr"] = $adr_array;
         $_SESSION["nod"] = $nod_array;
 
-        header('Location: ../../dashboard.php');
+     //   header('Location: ../../index.php');
+
+     header("Refresh:0");
 ?>

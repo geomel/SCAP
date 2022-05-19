@@ -43,15 +43,16 @@ include("inc/nav.php");
     <div id="content">
         <div class="row">
             <div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
-                <h1 class="page-title txt-color-blueDark"><i class="fa-fw fa fa-home"></i> SC Dashboard </h1>
+                <h1 class="page-title txt-color-blueDark"><i class="fa-fw fa fa-home"></i> Size Metrics </h1>
             </div>
             <div class="col-xs-12 col-sm-5 col-md-5 col-lg-8">
                 <ul id="sparks" class="">
+              
                     <li class="sparks-info">
-                        <h5> Total Contracts Loaded <span class="txt-color-blue"><i class="fa fa-cloud-download" data-rel="bootstrap-tooltip" title="Versions"></i>&nbsp;&nbsp<?php echo count($_SESSION["adr"]); ?></span></h5>
+                        <h5> Contracts Loaded <span class="txt-color-blue"><i class="fa fa-cloud-download" data-rel="bootstrap-tooltip" title="Versions"></i>&nbsp;&nbsp<?php echo count($_SESSION["adr"]); ?></span></h5>
                     </li>
                   <li class="sparks-info">
-                        <h5> Total Contracts Analyzed <span class="txt-color-blue"><i class="fa fa-database" data-rel="bootstrap-tooltip" title="Versions"></i>&nbsp;&nbsp<?php echo "103251"; ?></span></h5>
+                        <h5> Total Contracts Analyzed <span class="txt-color-blue"><i class="fa fa-database" data-rel="bootstrap-tooltip" title="Versions"></i>&nbsp;&nbsp<?php echo "90320"; ?></span></h5>
                     </li>
                  <!--     
                     <li class="sparks-info">
@@ -72,28 +73,38 @@ include("inc/nav.php");
 				</div>
 		</div>
    -->
+
+   <div class="row">
+			<div class="col-sm-12">
+				
+				<div class="well">
+					<button class="close" data-dismiss="alert">
+					</button>
+					<h1><span class="semi-bold">SCAP</span> <i class="ultra-light"></i> (Smart Contracts Analysis Platform) <sup class="badge bg-color-red bounceIn animated">v 1.0</sup> <br>
+						<small class="text-danger slideInRight fast animated"><strong>By Software Engineering Group @ UoM</strong></small></h1>
+					
+					<p>The all new and revolutionary JarvisWidgets v2.0 (<strong>$35 value</strong>) is now only exclusive to SmartAdmin. 
+						JarvisWidgets allows you to do more than your normal widgets. You can now use realtime 
+						<a href="javascript:void(0)" class="semi-bold" rel="popover-hover" data-placement="bottom" data-content="<span class=''>You can load content with ajax. You can even set a 'last updated' timestamp (customizable) a refresh button and set an auto refresh timer.</span>" data-html="true"> 
+							AJAX loading </a> in a snap with auto refresh. 
+						Add <a href="javascript:void(0)" class="semi-bold" rel="popover-hover" data-placement="bottom" data-content="You can use 5 types of action buttons, toggle, edit, fullscreen, delete and custom button(s) which you can set for a custom action(s). You can even change the order of the action buttons. You can set a custom icon for every button. You can also add your own custom buttons, tabs, progress bars and more."> Infinite </a> buttons and controls to widget header. All widgets are 
+						<a href="javascript:void(0)" class="semi-bold" rel="popover-hover" data-placement="bottom" data-content="The Jarvis Widgets are sortable, on tablet and some phones. Dont want sortable widgets on tables/phones, no problem you can remove this."> Sortable</a> across all bootstrap col-spans and uses 
+						<a href="javascript:void(0)" class="semi-bold" rel="popover-hover" data-placement="bottom" data-content="This plugin gives you the option to let you save a couple of settings for example the position, color and title of the widget.">HTML5 localStorage</a>. Also now supports 
+						<a href="javascript:void(0)" class="semi-bold" rel="popover-hover" data-placement="bottom" data-content="This plugin is by default ltr, but it has a rtl option.">RTL Support</a>, 
+						<a href="javascript:void(0)" class="semi-bold" rel="popover-hover" data-placement="bottom" data-content="The Jarvis Widget works in every modern browser on windows, ios, osx, android, blackberry and windows phone.">Crosbrowser Support</a>, 
+						<a href="javascript:void(0)" class="semi-bold" rel="popover-hover" data-placement="bottom" data-content="The Jarvis Widget plugin has a couple of callback function wich you can use for several things, for example, use AJAX to store the data into a database.">Callback functions</a> and 
+						<a href="javascript:void(0)" class="semi-bold" rel="popover-hover" data-placement="bottom" data-content="To give you more control you can set a lot of options per widget by using a dataset tag which will override the main plugin settings.">More</a>..</p>
+					
+				</div>
+
+				
+			</div>
+		</div>
+
+
+
         <div class="row">
-            <article class="col-sm-12">
-            <div class="well well-sm well-light padding-10">
-								<h4 class="txt-color-green">Deployment GAS vs <span class="semi-bold">LOC</span> <a href="javascript:void(0);" class="pull-right txt-color-green"><i class="fa fa-refresh"></i></a></h4>  
-                <div class="sparkline" 
-                    data-sparkline-type="compositeline" 
-                    data-sparkline-spotradius-top="5" 
-                    data-sparkline-color-top="#3a6965" 
-                    data-sparkline-line-width-top="3" 
-                    data-sparkline-color-bottom="#2b5c59" 
-                    data-sparkline-spot-color="#2b5c59" 
-                    data-sparkline-minspot-color-top="#97bfbf" 
-                    data-sparkline-maxspot-color-top="#c2cccc" 
-                    data-sparkline-highlightline-color-top="#cce8e4" 
-                    data-sparkline-highlightspot-color-top="#9dbdb9" 
-                    data-sparkline-width="96%" 
-                    data-sparkline-height="78px" 
-                    data-sparkline-line-val="[<?php // echo join(', ', $_SESSION["gas"]); ?>]" 
-                    data-sparkline-bar-val="[<?php // echo join(', ', $_SESSION["lloc"]); ?>]">
-				</div> 	
-</div>
-            </article>
+            
         </div>
 
         
@@ -116,7 +127,7 @@ include("inc/nav.php");
                                             <li class="sparks-info">
                                                 <h5> GAS </h5>
                                                 <div class="sparkline txt-color-green" data-sparkline-type="line" data-sparkline-width="180px" data-fill-color="" data-sparkline-spotradius="3" data-sparkline-height="40px">
-<?php //  echo join(', ', $_SESSION["gas"]); ?>
+<?php echo join(', ', $_SESSION["gas"]); ?>
                                                 </div>
                                             </li>
                                         </ul>	
@@ -126,7 +137,7 @@ include("inc/nav.php");
                                             <li class="sparks-info">
                                                 <h5> SLOC </h5>
                                                 <div class="sparkline txt-color-green" data-sparkline-type="line" data-sparkline-width="180px" data-fill-color="" data-sparkline-spotradius="3" data-sparkline-height="40px">
-<?php // echo  join(', ', $_SESSION["sloc"]); ?>
+<?php echo  join(', ', $_SESSION["sloc"]); ?>
                                                 </div>
                                             </li>
                                         </ul>
@@ -136,7 +147,7 @@ include("inc/nav.php");
                                             <li class="sparks-info">
                                                 <h5> LLOC </h5>
                                                 <div class="sparkline txt-color-green" data-sparkline-type="line" data-sparkline-width="180px" data-fill-color="" data-sparkline-spotradius="3" data-sparkline-height="40px">
-<?php // echo join(', ', $_SESSION["lloc"]); ?>
+<?php echo join(', ', $_SESSION["lloc"]); ?>
                                                 </div>
                                             </li>
                                         </ul>
@@ -146,7 +157,7 @@ include("inc/nav.php");
                                             <li class="sparks-info">
                                                 <h5> NF </h5>
                                                 <div class="sparkline txt-color-green" data-sparkline-type="line" data-sparkline-width="180px" data-fill-color="" data-sparkline-spotradius="3" data-sparkline-height="40px">
-<?php // echo join(', ', $_SESSION["nf"]); ?>
+<?php echo join(', ', $_SESSION["nf"]); ?>
                                                 </div>
                                             </li>
                                         </ul>
@@ -192,7 +203,7 @@ include("inc/nav.php");
 							<!-- widget content -->
 							<div class="widget-body no-padding">
 <?php
- include ("_/php/dataclasses/_generalMetrics.php");
+ include ("_/php/dataclasses/_sizeMetrics.php");
 ?>
                                         </div>
                                     </div>
@@ -204,226 +215,6 @@ include("inc/nav.php");
 
 
   <!-- row -->
-  <div class="row">
-            <article class="col-sm-12">
-                <!-- new widget -->
-                <div class="jarviswidget" id="wid-id-1" data-widget-togglebutton="false" data-widget-editbutton="false" data-widget-fullscreenbutton="false" data-widget-colorbutton="false" data-widget-deletebutton="false">
-                    <h2 style="margin-top:20px; margin-left:20px;"><span class="widget-icon"> <i class="fa fa-terminal"></i> </span>Code Metrics:</h2>	
-                    <section id="widget-grid" class="">
-                        <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">	
-                            <div class="jarviswidget jarviswidget-color-blueDark" id="wid-id-2999" data-widget-editbutton="false">
-                                <header style="margin-bottom:0px; margin-right:0px">
-                                    <span class="widget-icon"> <i class="fa fa-table"></i> </span>
-                                    <h2>Code Metrics</h2>
-                                </header>
-                                <div class="show-stat-microcharts" style="margin-bottom:0px">
-                                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-                                        <ul id="sparks" class="">
-                                            <li class="sparks-info">
-                                                <h5>WMC</h5>
-                                                <div class="sparkline txt-color-green" data-sparkline-type="line" data-sparkline-width="180px" data-fill-color="" data-sparkline-spotradius="3" data-sparkline-height="40px">
-<?php // echo join(', ', $_SESSION["wmc"]); ?>
-                                                </div>
-                                            </li>
-                                        </ul>	
-                                    </div>
-                                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-                                        <ul id="sparks" class="">
-                                            <li class="sparks-info">
-                                                <h5> NL </h5>
-                                                <div class="sparkline txt-color-green" data-sparkline-type="line" data-sparkline-width="180px" data-fill-color="" data-sparkline-spotradius="3" data-sparkline-height="40px">
-<?php // echo join(', ', $_SESSION["nl"]); ?>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-                                        <ul id="sparks" class="">
-                                            <li class="sparks-info">
-                                                <h5> NLE </h5>
-                                                <div class="sparkline txt-color-green" data-sparkline-type="line" data-sparkline-width="180px" data-fill-color="" data-sparkline-spotradius="3" data-sparkline-height="40px">
-<?php // echo join(', ', $_SESSION["nle"]); ?>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-                                        <ul id="sparks" class="">
-                                            <li class="sparks-info">
-                                                <h5> NA </h5>
-                                                <div class="sparkline txt-color-green" data-sparkline-type="line" data-sparkline-width="180px" data-fill-color="" data-sparkline-spotradius="3" data-sparkline-height="40px">
-<?php // echo join(', ', $_SESSION["na"]); ?>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>									
-                                </div>								
-                            </div>
-        </article>	
-                    <div class="row">
-                            <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">	
-
-                            <!-- Widget ID (each widget will need unique ID)-->
-					<div class="jarviswidget jarviswidget-color-blueDark" id="wid-id-3" data-widget-editbutton="false">
-						<!-- widget options:
-						usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
-
-						data-widget-colorbutton="false"
-						data-widget-editbutton="false"
-						data-widget-togglebutton="false"
-						data-widget-deletebutton="false"
-						data-widget-fullscreenbutton="false"
-						data-widget-custombutton="false"
-						data-widget-collapsed="true"
-						data-widget-sortable="false"
-
-						-->
-						<header>
-							<span class="widget-icon"> <i class="fa fa-table"></i> </span>
-							<h2>Code Metrics</h2>
-
-						</header>
-
-						<!-- widget div-->
-						<div>
-
-							<!-- widget edit box -->
-							<div class="jarviswidget-editbox">
-								<!-- This area used as dropdown edit box -->
-
-							</div>
-							<!-- end widget edit box -->
-
-							<!-- widget content -->
-							<div class="widget-body no-padding">
-<?php
-    include ("_/php/dataclasses/_codeMetrics.php");
-?>
-<?php
-//include ("_/php/dataclasses/_graphBasedMetrics.php");
-?>
-                                </div>
-                            </div>
-                        </div>	
-                    </article>
-                    <div class="jarviswidget" id="wid-id-2" data-widget-togglebutton="false" data-widget-editbutton="false" data-widget-fullscreenbutton="false" data-widget-colorbutton="false" data-widget-deletebutton="false">
-                    <h2 style="margin-top:20px; margin-left:20px;"><span class="widget-icon"> <i class="fa fa-terminal"></i> </span>Quality Metrics:</h2>	
-                    <section id="widget-grid" class="">
-                        <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">	
-                            <div class="jarviswidget jarviswidget-color-blueDark" id="wid-id-2999" data-widget-editbutton="false">
-                                <header style="margin-bottom:0px; margin-right:0px">
-                                    <span class="widget-icon"> <i class="fa fa-table"></i> </span>
-                                    <h2>Code Metrics</h2>
-                                </header>
-                                <div class="show-stat-microcharts" style="margin-bottom:0px">
-                                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-                                        <ul id="sparks" class="">
-                                            <li class="sparks-info">
-                                                <h5>DIT</h5>
-                                                <div class="sparkline txt-color-green" data-sparkline-type="line" data-sparkline-width="180px" data-fill-color="" data-sparkline-spotradius="3" data-sparkline-height="40px">
-<?php // echo join(', ', $_SESSION["dit"]); ?>
-                                                </div>
-                                            </li>
-                                        </ul>	
-                                    </div>
-                                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-                                        <ul id="sparks" class="">
-                                            <li class="sparks-info">
-                                                <h5> NOA </h5>
-                                                <div class="sparkline txt-color-green" data-sparkline-type="line" data-sparkline-width="180px" data-fill-color="" data-sparkline-spotradius="3" data-sparkline-height="40px">
-<?php // echo join(', ', $_SESSION["noa"]); ?>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-                                        <ul id="sparks" class="">
-                                            <li class="sparks-info">
-                                                <h5> NOD </h5>
-                                                <div class="sparkline txt-color-green" data-sparkline-type="line" data-sparkline-width="180px" data-fill-color="" data-sparkline-spotradius="3" data-sparkline-height="40px">
-<?php // echo join(', ', $_SESSION["nod"]); ?>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-                                        <ul id="sparks" class="">
-                                            <li class="sparks-info">
-                                                <h5> CBO </h5>
-                                                <div class="sparkline txt-color-green" data-sparkline-type="line" data-sparkline-width="180px" data-fill-color="" data-sparkline-spotradius="3" data-sparkline-height="40px">
-<?php // echo join(', ', $_SESSION["cbo"]); ?>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>									
-                                </div>								
-                            </div>
-        </article>	
-        <div class="row">
-                 <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">	
-
-                            <!-- Widget ID (each widget will need unique ID)-->
-					<div class="jarviswidget jarviswidget-color-blueDark" id="wid-id-3" data-widget-editbutton="false">
-						<!-- widget options:
-						usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
-
-						data-widget-colorbutton="false"
-						data-widget-editbutton="false"
-						data-widget-togglebutton="false"
-						data-widget-deletebutton="false"
-						data-widget-fullscreenbutton="false"
-						data-widget-custombutton="false"
-						data-widget-collapsed="true"
-						data-widget-sortable="false"
-
-						-->
-						<header>
-							<span class="widget-icon"> <i class="fa fa-table"></i> </span>
-							<h2>Code Metrics</h2>
-
-						</header>
-
-						<!-- widget div-->
-						<div>
-
-							<!-- widget edit box -->
-							<div class="jarviswidget-editbox">
-								<!-- This area used as dropdown edit box -->
-
-							</div>
-							<!-- end widget edit box -->
-
-							<!-- widget content -->
-							<div class="widget-body no-padding">
-       
-<?php
-include ("_/php/dataclasses/_softwareMetrics.php");
-?>
-                                            </div>
-                                        </div>
-                                    </div>	
-                                </article>
-                </div>
-        </div>
-        <!-- end row -->
-
-
-
-    
-
-        <div class='row'>
-            <div class='col-xs-12 col-sm-12 col-md-12 col-lg-12'>
-                <div class='well well-sm'>
-                    <!-- Timeline Content -->
-                    <div class='smart-timeline'>
-                        <ul class='smart-timeline-list'>
-<?php ?>
-                        </ul>
-                    </div>
-                    <!-- END Timeline Content -->
-                </div>		
-            </div>		
-        </div>
 
 
     </div>	

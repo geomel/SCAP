@@ -81,7 +81,7 @@
 
 
 	</head>
-	<body class="pace-done smart-style-5 mobile-view-activated" <?php echo implode(' ', array_map(function($prop, $value) {
+	<body class="pace-done smart-style-1 mobile-view-activated" <?php echo implode(' ', array_map(function($prop, $value) {
 			return $prop.'="'.$value.'"';
 		}, array_keys($page_body_prop), $page_body_prop)) ;?>>
 
@@ -148,25 +148,7 @@
 					<!-- projects dropdown -->
 					<div class="project-context hidden-xs">
 
-						<span class="label">Projects:</span>
-						<span id="project-selector" class="popover-trigger-element dropdown-toggle" data-toggle="dropdown">Last Loaded Contracts <i class="fa fa-angle-down"></i></span>
-
-						<!-- Suggestion: populate this list with fetch and push technique -->
-						<ul class="dropdown-menu">
-							<li>
-								<a href="javascript:void(0);">0x00627a15cf915f6db2ea899b906fee6aa9ec9bbc</a>
-							</li>
-							<li>
-								<a href="javascript:void(0);">0x071db769081668eb978e5b58c8fc401c4222469d</a>
-							</li>
-							<li>
-								<a href="javascript:void(0);">0xe1bb4da92314c41349a77755cc2cf140c2511fe2</a>
-							</li>
-							<li class="divider"></li>
-							<li>
-								<a href="javascript:void(0);"><i class="fa fa-power-off"></i> Clear</a>
-							</li>
-						</ul>
+						
 						<!-- end dropdown-menu-->
 
 					</div>
@@ -211,7 +193,7 @@
 								</ul>
 							</li>
 						</ul>
-
+						
 						<!-- logout button -->
 						<div id="logout" class="btn-header transparent pull-right">
 							<span> <a href="<?php echo APP_URL; ?>/login.php" title="Sign Out" data-action="userLogout" data-logout-msg="You can re-load new set of smart contracts without refreshing"><i class="fa fa-sign-out"></i></a> </span>
@@ -222,44 +204,26 @@
 						<div id="search-mobile" class="btn-header transparent pull-right">
 							<span> <a href="javascript:void(0)" title="Search"><i class="fa fa-search"></i></a> </span>
 						</div>
+						
 						<!-- end search mobile button -->
 
 						<!-- input: search field -->
-						<form action="<?php echo APP_URL; ?>/search.php" class="header-search pull-right">
-							<input type="text" name="param" placeholder="Smart contract Address" id="search-fld">
-							<button type="submit">
-								<i class="fa fa-search"></i>
-							</button>
-							<a href="javascript:void(0);" id="cancel-search-js" title="Cancel Search"><i class="fa fa-times"></i></a>
-						</form>
+					
 						<!-- end input: search field -->
 
 						<!-- fullscreen button -->
-						<div id="fullscreen" class="btn-header transparent pull-right">
-							<span> <a href="javascript:void(0);" title="Full Screen" data-action="launchFullscreen"><i class="fa fa-arrows-alt"></i></a> </span>
-						</div>
-						<!-- end fullscreen button -->
-						
+					
 						<!-- #Voice Command: Start Speech -->
-					<!--	
-						<div id="speech-btn" class="btn-header transparent pull-right hidden-sm hidden-xs">
+						
+						<div id="speech-btn" class="btn-header transparent pull-right">
 							<div> 
-								<a href="javascript:void(0)" title="Voice Command" data-action="voiceCommand"><i class="fa fa-microphone"></i></a> 
-								<div class="popover bottom"><div class="arrow"></div>
-									<div class="popover-content">
-										<h4 class="vc-title">Voice command activated <br><small>Please speak clearly into the mic</small></h4>
-										<h4 class="vc-title-error text-center">
-											<i class="fa fa-microphone-slash"></i> Voice command failed
-											<br><small class="txt-color-red">Must <strong>"Allow"</strong> Microphone</small>
-											<br><small class="txt-color-red">Must have <strong>Internet Connection</strong></small>
-										</h4>
-										<a href="javascript:void(0);" class="btn btn-success" onclick="commands.help()">See Commands</a> 
-										<a href="javascript:void(0);" class="btn bg-color-purple txt-color-white" onclick="$('#speech-btn .popover').fadeOut(50);">Close Popup</a> 
-									</div>
+								<div id="loading" class='btn-header transparent pull-right' style='margin-top:15px; margin-right:'>
+									<img src="img\load.gif" width="20" height="20"></img>																
 								</div>
+								<div id="completion_message" class='btn-header transparent pull-right'>
+								<a style='margin-top:10px; margin-right:' class="btn btn-success btn-header" id="loadDataset" href="javascript:void(0);"><i class="fa fa-cloud-download"></i> Load Dataset</a>
 							</div>
 						</div>
-			-->
 						<!-- end voice command -->
 						
 						<!-- multiple lang dropdown : find all flags in the flags page -->
@@ -305,8 +269,11 @@
 			-->	
 						<!-- end multiple lang -->
 
+						
+
 					</div>
 					<!-- end pulled right: nav area -->
+					
 
 				</header>
 				<!-- END HEADER -->

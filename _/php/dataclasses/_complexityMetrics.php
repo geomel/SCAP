@@ -8,7 +8,7 @@ echo "<table id='dt_basic' class='table table-striped table-bordered table-hover
 					<th><a href='#' data-toggle='tooltip' title='Weighted sum of McCabe's style complexity over the functions of a contract'>WMC</a></th>
 					<th><a href='#' data-toggle='tooltip' title='The deepest nesting level of control structures in functions summed for a contract'>NL</a></th>
 					<th><a href='#' data-toggle='tooltip' title='Nesting level else-if'>NLE</a></th>
-					<th><a href='#' data-toggle='tooltip' title='Number of Attributes (i.e. states)f'>NA</a></th>
+					<th><a href='#' data-toggle='tooltip' title='Number of Outgoiing Invocations'>NOI</a></th>
 				</tr>
 			</thead>
 		<tbody>";
@@ -19,7 +19,7 @@ echo "<table id='dt_basic' class='table table-striped table-bordered table-hover
 		  echo "<td>" . $_SESSION["wmc"][$key] . "</td>";
 		  echo "<td>" . $_SESSION["nl"][$key] . "</td>";
 		  echo "<td>" . $_SESSION["nle"][$key] . "</td>";
-		  echo "<td>" . $_SESSION["na"][$key] . "</td>";
+		  echo "<td>" . $_SESSION["noi"][$key] . "</td>";
 		  echo "</tr>";
 		}  
 		  
