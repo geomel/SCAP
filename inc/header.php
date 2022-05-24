@@ -196,13 +196,13 @@
 						
 						<!-- logout button -->
 						<div id="logout" class="btn-header transparent pull-right">
-							<span> <a href="<?php echo APP_URL; ?>/unset.php" title="Unload Data" data-action="userLogout" data-logout-msg="You can re-load new set of smart contracts without clearing session"><i class="fa fa-sign-out"></i></a> </span>
+							<span> <a href="<?php echo APP_URL; ?>/unset.php" title="Unload Data" data-action="userLogout" data-logout-msg="You can always re-load new set of smart contracts without clearing session"><i class="fa fa-sign-out"></i></a> </span>
 						</div>
 						<!-- end logout button -->
 
 						<!-- search mobile button (this is hidden till mobile view port) -->
-						<div id="search-mobile" class="btn-header transparent pull-right">
-							<span> <a href="javascript:void(0)" title="Search"><i class="fa fa-search"></i></a> </span>
+						<div id="loadDataset" class="btn-header transparent pull-right">
+							<span> <a href="javascript:void(0)" title="Load Dataset"><i class="fa fa-cloud-download"></i></a> </span>
 						</div>
 						
 						<!-- end search mobile button -->
@@ -221,7 +221,7 @@
 									<img src="img\load.gif" width="20" height="20"></img>																
 								</div>
 								<div id="completion_message" class='btn-header transparent pull-right'>
-								<a style='margin-top:10px; margin-right:' class="btn btn-success btn-header" id="loadDataset" href="javascript:void(0);"><i class="fa fa-cloud-download"></i> Load New Dataset</a>
+							<!--	<a style='margin-top:10px; margin-right:' class="btn btn-success btn-header hidden-xs" id="loadDataset" href="javascript:void(0);"><i class="fa fa-cloud-download"></i> Load New Dataset</a>   -->
 							</div>
 						</div>
 						<!-- end voice command -->
