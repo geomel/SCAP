@@ -26,7 +26,7 @@ foreach($json_decoded as $metric){
     $nod_array[]=$metric->NOD;
 }
 
-$_SESSION["gas"] = $gas_array;
+        $_SESSION["gas"] = $gas_array;
 		$_SESSION["sloc"] = $sloc_array;
 		$_SESSION["lloc"] = $lloc_array;
 		$_SESSION["cloc"] = $cloc_array;
@@ -43,6 +43,7 @@ $_SESSION["gas"] = $gas_array;
 		$_SESSION["noi"] = $noi_array;
 		$_SESSION["adr"] = $adr_array;
         $_SESSION["nod"] = $nod_array;
+      //  $_SESSION['gas500']=array_slice($_SESSION["gas"], 0,20);
 
      //   header('Location: ../../index.php');
 

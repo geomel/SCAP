@@ -10,8 +10,8 @@ if (isset($_GET["adr"])){
 	$adr = mysqli_real_escape_string($con, $_GET["adr"]);
 
 	if($adr==0){
-		
-			$query_adr = "SELECT * FROM solmetrics ORDER BY RAND() LIMIT 10000";
+			$rand=rand (1,80000);
+			$query_adr = "SELECT * FROM solmetrics ORDER BY GAS ASC LIMIT $rand,10000";
 			$dbquery = mysqli_query($con, $query_adr);
 			$arr = array();
 			//$result = mysqli_num_rows($dbquery);

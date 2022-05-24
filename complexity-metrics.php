@@ -260,11 +260,11 @@ include("inc/scripts.php");
 	
 	//php to Javascript array Variables
 		//var versionsArray = new Array();
-		var	nodesArray = new Array();
-		var	edgesArray = new Array();
-		var	diameterArray = new Array();
-		var	ccArray = new Array();
-		var	versionsArray = new Array();
+		var	wmcArray = new Array();
+		var	nlArray = new Array();
+		var	nleArray = new Array();
+		var	noiArray = new Array();
+		var	versions_array = new Array();
 		var edgesToNew = new Array();
 		var edgesBtwnExisting = new Array();
 		var edgesBtwnNew = new Array();
@@ -286,6 +286,10 @@ include("inc/scripts.php");
 			foreach($_SESSION['noi'] as $key=>$value){
 				echo "noiArray[".$key."]=".$value.";";
 			}
+			$_SESSION['gas2']=array_slice($_SESSION["gas"], 0,1000);
+			foreach($_SESSION['gas2'] as $key=>$value){
+				echo "versions_array[".$key."]=".$value.";";
+			}
 		/*	
 			foreach($_SESSION['edgesToNew'] as $key=>$value){
 				echo "edgesToNew[".$key."]=".$value.";";
@@ -303,8 +307,7 @@ include("inc/scripts.php");
 				echo "edgesToExisting[".$key."]=".$value.";";
 			}
 		*/	
-			$js_array = $_SESSION['adr'];
-			echo "versions_array = ". $js_array . ";\n";
+			
 			
 	?>
  }
@@ -313,7 +316,7 @@ include("inc/scripts.php");
  function createJSTableDataForGraphs(networkData){
 		var j = 0;
 		csvData ="";
-	tableData = new Array(<?php echo count($_SESSION["versions_array"]) ?>);
+	tableData = new Array(<?php echo count($_SESSION["adr"]) ?>);
 	for (i = 0; i < tableData.length; ++i)
 		tableData [i] = new Array(2);
 	for(i=0; i<tableData.length;i++){
@@ -391,16 +394,16 @@ include("inc/scripts.php");
 			};
 				switch(flag) {
 						case "1":
-							var nodes_plot = $.plot($("#nodeschart"), [tableData], options);
+							var nodes_plot = $.plot($("#wmcchart"), [tableData], options);
 							break;
 						case "2":
-							var edges_plot = $.plot($("#edgeschart"), [tableData], options);
+							var edges_plot = $.plot($("#nlchart"), [tableData], options);
 							break;
 						case "3":
-							var diameter_plot = $.plot($("#diameterchart"), [tableData], options);
+							var diameter_plot = $.plot($("#nlechart"), [tableData], options);
 							break;	
 						case "4":
-							var cc_plot = $.plot($("#ccchart"), [tableData], options);
+							var cc_plot = $.plot($("#noichart"), [tableData], options);
 							break;
 						case "5":
 							var e2n_plot = $.plot($("#edgesToNewchart"), [tableData], options);
@@ -425,19 +428,21 @@ include("inc/scripts.php");
  }
 
 $(document).ready(function () {
-	
-	createJSTableDataForGraphs(nodesArray);
-		addCharts("001","Nodes Over Time", "nodeschart");
-		drawLinePlot("1", "nodes");
-		createJSTableDataForGraphs(edgesArray);
-		addCharts("002","Edges Over Time", "edgeschart");
-		drawLinePlot("2", "edges");
-		createJSTableDataForGraphs(diameterArray);
-		addCharts("003","Diameter Over TIme", "diameterchart");
-		drawLinePlot("3", "diameter");
-		createJSTableDataForGraphs(ccArray);
-		addCharts("004","Clustering Coefficient Over TIme", "ccchart");
-		drawLinePlot("4", "cc");
+
+	php2Js();
+
+	createJSTableDataForGraphs(wmcArray);
+		addCharts("001","WMC Over GAS", "wmcchart");
+		drawLinePlot("1", "WMC");
+		createJSTableDataForGraphs(nlArray);
+		addCharts("002","NL Over GAS", "nlchart");
+		drawLinePlot("2", "NL");
+		createJSTableDataForGraphs(nleArray);
+		addCharts("003","NLE Over GAS", "nlechart");
+		drawLinePlot("3", "NLE");
+		createJSTableDataForGraphs(noiArray);
+		addCharts("004","NOI Over GAS", "noichart");
+		drawLinePlot("4", "NOI");
 
 // end of init
  })
