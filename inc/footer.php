@@ -1,13 +1,23 @@
 <!-- PAGE FOOTER -->
 <div class="page-footer">
-	<div class="row">
-		<div class="col-xs-12 col-sm-6">
-			<span class="txt-color-white">SCAP <span class="hidden-xs"> - Smart Contracts Analytics Platform</span> © 2022</span>
-		</div>
+	
+		
+			<div style="text-align: center" >
+						<p>&copy; <a href="http://www.uom.gr">UOM</a> - <a href="http://se.uom.gr">Software Engineering Group 2022</a></p>
+						<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">
+						<img alt="Creative Commons License" style="border-width:0; margin-top:15px;"
+						src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" /></a><br /><span
+						xmlns:dct="http://purl.org/dc/terms/"
+						href="http://purl.org/dc/dcmitype/Dataset" property="dct:title"
+						rel="dct:type">SCQAP: Smart Contracts Quality Analysis Platform</span> by  <br><a
+						xmlns:cc="http://creativecommons.org/ns#" href="http://http://195.251.210.147:8065"
+						property="cc:attributionName" rel="cc:attributionURL">George Melas, Alexander Chatzigeorgiou, 
+						and Apostolis Ampatzoglou</a> is licensed under a <Br><a
+						rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative
+						Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a><p>
+			</div>
+		
 
-		<div class="col-xs-6 col-sm-6 text-right hidden-xs">
-			<div class="txt-color-white inline-block">
-				<i class="txt-color-blueLight hidden-mobile"><i class="fa fa-university"></i> <strong><a href="https://se.uom.gr">Software Engineering Group - University of Macedonia&nbsp;</strong></a> </i>
 				<!-- 
 					<div class="btn-group dropup">
 					<button class="btn btn-xs dropdown-toggle bg-color-blue txt-color-white" data-toggle="dropdown">
@@ -49,8 +59,5 @@
 					</ul>
 				</div>
 			-->
-			</div>
-		</div>
-	</div>
 </div>
 <!-- END PAGE FOOTER -->
