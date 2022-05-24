@@ -209,6 +209,14 @@ include("inc/nav.php");
 
   <!-- row -->
 
+  			<div class="row">
+			
+				<div id="charts_area">
+				
+				</div>
+				
+			</div>		
+
 
     </div>	
 
@@ -217,20 +225,224 @@ include("inc/nav.php");
 //include required scripts 
 include("inc/scripts.php");
 ?>
+
+
 <script src="_/js/_loadDataset.js"></script>
-    <script type="text/javascript">
+
+<!-- Flot Chart Plugin: Flot Engine, Flot Resizer, Flot Tooltip -->
+<script src="<?php echo ASSETS_URL; ?>/js/plugin/flot/jquery.flot.js"></script>
+<script src="<?php echo ASSETS_URL; ?>/js/plugin/flot/jquery.flot.resize.js"></script>
+<script src="<?php echo ASSETS_URL; ?>/js/plugin/flot/jquery.flot.fillbetween.min.js"></script>
+<script src="<?php echo ASSETS_URL; ?>/js/plugin/flot/jquery.flot.orderBar.js"></script>
+<script src="<?php echo ASSETS_URL; ?>/js/plugin/flot/jquery.flot.pie.js"></script>
+<script src="<?php echo ASSETS_URL; ?>/js/plugin/flot/jquery.flot.tooltip.js"></script>
+<script src="<?php echo ASSETS_URL; ?>/js/plugin/flot/jquery.flot.categories.js"></script>
+
+<script type="text/javascript">
+
+// PAGE RELATED SCRIPTS
+
+	/* chart colors default */
+	var $chrt_border_color = "#efefef";
+	var $chrt_grid_color = "#DDD"
+	var $chrt_main = "#E24913";
+	/* red       */
+	var $chrt_second = "#6595b4";
+	/* blue      */
+	var $chrt_third = "#FF9F01";
+	/* orange    */
+	var $chrt_fourth = "#7e9d3a";
+	/* green     */
+	var $chrt_fifth = "#BD362F";
+	/* dark red  */
+	var $chrt_mono = "#000";
+	
+	
+	//php to Javascript array Variables
+		//var versionsArray = new Array();
+		var	nodesArray = new Array();
+		var	edgesArray = new Array();
+		var	diameterArray = new Array();
+		var	ccArray = new Array();
+		var	versionsArray = new Array();
+		var edgesToNew = new Array();
+		var edgesBtwnExisting = new Array();
+		var edgesBtwnNew = new Array();
+		var deletedEdges = new Array();
+		var edgesToExisting = new Array();
+
+ function php2Js(){
+	<?php
+			
+			foreach($_SESSION['wmc'] as $key=>$value){
+				echo "wmcArray[".$key."]=".$value.";";
+			}
+			foreach($_SESSION['nl'] as $key=>$value){
+				echo "nlArray[".$key."]=".$value.";";
+			}
+			foreach($_SESSION['nle'] as $key=>$value){
+				echo "nleArray[".$key."]=".$value.";";
+			}
+			foreach($_SESSION['noi'] as $key=>$value){
+				echo "noiArray[".$key."]=".$value.";";
+			}
+		/*	
+			foreach($_SESSION['edgesToNew'] as $key=>$value){
+				echo "edgesToNew[".$key."]=".$value.";";
+			}
+			foreach($_SESSION['edgesBtwnExisting'] as $key=>$value){
+				echo "edgesBtwnExisting[".$key."]=".$value.";";
+			}
+			foreach($_SESSION['edgesBtwnNew'] as $key=>$value){
+				echo "edgesBtwnNew[".$key."]=".$value.";";
+			}
+			foreach($_SESSION['deletedEdges'] as $key=>$value){
+				echo "deletedEdges[".$key."]=".$value.";";
+			}			
+			foreach($_SESSION['edgesToExisting'] as $key=>$value){
+				echo "edgesToExisting[".$key."]=".$value.";";
+			}
+		*/	
+			$js_array = $_SESSION['adr'];
+			echo "versions_array = ". $js_array . ";\n";
+			
+	?>
+ }
+
+
+ function createJSTableDataForGraphs(networkData){
+		var j = 0;
+		csvData ="";
+	tableData = new Array(<?php echo count($_SESSION["versions_array"]) ?>);
+	for (i = 0; i < tableData.length; ++i)
+		tableData [i] = new Array(2);
+	for(i=0; i<tableData.length;i++){
+			tableData[j][0] = versions_array[i];
+			tableData[j][1] = networkData[i];
+			csvData += tableData[j][0] + "," + tableData[j][1] + "\n";
+			j++;
+	}	
+		// networkPropertiesOverTime();
+ }
+ 
+ function addCharts(chartid, title, drawgraphid){
+
+		var content = " <article class='col-xs-12 col-sm-12 col-md-12 col-lg-12'> " +
+					  "	<div class='jarviswidget' id='wid-id-"+chartid+"' data-widget-editbutton='false'> " +
+					  "	<header>" +
+					  "		<span class='widget-icon'> <i class='fa fa-bar-chart-o'></i> </span>" +
+					  "		<h2>"+title+"</h2> " +
+					  "	</header> " +
+					  "	<div> " +
+					  "		<div class='jarviswidget-editbox'> " +
+					  "		</div> " +
+					  "		<div class='widget-body no-padding'> " +
+					  "			<div id='"+drawgraphid+"' class='chart'></div> " +
+					  "		</div> " +
+					  "	</div> " +
+					  "	</div> " +
+					  "	</article>	";
+			$( "#charts_area" ).append(content);		  
+
+	}	
+
+	function drawLinePlot(flag, ydata){
+			// var d=tableData
+			
+			var options = {
+				xaxis : {
+					mode : "categories",
+					tickLength : 10
+				},
+				series : {
+					lines : {
+						show : true,
+						lineWidth : 2,
+						fill : true,
+						fillColor : {
+							colors : [{
+								opacity : 0.2
+							}, {
+								opacity : 0.15
+							}]
+						}
+					},
+					points: { show: true },
+					shadowSize : 2
+				},
+				selection : {
+					mode : "x"
+				},
+				grid : {
+					hoverable : true,
+					clickable : true,
+					tickColor : $chrt_border_color,
+					borderWidth : 0,
+					borderColor : $chrt_border_color,
+				},
+				tooltip : true,
+				tooltipOpts : {
+					content : "<span>%y</span> "+ydata,
+					
+					defaultTheme : false
+				},
+				colors : [$chrt_second],
+
+			};
+				switch(flag) {
+						case "1":
+							var nodes_plot = $.plot($("#nodeschart"), [tableData], options);
+							break;
+						case "2":
+							var edges_plot = $.plot($("#edgeschart"), [tableData], options);
+							break;
+						case "3":
+							var diameter_plot = $.plot($("#diameterchart"), [tableData], options);
+							break;	
+						case "4":
+							var cc_plot = $.plot($("#ccchart"), [tableData], options);
+							break;
+						case "5":
+							var e2n_plot = $.plot($("#edgesToNewchart"), [tableData], options);
+							break;
+						case "6":
+							var ebtwne_plot = $.plot($("#edgesBtwnExistingchart"), [tableData], options);
+							break;
+						case "7":
+							var ebtwnn_plot = $.plot($("#edgesBtwnNewchart"), [tableData], options);
+							break;	
+						case "8":
+							var e2e_plot = $.plot($("#edgesToExistingchart"), [tableData], options);
+							break;		
+						case "9":
+							var del_plot = $.plot($("#deletedEdgeschart"), [tableData], options);
+							break;
+				}
+			
+			
+			
+		
+ }
+
 $(document).ready(function () {
-            refreshTimeLine();
+	
+	createJSTableDataForGraphs(nodesArray);
+		addCharts("001","Nodes Over Time", "nodeschart");
+		drawLinePlot("1", "nodes");
+		createJSTableDataForGraphs(edgesArray);
+		addCharts("002","Edges Over Time", "edgeschart");
+		drawLinePlot("2", "edges");
+		createJSTableDataForGraphs(diameterArray);
+		addCharts("003","Diameter Over TIme", "diameterchart");
+		drawLinePlot("3", "diameter");
+		createJSTableDataForGraphs(ccArray);
+		addCharts("004","Clustering Coefficient Over TIme", "ccchart");
+		drawLinePlot("4", "cc");
 
 // end of init
  })
 
-        function refreshTimeLine() {
-            $('#ajax-timeline').load('_/php/_timeline.php', function () {
-                // setTimeout(refreshTimeLine, 5000);
-            });
 
-        }
     </script>		
 
 
