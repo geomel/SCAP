@@ -118,9 +118,9 @@ include("inc/nav.php");
                                 <div class="show-stat-microcharts" style="margin-bottom:0px">
                                     <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
                                         <ul id="sparks" class="">
-                                            <li class="sparks-info">
+                                            <li class="">
                                                 <h5>DIT</h5>
-                                                <div class="sparkline txt-color-green" data-sparkline-type="line" data-sparkline-width="180px" data-fill-color="" data-sparkline-spotradius="3" data-sparkline-height="40px">
+                                                <div class="sparkline txt-color-green" data-sparkline-type="line" data-sparkline-width="480px" data-fill-color="" data-sparkline-spotradius="3" data-sparkline-height="30px">
 <?php echo join(', ', $_SESSION["dit"]); ?>
                                                 </div>
                                             </li>
@@ -128,9 +128,9 @@ include("inc/nav.php");
                                     </div>
                                     <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
                                         <ul id="sparks" class="">
-                                            <li class="sparks-info">
+                                            <li class="">
                                                 <h5> NOA </h5>
-                                                <div class="sparkline txt-color-green" data-sparkline-type="line" data-sparkline-width="180px" data-fill-color="" data-sparkline-spotradius="3" data-sparkline-height="40px">
+                                                <div class="sparkline txt-color-green" data-sparkline-type="line" data-sparkline-width="480px" data-fill-color="" data-sparkline-spotradius="3" data-sparkline-height="30px">
 <?php echo join(', ', $_SESSION["noa"]); ?>
                                                 </div>
                                             </li>
@@ -138,9 +138,9 @@ include("inc/nav.php");
                                     </div>
                                     <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
                                         <ul id="sparks" class="">
-                                            <li class="sparks-info">
+                                            <li class="">
                                                 <h5> NOD </h5>
-                                                <div class="sparkline txt-color-green" data-sparkline-type="line" data-sparkline-width="180px" data-fill-color="" data-sparkline-spotradius="3" data-sparkline-height="40px">
+                                                <div class="sparkline txt-color-green" data-sparkline-type="line" data-sparkline-width="480px" data-fill-color="" data-sparkline-spotradius="3" data-sparkline-height="30px">
 <?php echo join(', ', $_SESSION["nod"]); ?>
                                                 </div>
                                             </li>
@@ -148,9 +148,9 @@ include("inc/nav.php");
                                     </div>
                                     <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
                                         <ul id="sparks" class="">
-                                            <li class="sparks-info">
+                                            <li class="">
                                                 <h5> CBO </h5>
-                                                <div class="sparkline txt-color-green" data-sparkline-type="line" data-sparkline-width="180px" data-fill-color="" data-sparkline-spotradius="3" data-sparkline-height="40px">
+                                                <div class="sparkline txt-color-green" data-sparkline-type="line" data-sparkline-width="480px" data-fill-color="" data-sparkline-spotradius="3" data-sparkline-height="30px">
 <?php echo join(', ', $_SESSION["cbo"]); ?>
                                                 </div>
                                             </li>

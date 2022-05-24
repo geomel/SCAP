@@ -118,9 +118,9 @@ include("inc/nav.php");
                                 <div class="show-stat-microcharts" style="margin-bottom:0px">
                                     <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
                                         <ul id="sparks" class="">
-                                            <li class="sparks-info">
+                                            <li class="">
                                                 <h5> GAS </h5>
-                                                <div class="sparkline txt-color-green" data-sparkline-type="line" data-sparkline-width="180px" data-fill-color="" data-sparkline-spotradius="3" data-sparkline-height="40px">
+                                                <div class="sparkline txt-color-green" data-sparkline-type="line" data-sparkline-width="480px" data-fill-color="" data-sparkline-spotradius="3" data-sparkline-height="35px">
 <?php echo join(', ', $_SESSION["gas"]); ?>
                                                 </div>
                                             </li>
@@ -128,9 +128,9 @@ include("inc/nav.php");
                                     </div>
                                     <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
                                         <ul id="sparks" class="">
-                                            <li class="sparks-info">
+                                            <li class="">
                                                 <h5> SLOC </h5>
-                                                <div class="sparkline txt-color-green" data-sparkline-type="line" data-sparkline-width="180px" data-fill-color="" data-sparkline-spotradius="3" data-sparkline-height="40px">
+                                                <div class="sparkline txt-color-green" data-sparkline-type="line" data-sparkline-width="480px" data-fill-color="" data-sparkline-spotradius="3" data-sparkline-height="35px">
 <?php echo  join(', ', $_SESSION["sloc"]); ?>
                                                 </div>
                                             </li>
@@ -138,9 +138,9 @@ include("inc/nav.php");
                                     </div>
                                     <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
                                         <ul id="sparks" class="">
-                                            <li class="sparks-info">
+                                            <li class="">
                                                 <h5> LLOC </h5>
-                                                <div class="sparkline txt-color-green" data-sparkline-type="line" data-sparkline-width="180px" data-fill-color="" data-sparkline-spotradius="3" data-sparkline-height="40px">
+                                                <div class="sparkline txt-color-green" data-sparkline-type="line" data-sparkline-width="480px" data-fill-color="" data-sparkline-spotradius="3" data-sparkline-height="35px">
 <?php echo join(', ', $_SESSION["lloc"]); ?>
                                                 </div>
                                             </li>
@@ -148,9 +148,9 @@ include("inc/nav.php");
                                     </div>
                                     <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
                                         <ul id="sparks" class="">
-                                            <li class="sparks-info">
+                                            <li class="">
                                                 <h5> NF </h5>
-                                                <div class="sparkline txt-color-green" data-sparkline-type="line" data-sparkline-width="180px" data-fill-color="" data-sparkline-spotradius="3" data-sparkline-height="40px">
+                                                <div class="sparkline txt-color-green" data-sparkline-type="line" data-sparkline-width="480px" data-fill-color="" data-sparkline-spotradius="3" data-sparkline-height="35px">
 <?php echo join(', ', $_SESSION["nf"]); ?>
                                                 </div>
                                             </li>
@@ -207,6 +207,9 @@ include("inc/nav.php");
                     </section>
 
 
+					<div class="row">
+						<div id="charts_area"></div>
+					</div>		
 
   <!-- row -->
 
@@ -220,20 +223,241 @@ include("inc/scripts.php");
 ?>
 <script src="_/js/_loadDataset.js"></script>
 
-    <script type="text/javascript">
-$(document).ready(function () {
-            refreshTimeLine();
+<!-- Flot Chart Plugin: Flot Engine, Flot Resizer, Flot Tooltip -->
+<script src="<?php echo ASSETS_URL; ?>/js/plugin/flot/jquery.flot.js"></script>
+<script src="<?php echo ASSETS_URL; ?>/js/plugin/flot/jquery.flot.resize.js"></script>
+<script src="<?php echo ASSETS_URL; ?>/js/plugin/flot/jquery.flot.fillbetween.min.js"></script>
+<script src="<?php echo ASSETS_URL; ?>/js/plugin/flot/jquery.flot.orderBar.js"></script>
+<script src="<?php echo ASSETS_URL; ?>/js/plugin/flot/jquery.flot.pie.js"></script>
+<script src="<?php echo ASSETS_URL; ?>/js/plugin/flot/jquery.flot.tooltip.js"></script>
+<script src="<?php echo ASSETS_URL; ?>/js/plugin/flot/jquery.flot.categories.js"></script>
 
-// end of init
- })
+<script type="text/javascript">
 
-        function refreshTimeLine() {
-            $('#ajax-timeline').load('_/php/_timeline.php', function () {
-                // setTimeout(refreshTimeLine, 5000);
-            });
+/* chart colors default */
+var $chrt_border_color = "#efefef";
+	var $chrt_grid_color = "#DDD"
+	var $chrt_main = "#E24913";
+	/* red       */
+	var $chrt_second = "#6595b4";
+	/* blue      */
+	var $chrt_third = "#FF9F01";
+	/* orange    */
+	var $chrt_fourth = "#7e9d3a";
+	/* green     */
+	var $chrt_fifth = "#BD362F";
+	/* dark red  */
+	var $chrt_mono = "#000";
+	
+	
+	//php to Javascript array Variables
+		//var versionsArray = new Array();
+		var	slocArray = new Array();
+		var	llocArray = new Array();
+		var	clocArray = new Array();
+		var	nfArray = new Array();
+		var	versions_array = new Array();
+		var nosArray = new Array();
+		var numparArray = new Array();
+		var edgesBtwnNew = new Array();
+		var deletedEdges = new Array();
+		var edgesToExisting = new Array();
 
-        }
-    </script>		
+ function php2Js(){
+	<?php
+			
+			foreach($_SESSION['sloc'] as $key=>$value){
+				echo "slocArray[".$key."]=".$value.";";
+			}
+			foreach($_SESSION['lloc'] as $key=>$value){
+				echo "llocArray[".$key."]=".$value.";";
+			}
+			foreach($_SESSION['cloc'] as $key=>$value){
+				echo "clocArray[".$key."]=".$value.";";
+			}
+			foreach($_SESSION['nf'] as $key=>$value){
+				echo "nfArray[".$key."]=".$value.";";
+			}
+			foreach($_SESSION['nos'] as $key=>$value){
+				echo "nosArray[".$key."]=".$value.";";
+			}
+			foreach($_SESSION['numpar'] as $key=>$value){
+				echo "numparArray[".$key."]=".$value.";";
+			}
+		//	$_SESSION['gas2']=array_slice($_SESSION["gas"], 0,1000);
+			foreach($_SESSION['gas'] as $key=>$value){
+				echo "versions_array[".$key."]=".$value.";";
+			}
+		/*	
+			foreach($_SESSION['edgesToNew'] as $key=>$value){
+				echo "edgesToNew[".$key."]=".$value.";";
+			}
+			foreach($_SESSION['edgesBtwnExisting'] as $key=>$value){
+				echo "edgesBtwnExisting[".$key."]=".$value.";";
+			}
+			foreach($_SESSION['edgesBtwnNew'] as $key=>$value){
+				echo "edgesBtwnNew[".$key."]=".$value.";";
+			}
+			foreach($_SESSION['deletedEdges'] as $key=>$value){
+				echo "deletedEdges[".$key."]=".$value.";";
+			}			
+			foreach($_SESSION['edgesToExisting'] as $key=>$value){
+				echo "edgesToExisting[".$key."]=".$value.";";
+			}
+		*/	
+			
+			
+	?>
+ }
+
+
+ function createJSTableDataForGraphs(networkData){
+		var j = 0;
+		csvData ="";
+	tableData = new Array(<?php echo count($_SESSION["gas"]) ?>);
+	for (i = 0; i < tableData.length; ++i)
+		tableData [i] = new Array(2);
+	for(i=0; i<tableData.length;i++){
+			tableData[j][0] = versions_array[i];
+			tableData[j][1] = networkData[i];
+			csvData += tableData[j][0] + "," + tableData[j][1] + "\n";
+			j++;
+	}	
+		// networkPropertiesOverTime();
+ }
+ 
+ function addCharts(chartid, title, drawgraphid){
+
+		var content = " <article class='col-xs-12 col-sm-12 col-md-12 col-lg-12'> " +
+					  "	<div class='jarviswidget' id='wid-id-"+chartid+"' data-widget-editbutton='false'> " +
+					  "	<header>" +
+					  "		<span class='widget-icon'> <i class='fa fa-bar-chart-o'></i> </span>" +
+					  "		<h2>"+title+"</h2> " +
+					  "	</header> " +
+					  "	<div> " +
+					  "		<div class='jarviswidget-editbox'> " +
+					  "		</div> " +
+					  "		<div class='widget-body no-padding'> " +
+					  "			<div id='"+drawgraphid+"' class='chart'></div> " +
+					  "		</div> " +
+					  "	</div> " +
+					  "	</div> " +
+					  "	</article>	";
+			$( "#charts_area" ).append(content);		  
+
+	}	
+
+	function drawLinePlot(flag, ydata){
+			// var d=tableData
+			
+			var options = {
+				xaxis : {
+					mode : "numbers",
+					tickLength : 10
+				},
+				series : {
+					lines : {
+						show : true,
+						steps: true,
+						lineWidth : 2,
+						fill : true,
+						fillColor : {
+							colors : [{
+								opacity : 0.2
+							}, {
+								opacity : 0.15
+							}]
+						}
+					},
+					points: { show: true },
+					shadowSize : 2
+				},
+				selection : {
+					mode : "x"
+				},
+				grid : {
+					hoverable : true,
+					clickable : true,
+					tickColor : $chrt_border_color,
+					borderWidth : 0,
+					borderColor : $chrt_border_color
+				},
+				tooltip : true,
+				tooltipOpts : {
+					content : "<span>%y</span> "+ydata,
+					
+					defaultTheme : true
+				},
+				colors : [$chrt_second],
+
+			};
+				switch(flag) {
+						case "1":
+							var nodes_plot = $.plot($("#slocchart"), [tableData], options);
+							break;
+						case "2":
+							var edges_plot = $.plot($("#llocchart"), [tableData], options);
+							break;
+						case "3":
+							var diameter_plot = $.plot($("#clocchart"), [tableData], options);
+							break;	
+						case "4":
+							var cc_plot = $.plot($("#nfchart"), [tableData], options);
+							break;
+						case "5":
+							var e2n_plot = $.plot($("#noschart"), [tableData], options);
+							break;
+						case "6":
+							var ebtwne_plot = $.plot($("#numparchart"), [tableData], options);
+							break;
+						case "7":
+							var ebtwnn_plot = $.plot($("#edgesBtwnNewchart"), [tableData], options);
+							break;	
+						case "8":
+							var e2e_plot = $.plot($("#edgesToExistingchart"), [tableData], options);
+							break;		
+						case "9":
+							var del_plot = $.plot($("#deletedEdgeschart"), [tableData], options);
+							break;
+				}
+			
+			
+			
+		
+ }
+
+
+
+
+
+
+
+	$(document).ready(function () {
+		php2Js();
+
+	createJSTableDataForGraphs(slocArray);
+		addCharts("001","SLOC(y) Over GAS(x)", "slocchart");
+		drawLinePlot("1", "SLOC");
+		createJSTableDataForGraphs(llocArray);
+		addCharts("002","LLOC(y) Over GAS(x)", "llocchart");
+		drawLinePlot("2", "LLOC");
+		createJSTableDataForGraphs(clocArray);
+		addCharts("003","CLOC(y) Over GAS(x)", "clocchart");
+		drawLinePlot("3", "CLOC");
+		createJSTableDataForGraphs(nfArray);
+		addCharts("004","NF(y) Over GAS(x)", "nfchart");
+		drawLinePlot("4", "NF");
+		createJSTableDataForGraphs(nosArray);
+		addCharts("005","NOS(y) Over GAS(x)", "noschart");
+		drawLinePlot("5", "NOS");
+		createJSTableDataForGraphs(numparArray);
+		addCharts("006","NUMPAR(y) Over GAS(x)", "numparchart");
+		drawLinePlot("6", "NUMPAR");
+	
+
+	// end of init
+	})
+</script>		
 
 
 <?php

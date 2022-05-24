@@ -117,9 +117,9 @@ include("inc/nav.php");
                                 <div class="show-stat-microcharts" style="margin-bottom:0px">
                                     <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
                                         <ul id="sparks" class="">
-                                            <li class="sparks-info">
+                                            <li class="">
                                                 <h5>WMC</h5>
-                                                <div class="sparkline txt-color-green" data-sparkline-type="line" data-sparkline-width="180px" data-fill-color="" data-sparkline-spotradius="3" data-sparkline-height="40px">
+                                                <div class="sparkline txt-color-green" data-sparkline-type="line" data-sparkline-width="480px" data-fill-color="" data-sparkline-spotradius="3" data-sparkline-height="30px">
 <?php echo join(', ', $_SESSION["wmc"]); ?>
                                                 </div>
                                             </li>
@@ -127,9 +127,9 @@ include("inc/nav.php");
                                     </div>
                                     <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
                                         <ul id="sparks" class="">
-                                            <li class="sparks-info">
+                                            <li class="">
                                                 <h5> NL </h5>
-                                                <div class="sparkline txt-color-green" data-sparkline-type="line" data-sparkline-width="180px" data-fill-color="" data-sparkline-spotradius="3" data-sparkline-height="40px">
+                                                <div class="sparkline txt-color-green" style="margin-bottom:25px;" data-sparkline-type="line" data-sparkline-width="480px" data-fill-color="green" data-sparkline-spotradius="3" data-sparkline-lineWidth="5px" data-sparkline-height="30px">
 <?php echo join(', ', $_SESSION["nl"]); ?>
                                                 </div>
                                             </li>
@@ -137,9 +137,9 @@ include("inc/nav.php");
                                     </div>
                                     <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
                                         <ul id="sparks" class="">
-                                            <li class="sparks-info">
+                                            <li class="">
                                                 <h5> NLE </h5>
-                                                <div class="sparkline txt-color-green" data-sparkline-type="line" data-sparkline-width="180px" data-fill-color="" data-sparkline-spotradius="3" data-sparkline-height="40px">
+                                                <div class="sparkline txt-color-green" data-sparkline-type="line" data-sparkline-width="480px" data-fill-color="" data-sparkline-spotradius="3" data-sparkline-height="30px">
 <?php echo join(', ', $_SESSION["nle"]); ?>
                                                 </div>
                                             </li>
@@ -147,9 +147,9 @@ include("inc/nav.php");
                                     </div>
                                     <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
                                         <ul id="sparks" class="">
-                                            <li class="sparks-info">
+                                            <li class="">
                                                 <h5> NOI </h5>
-                                                <div class="sparkline txt-color-green" data-sparkline-type="line" data-sparkline-width="180px" data-fill-color="" data-sparkline-spotradius="3" data-sparkline-height="40px">
+                                                <div class="sparkline txt-color-green" data-sparkline-type="line" data-sparkline-width="480px" data-fill-color="" data-sparkline-spotradius="3" data-sparkline-height="30px">
 <?php echo join(', ', $_SESSION["noi"]); ?>
                                                 </div>
                                             </li>
@@ -286,8 +286,8 @@ include("inc/scripts.php");
 			foreach($_SESSION['noi'] as $key=>$value){
 				echo "noiArray[".$key."]=".$value.";";
 			}
-			$_SESSION['gas2']=array_slice($_SESSION["gas"], 0,1000);
-			foreach($_SESSION['gas2'] as $key=>$value){
+		//	$_SESSION['gas2']=array_slice($_SESSION["gas"], 0,1000);
+			foreach($_SESSION['gas'] as $key=>$value){
 				echo "versions_array[".$key."]=".$value.";";
 			}
 		/*	
@@ -316,7 +316,7 @@ include("inc/scripts.php");
  function createJSTableDataForGraphs(networkData){
 		var j = 0;
 		csvData ="";
-	tableData = new Array(<?php echo count($_SESSION["adr"]) ?>);
+	tableData = new Array(<?php echo count($_SESSION["gas"]) ?>);
 	for (i = 0; i < tableData.length; ++i)
 		tableData [i] = new Array(2);
 	for(i=0; i<tableData.length;i++){
@@ -354,7 +354,7 @@ include("inc/scripts.php");
 			
 			var options = {
 				xaxis : {
-					mode : "categories",
+					mode : "numbers",
 					tickLength : 10
 				},
 				series : {
@@ -387,7 +387,7 @@ include("inc/scripts.php");
 				tooltipOpts : {
 					content : "<span>%y</span> "+ydata,
 					
-					defaultTheme : false
+					defaultTheme : true
 				},
 				colors : [$chrt_second],
 

@@ -90,7 +90,7 @@ include("inc/nav.php");
                         Ethereum which today is the biggest blockchain network with thousands of Solidity based smart contracts <a href="https://dune.com/embeds/329/515/RqqCse8wDeW3MZKeZFOab2Ju8QA5Q8Itnr1cbLgk" target="_blank" class="semi-bold" rel="popover-hover" data-placement="bottom" data-content="https://dune.com/embeds/329/515/RqqCse8wDeW3MZKeZFOab2Ju8QA5Q8Itnr1cbLgk"> deployed every month</a>, uses a system of Gas to evaluate
                          the limited space on each new block of Ethereum. A Gas cost is assigned to each calculation operation that alters the blockchains’ state based on its size and complexity. 
                     <p>
-                        Hit the <a style='margin-top:; margin-right:' class="btn btn-success btn-header" id="loadDataset" href="javascript:void(0);"><i class="fa fa-cloud-download"></i> Load New Dataset</a>
+                        Hit the <div id="loadDataset" class="btn-header transparent"><span> <a href="javascript:void(0)" title="Load Dataset"><i class="fa fa-cloud-download"></i></a> </span></div>
 				        to load a randomly chosen dataset of 10000 Smart Contracts and start exploring various software quality metrics and the relationship 
                         between them. <p>You can Search for a specific Smart Contract from the search page.
                             <hr>
