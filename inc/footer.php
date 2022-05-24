@@ -3,17 +3,17 @@
 	
 		
 			<div style="text-align: center" >
-						<p>&copy; <a href="http://www.uom.gr">UOM</a> - <a href="http://se.uom.gr">Software Engineering Group 2022</a></p>
-						<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">
+						<p>&copy; <a href="http://www.uom.gr" target="_blank">UOM</a> - <a href="http://se.uom.gr" target="_blank">Software Engineering Group 2022</a></p>
+						<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/" target="_blank">
 						<img alt="Creative Commons License" style="border-width:0; margin-top:15px;"
 						src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" /></a><br /><span
 						xmlns:dct="http://purl.org/dc/terms/"
 						href="http://purl.org/dc/dcmitype/Dataset" property="dct:title"
 						rel="dct:type">SCQAP: Smart Contracts Quality Analysis Platform</span> by  <br><a
-						xmlns:cc="http://creativecommons.org/ns#" href="http://http://195.251.210.147:8065"
+						xmlns:cc="http://creativecommons.org/ns#" href="http://195.251.210.147:8065"
 						property="cc:attributionName" rel="cc:attributionURL">George Melas, Alexander Chatzigeorgiou, 
-						and Apostolis Ampatzoglou</a> is licensed under a <Br><a
-						rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative
+						and Apostolοs Ampatzoglou</a> is licensed under a <Br><a
+						rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/" target="_blank">Creative
 						Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a><p>
 			</div>
 		
