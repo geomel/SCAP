@@ -193,6 +193,31 @@ include("inc/nav.php");
 							</div>
 							<!-- end widget edit box -->
 
+
+	<div class="row">
+            <article class="col-sm-12">
+            <div class="well well-sm well-light padding-10">
+								<h4 class="txt-color-green">Deployment GAS vs <span class="semi-bold">WMC</span> <a href="javascript:void(0);" class="pull-right txt-color-green"><i class="fa fa-refresh"></i></a></h4>  
+                <div class="sparkline" 
+                    data-sparkline-type="compositeline" 
+                    data-sparkline-spotradius-top="5" 
+                    data-sparkline-color-top="#3a6965" 
+                    data-sparkline-line-width-top="3" 
+                    data-sparkline-color-bottom="#2b5c59" 
+                    data-sparkline-spot-color="#2b5c59" 
+                    data-sparkline-minspot-color-top="#97bfbf" 
+                    data-sparkline-maxspot-color-top="#c2cccc" 
+                    data-sparkline-highlightline-color-top="#cce8e4" 
+                    data-sparkline-highlightspot-color-top="#9dbdb9" 
+                    data-sparkline-width="96%" 
+                    data-sparkline-height="78px" 
+                    data-sparkline-line-val="[<?php echo join(', ', $_SESSION["gas"]); ?>]" 
+                    data-sparkline-bar-val="[<?php echo join(', ', $_SESSION["wmc"]); ?>]">
+				</div> 	
+        </div>
+            </article>
+    </div>    
+
 							<!-- widget content -->
 							<div class="widget-body no-padding">
 <?php
@@ -214,7 +239,6 @@ include("inc/nav.php");
 				<div id="charts_area">
 				
 				</div>
-				
 			</div>		
 
 
@@ -328,7 +352,7 @@ include("inc/scripts.php");
 		// networkPropertiesOverTime();
  }
  
- function addCharts(chartid, title, drawgraphid){
+ function addCharts(chartid, title, drawgraphid, arrayData){
 
 		var content = " <article class='col-xs-12 col-sm-12 col-md-12 col-lg-12'> " +
 					  "	<div class='jarviswidget' id='wid-id-"+chartid+"' data-widget-editbutton='false'> " +
@@ -345,6 +369,31 @@ include("inc/scripts.php");
 					  "	</div> " +
 					  "	</div> " +
 					  "	</article>	";
+
+		 var trendPlot= "<div class='row'>" +
+						"<article class='col-sm-12'>" +
+						"<div class='well well-sm well-light padding-10'>" +
+						"<h4 class='txt-color-green'>Deployment GAS vs <span class='semi-bold'>LOC</span> <a href='javascript:void(0);' class='pull-right txt-color-green'><i class='fa fa-refresh'></i></a></h4>" +  
+									"<div class='sparkline'" +
+										"data-sparkline-type='compositeline'" + 
+										"data-sparkline-spotradius-top='5'" +
+										"data-sparkline-color-top='#3a6965'" + 
+										"data-sparkline-line-width-top='3'" +
+										"data-sparkline-color-bottom='#2b5c59'" + 
+										"data-sparkline-spot-color='#2b5c59'" +
+										"data-sparkline-minspot-color-top='#97bfbf'" + 
+										"data-sparkline-maxspot-color-top='#c2cccc'" + 
+										"data-sparkline-highlightline-color-top='#cce8e4'" + 
+										"data-sparkline-highlightspot-color-top='#9dbdb9'" + 
+										"data-sparkline-width='96%'" + 
+										"data-sparkline-height='78px'" + 
+										"data-sparkline-line-val='[<?php echo join(', ', $_SESSION["gas"]); ?>]'"+ 
+									//	"data-sparkline-bar-val='[<?php // echo join(', ', $_SESSION["lloc"]); ?>]'>"+
+									"</div>" + 	
+							"</div>" +
+								"</article>" +
+						"</div>"; 
+			$( "#trend_area" ).append(trendPlot);			   		  
 			$( "#charts_area" ).append(content);		  
 
 	}	
@@ -355,12 +404,16 @@ include("inc/scripts.php");
 			var options = {
 				xaxis : {
 					mode : "numbers",
-					tickLength : 10
+					tickLength : 5,
+					axisLabel: "GAS",
+    				axisLabelUseCanvas: true,
+    				axisLabelFontSizePixels: 12,
+    				axisLabelFontFamily: 'Verdana, Arial'
 				},
 				series : {
 					lines : {
 						show : true,
-						lineWidth : 2,
+						lineWidth : 0.2,
 						fill : true,
 						fillColor : {
 							colors : [{
@@ -432,16 +485,16 @@ $(document).ready(function () {
 	php2Js();
 
 	createJSTableDataForGraphs(wmcArray);
-		addCharts("001","WMC Over GAS", "wmcchart");
+		addCharts("001","WMC Over GAS", "wmcchart", wmcArray);
 		drawLinePlot("1", "WMC");
 		createJSTableDataForGraphs(nlArray);
-		addCharts("002","NL Over GAS", "nlchart");
+		addCharts("002","NL Over GAS", "nlchart", nlArray);
 		drawLinePlot("2", "NL");
 		createJSTableDataForGraphs(nleArray);
-		addCharts("003","NLE Over GAS", "nlechart");
+		addCharts("003","NLE Over GAS", "nlechart", nleArray);
 		drawLinePlot("3", "NLE");
 		createJSTableDataForGraphs(noiArray);
-		addCharts("004","NOI Over GAS", "noichart");
+		addCharts("004","NOI Over GAS", "noichart", noiArray);
 		drawLinePlot("4", "NOI");
 
 // end of init
