@@ -16,7 +16,7 @@ require_once 'init.web.php';
 YOU CAN SET CONFIGURATION VARIABLES HERE BEFORE IT GOES TO NAV, RIBBON, ETC.
 E.G. $page_title = "Custom Title" */
 
-$page_title = "SCAP - Smart Contracts Analysis Platform";
+$page_title = "SCAP - Smart Contracts Quality Analysis Platform";
 
 /* ---------------- END PHP Custom Scripts ------------- */
 
@@ -49,7 +49,7 @@ include("inc/nav.php");
             <div class="col-xs-12 col-sm-5 col-md-5 col-lg-8">
                 <ul id="sparks" class="">
                     <li class="sparks-info">
-                        <h5> Contracts Loaded <span class="txt-color-blue"><i class="fa fa-cloud-download" data-rel="bootstrap-tooltip" title="Versions"></i>&nbsp;&nbsp<?php echo count($_SESSION["adr"]); ?></span></h5>
+                        <h5> Dataset Loaded <span class="txt-color-blue"><i class="fa fa-cloud-download" data-rel="bootstrap-tooltip" title="Versions"></i>&nbsp;&nbsp<?php echo count($_SESSION["adr"]); ?> Contracts</span></h5>
                     </li>
                   <li class="sparks-info">
                         <h5> Total Contracts Analyzed <span class="txt-color-blue"><i class="fa fa-database" data-rel="bootstrap-tooltip" title="Versions"></i>&nbsp;&nbsp<?php echo "91008"; ?></span></h5>
@@ -79,7 +79,7 @@ include("inc/nav.php");
 				
 				<div class="well">
 					
-					<h1><span class="semi-bold">SCAP</span> <i class="ultra-light"></i> (Smart Contracts Analysis Platform) <sup class="badge bg-color-red bounceIn animated">v 1.0</sup> <br>
+					<h1><span class="semi-bold">SCAP</span> <i class="ultra-light"></i> (Smart Contracts Quality Analysis Platform) <sup class="badge bg-color-red bounceIn animated">v 1.0</sup> <br>
 						<small class="text-danger slideInRight fast animated"><strong><a href="https://se.uom.gr" target="_blank">By the Software Engineering Group</a>  <a href="www.uom.gr" target="_blank"> @ UoM</a></strong></small></h1>
 					
 					<p>SCAP was created to facilitate the analysis of Smart Contracts from a software quality and gas efficiency perspective.
@@ -90,12 +90,12 @@ include("inc/nav.php");
                         Ethereum which today is the biggest blockchain network with thousands of Solidity based smart contracts <a href="https://dune.com/embeds/329/515/RqqCse8wDeW3MZKeZFOab2Ju8QA5Q8Itnr1cbLgk" target="_blank" class="semi-bold" rel="popover-hover" data-placement="bottom" data-content="https://dune.com/embeds/329/515/RqqCse8wDeW3MZKeZFOab2Ju8QA5Q8Itnr1cbLgk"> deployed every month</a>, uses a system of Gas to evaluate
                          the limited space on each new block of Ethereum. A Gas cost is assigned to each calculation operation that alters the blockchains’ state based on its size and complexity. 
                     <p>
-                        Hit the <div id="loadDataset" class="btn-header transparent"><span> <a href="javascript:void(0)" title="Load Dataset"><i class="fa fa-cloud-download"></i></a> </span></div>
-				        to load a randomly chosen dataset of 10000 Smart Contracts and start exploring various software quality metrics and the relationship 
-                        between them. <p>You can Search for a specific Smart Contract from the search page.
+                        <div id="loadDataset" class="btn-header transparent"><span> <a href="javascript:void(0)" title="Load Dataset"><i class="fa fa-cloud-download"></i></a> </span></div>
+				        Load a randomly chosen dataset of 10000 Smart Contracts and start exploring various software quality metrics and the relationship 
+                        between GAS consumption and them. <p>You can Search for a specific Smart Contract from the search page.
                             <hr>
                     <p>Our dataset of SCs consists of a collection of verified SCs, meaning contracts that their code has been verified to match the compiled sourcecode with the deployed 
-                    bytecode on the Ethereum blockchain. For this reason, we chose as SC data sources the Etherscan.io platform and a big dataset of verified SCs gathered and offered from tintinweb on Github 
+                    bytecode on the Ethereum blockchain. 
                     <p>
 				</div>
 
