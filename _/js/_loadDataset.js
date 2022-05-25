@@ -4,7 +4,6 @@ $(document).ready(function () {
     
     });
 
-
 $("#loadDataset").click(function () {
     $('#loading').show();
     $.post("/_/php/startProjectSession.php", function (data, status) {

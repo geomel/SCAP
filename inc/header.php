@@ -6,7 +6,7 @@
 		<meta charset="utf-8">
 		<!--<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">-->
 
-		<title> <?php echo $page_title != "" ? $page_title." - " : ""; ?>Smart Contracts Analutics Platform - SCAP </title>
+		<title> <?php echo $page_title != "" ? $page_title." - " : ""; ?>Smart Contracts Quality Analytics Platform - SCQAP </title>
 		<meta name="description" content="Software Engineering Group - University of Macedonia">
 		<meta name="author" content="se.uom.gr">
 
@@ -96,8 +96,8 @@
 					<div id="logo-group">
 
 						<!-- PLACE YOUR LOGO HERE -->
-					<!--	<span id="logo"> <img src="<?php echo ASSETS_URL; ?>/img/logo.png" alt="SCAP"> </span> -->
-					<span id="logo"> SCAP </span>
+						<span id="logo"> <img src="<?php echo ASSETS_URL; ?>/img/logo.png" alt="SCAP"> </span> 
+					
 						<!-- END LOGO PLACEHOLDER -->
 
 						<!-- Note: The activity badge color changes when clicked and resets the number to 0

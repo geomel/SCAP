@@ -79,16 +79,15 @@ if (isset($_GET)) {
 
         <div class="row">
             <div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
-                <h1 class="page-title txt-color-blueDark"><img src="img/scatter.png" width="80" height="60">&nbsp;&nbsp;Correlation
-                    Analysis</h1>
+            <h1 class="page-title txt-color-blueDark"><img src="<?php echo ASSETS_URL; ?>/img/SCQAP.png" width="50px" height="50px" alt="SCAP">&nbsp SCQAP - Correlation Analysis </h1>
             </div>
             <div class="col-xs-12 col-sm-5 col-md-5 col-lg-8">
                 <ul id="sparks" class="">
                 <li class="sparks-info">
-                        <h5> Total Contracts Loaded <span class="txt-color-blue"><i class="fa fa-cloud-download" data-rel="bootstrap-tooltip" title="Versions"></i>&nbsp;&nbsp<?php echo count($_SESSION["adr"]); ?></span></h5>
+                        <h5> Dataset Loaded <span class="txt-color-blue"><i class="fa fa-cloud-download" data-rel="bootstrap-tooltip" title="Versions"></i>&nbsp;&nbsp<?php echo count($_SESSION["adr"]); ?> Contracts</span></h5>
                     </li>
                   <li class="sparks-info">
-                        <h5> Total Contracts Analyzed <span class="txt-color-blue"><i class="fa fa-database" data-rel="bootstrap-tooltip" title="Versions"></i>&nbsp;&nbsp<?php echo "103251"; ?></span></h5>
+                        <h5> Total Contracts Analyzed <span class="txt-color-blue"><i class="fa fa-database" data-rel="bootstrap-tooltip" title="Versions"></i>&nbsp;&nbsp<?php echo "91008"; ?></span></h5>
                     </li>
                 </ul>
             </div>
@@ -118,14 +117,11 @@ if (isset($_GET)) {
                     moderate ρ >= 0.5-0.59 (orange dots)<br>
                     weak ρ >= 0-0.49 (red dots)<br></code>
                             <hr>
-                    <p>In our study we are focusing on deployment Gas amounts. SCs are deployed once and live forever on the blockchain hence, 
+                    <p>In our study we are focusing on deployment Gas amounts. Smart Contractss are deployed once and live forever on the blockchain hence, 
                         developers are motivated to optimize Gas before deploying them. For our empirical study, we extracted from Etherscan.io 
                         the actual amount of gas that was eventually used for the deployment transaction of the SCs analyzed. 
                     <p>
 				</div>
-                
-                <img src="img/figures/correlation_matrix_1.png" width="1200" height="400">
-				
 			</div>
 	</div>
 

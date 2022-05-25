@@ -16,7 +16,7 @@ require_once 'init.web.php';
 YOU CAN SET CONFIGURATION VARIABLES HERE BEFORE IT GOES TO NAV, RIBBON, ETC.
 E.G. $page_title = "Custom Title" */
 
-$page_title = "SCAP - Smart Contracts Quality Analysis Platform";
+$page_title = "SCQAP - Smart Contracts Quality Analysis Platform";
 
 /* ---------------- END PHP Custom Scripts ------------- */
 
@@ -36,15 +36,15 @@ include("inc/nav.php");
 <?php
 		//configure ribbon (breadcrumbs) array("name"=>"url"), leave url empty if no url
 		//$breadcrumbs["New Crumb"] => "http://url.com"
-		$breadcrumbs["Home"] = "";
-		include("inc/ribbon.php");
+		//$breadcrumbs["Home"] = "";
+		//include("inc/ribbon.php");
 	?>
 
     <!-- MAIN CONTENT -->
     <div id="content">
         <div class="row">
             <div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
-                <h1 class="page-title txt-color-blueDark"><i class="fa-fw fa fa-home"></i> Home </h1>
+                <h1 class="page-title txt-color-blueDark"><img src="<?php echo ASSETS_URL; ?>/img/SCQAP.png" width="50px" height="50px" alt="SCAP">&nbsp SCQAP - Home </h1>
             </div>
             <div class="col-xs-12 col-sm-5 col-md-5 col-lg-8">
                 <ul id="sparks" class="">
@@ -79,10 +79,10 @@ include("inc/nav.php");
 				
 				<div class="well">
 					
-					<h1><span class="semi-bold">SCAP</span> <i class="ultra-light"></i> (Smart Contracts Quality Analysis Platform) <sup class="badge bg-color-red bounceIn animated">v 1.0</sup> <br>
+					<h1><span class="semi-bold">SCQAP</span> <i class="ultra-light"></i> (Smart Contracts Quality Analysis Platform) <sup class="badge bg-color-red bounceIn animated">v 1.0</sup> <br>
 						<small class="text-danger slideInRight fast animated"><strong><a href="https://se.uom.gr" target="_blank">By the Software Engineering Group</a>  <a href="www.uom.gr" target="_blank"> @ UoM</a></strong></small></h1>
 					
-					<p>SCAP was created to facilitate the analysis of Smart Contracts from a software quality and gas efficiency perspective.
+					<p>SCQAP was created to facilitate the analysis of Smart Contracts from a <b>software quality</b> and <b>gas efficiency</b> perspective.
                         We have implemented a public repository of Solidity SC metrics accessible via a public REST API along with a web based client,
                         where researchers can easily examine a massive number of smart contracts metrics with various charts and correlation diagrams.
                     <p>
@@ -92,7 +92,7 @@ include("inc/nav.php");
                     <p>
                         <div id="loadDataset" class="btn-header transparent"><span> <a href="javascript:void(0)" title="Load Dataset"><i class="fa fa-cloud-download"></i></a> </span></div>
 				        Load a randomly chosen dataset of 10000 Smart Contracts and start exploring various software quality metrics and the relationship 
-                        between GAS consumption and them. <p>You can Search for a specific Smart Contract from the search page.
+                        between GAS consumption and them. You can Search for a specific Smart Contract from the search page.
                             <hr>
                     <p>Our dataset of SCs consists of a collection of verified SCs, meaning contracts that their code has been verified to match the compiled sourcecode with the deployed 
                     bytecode on the Ethereum blockchain. 
@@ -103,8 +103,34 @@ include("inc/nav.php");
 			</div>
 	</div>
 
+    <div class="row">
+			<div class="col-sm-12 col-md-12 col-lg-4">
+                <img src="img/figures/gas_mechanism.png" width="500" height="400" style="margin-left:40px">
+            </div>	
+            <div class="col-sm-12 col-md-12 col-lg-8">
+				<div class="well">
+					
+					<h1><span class="semi-bold">How does the</span> <i class="ultra-light"></i> Gas Mechanism Work? <sup class="badge bg-color-green bounceIn animated">Info</sup> <br></h1>
+                        <p>The Ethereum blockchain uses a Gas system for the deployment and execution of Smart Contracts, to compensate the use of computing resources and 
+                        protection against malicious activities such as computational wastage in code, as well as for pricing the limited space for each new 
+                        block in the chain. 
+                    <p> A gas cost is assigned to each calculation task based on its size and complexity. Computationally more intense 
+                        operations require more Gas. According to the Ethereum Yellow Paper, the basic cost of every ‘create’ operation is 32,000 gas, 
+                        and to this is added the basic cost of 21,000 gas for every new transaction (TX) in the next block created.
+                     <p>   
+                        Gas optimization is the generic approach of avoiding or decreasing what is expensive in terms of gas costs on EVM blockchains. Known expensive operations 
+                        and practices that increase gas cost include the writing of state variables that are stored in contract storage, external contract calls and expensive operations on loops. 
+                        There are two Gas units that developers need to be aware of, <b>deployment</b> and <b>runtime Gas</b> as shown in the left figure. Both of these are part of the bottleneck 
+                        for massive Web3 adoption along with scalability and slow transaction times. 
+                        
+                       <p> In our study we are focusing on deployment Gas consumption. SCs are deployed once and live forever on the blockchain hence, developers are motivated to optimize Gas before deploying them. 
+                           For our empirical study, we extracted from Etherscan.io the actual amount of Gas that was eventually used for the deployment transaction of the SCs analyzed.   
+                    <p>
+				</div>
 
-
+				
+			</div>
+	</div>
  <!-- start row -->
  <div class="row">
         <div class="col-sm-12">
@@ -119,8 +145,10 @@ include("inc/nav.php");
                             GAS vs Software Metrics</code></h3>
                         <p>
                                 Metrics that show a high degree of statistical dependence with deployment <code>GAS</code> include  <code>
-                                LLOC, NF, WMC, NUMPAR, NOS, NA and NOI</code>
+                                LLOC, NF, WMC, NUMPAR, NOS, NA and NOI. </code> 
                         </p>
+                        <p> Correlation Coefficients are shown on the correlation Matrix bellow, for the corresponding hypothesis tests of
+                        whether there is a significant dependence between some metrics with the actual units of GAS that were consumed during the deployment phase.</p>
                         <div id="myCarousel-2" class="carousel slide">
                             <ol class="carousel-indicators">
                                 <li data-target="#myCarousel-2" data-slide-to="0" class="active"></li>
@@ -142,7 +170,7 @@ include("inc/nav.php");
                                 </div>
                                 <!-- Slide 2 -->
                                 <div class="item">
-                                    <img src="<?php echo ASSETS_URL; ?>/img/figures/NF_GAS.jpg" alt="">
+                                    <img src="<?php echo ASSETS_URL; ?>/img/figures/correlation_matrix_1.png" alt="">
                                     <div class="carousel-caption caption-left">
                                         <p>
                                             
@@ -153,9 +181,9 @@ include("inc/nav.php");
                                 </div>
                                 <!-- Slide 3 -->
                                 <div class="item">
-                                    <img src="<?php echo ASSETS_URL; ?>/img/figures/NA_GAS.jpg" alt="">
+                                    <img src="<?php echo ASSETS_URL; ?>/img/figures/correlation_matrix_2.png" alt="">
                                     <div class="carousel-caption">
-                                        <h4>A very long thumbnail title here to fill the space</h4>
+                                        <h4></h4>
                                         <br>
                                     </div>
                                 </div>
@@ -173,10 +201,9 @@ include("inc/nav.php");
 
                     <!-- well -->
                     <div class="well">
-                        <h3>Correlation Matrix</h3>
+                        <h3>Metrics Distribution</h3>
                         <p>
-                        Correlation Coefficients are shown on the correlation Matrix of Fig. x, while the corresponding hypothesis tests 
-                        whether there is a significant dependence between some metrics with the actual units of GAS that were consumed during deployment.
+                       In the histogram plots bellow you can see the distribution of Smart Contract Variables for a set of 91008 contracts.  
                         </p>
                         <div id="myCarousel" class="carousel fade">
                             <ol class="carousel-indicators">
@@ -187,20 +214,14 @@ include("inc/nav.php");
                             <div class="carousel-inner">
                                 <!-- Slide 1 -->
                                 <div class="item active">
-                                    <img src="<?php echo ASSETS_URL; ?>/img/figures/correlation_matrix_2.png" alt="">
+                                    <img src="<?php echo ASSETS_URL; ?>/img/figures/histo_plots.jpg" alt="">
                                     <div class="carousel-caption caption-right">
                                         <br>
                                         <a href="javascript:void(0);" class="btn btn-info btn-sm">Read more</a>
                                     </div>
                                 </div>
                                 <!-- Slide 2 -->
-                                <div class="item">
-                                    <img src="<?php echo ASSETS_URL; ?>/img/figures/descriptive_stats.png.jpg" alt="">
-                                    <div class="carousel-caption caption-left">
-                                        <br>
-                                        <a href="javascript:void(0);" class="btn btn-danger btn-sm">Read more</a>
-                                    </div>
-                                </div>
+                            
                                 <!-- Slide 3 -->
                             </div>
                             <a class="left carousel-control" href="#myCarousel" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left"></span> </a>
@@ -218,57 +239,7 @@ include("inc/nav.php");
 
     </div>
     <!-- end row -->
-    <div class="row">
-        <div class="well">
-			<div class="col-sm-6">	
-					<img src="img/figures/gas_mechanism.png" width="500" height="400">
-            </div>       
-            <div class="col-sm-6"> 
-            <h1><span class="semi-bold">How does the</span> <i class="ultra-light"></i> Gas Mechanism Work? <br></h1>      
-					<p>The Ethereum blockchain uses a Gas system for the deployment and execution of SC, to compensate the use of computing resources and 
-                        protection against malicious activities such as computational wastage in code, as well as for pricing the limited space for each new 
-                        block in the chain. 
-                    <p> A gas cost is assigned to each calculation task based on its size and complexity. Computationally more intense 
-                        operations require more Gas. According to the Ethereum Yellow Paper[xxx], the basic cost of every ‘create’ operation is 32,000 gas, 
-                        and to this is added the basic cost of 21,000 gas for every new transaction in the next block created.
-                     <p>   
-                        Gas optimization is the generic approach of avoiding or decreasing what is expensive in terms of gas costs on EVM blockchains. Known expensive operations 
-                        and practices that increase gas cost include the writing of state variables that are stored in contract storage, external contract calls and expensive operations on loops. 
-                        There are two Gas units that developers need to be aware of, deployment and runtime Gas as shown in figure [xx]. Both of these are part of the bottleneck 
-                        for massive Web3 adoption along with scalability and slow transaction times. 
-                        
-                       <p> In our study we are focusing on deployment Gas amounts. SCs are deployed once and live forever on the blockchain hence, developers are motivated to optimize Gas before deploying them. 
-                           For our empirical study, we extracted from Etherscan.io the actual amount of gas that was eventually used for the deployment transaction of the SCs analyzed.                  
-            </div>
-        </div>    
-	</div>
-
-    <div class="row">
-            <article class="col-sm-12">
-            <div class="well well-sm well-light padding-10">
-								<h4 class="txt-color-green">Deployment GAS vs <span class="semi-bold">LOC</span> <a href="javascript:void(0);" class="pull-right txt-color-green"><i class="fa fa-refresh"></i></a></h4>  
-                <div class="sparkline" 
-                    data-sparkline-type="compositeline" 
-                    data-sparkline-spotradius-top="5" 
-                    data-sparkline-color-top="#3a6965" 
-                    data-sparkline-line-width-top="3" 
-                    data-sparkline-color-bottom="#2b5c59" 
-                    data-sparkline-spot-color="#2b5c59" 
-                    data-sparkline-minspot-color-top="#97bfbf" 
-                    data-sparkline-maxspot-color-top="#c2cccc" 
-                    data-sparkline-highlightline-color-top="#cce8e4" 
-                    data-sparkline-highlightspot-color-top="#9dbdb9" 
-                    data-sparkline-width="96%" 
-                    data-sparkline-height="78px" 
-                    data-sparkline-line-val="[<?php echo join(', ', $_SESSION["gas"]); ?>]" 
-                    data-sparkline-bar-val="[<?php echo join(', ', $_SESSION["lloc"]); ?>]">
-				</div> 	
-        </div>
-            </article>
-    </div>    
-
-
- 
+    
 <!-- end row -->
 
 <!-- row -->
@@ -280,7 +251,7 @@ include("inc/nav.php");
             <h1>Solidity Metrics</h1>
             
             <div class="alert alert-info">
-            For the elicitation of SC metrics, we made use of SolMet [xxx], a static analysis tool that can parse and compute a number of Solidity based structural and architectural object-oriented metrics (originally addressed by Chidamber and Kemerer) [xxx] and can be seen below 
+            For the elicitation of Smart Contract metrics, we used SolMet, a static analysis tool that can parse and compute a number of Solidity based structural and architectural object-oriented metrics (originally addressed by Chidamber and Kemerer) and can be seen in the table below 
             </div>
             
             <table class="table table-bordered">
@@ -360,7 +331,7 @@ include("inc/nav.php");
                     </tbody>    
                     <tfoot>
                          <tr>
-                            <td colspan="4"><img src="img/figures/histo_plots.jpg" widht="600" height="600">These metrics can be categorized as Structural (Size), Complexity and Object Oriented metrics.
+                            <td colspan="4">We categorize the above metrics as Structural, Complexity and Object Oriented metrics.
                             </td>
                          </tr>
                     </tfoot>  

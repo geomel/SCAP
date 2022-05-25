@@ -9,10 +9,13 @@
 						src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" /></a><br /><span
 						xmlns:dct="http://purl.org/dc/terms/"
 						href="http://purl.org/dc/dcmitype/Dataset" property="dct:title"
-						rel="dct:type">SCQAP: Smart Contracts Quality Analysis Platform</span> by  <br><a
-						xmlns:cc="http://creativecommons.org/ns#" href="http://195.251.210.147:8065"
-						property="cc:attributionName" rel="cc:attributionURL">George Melas, Alexander Chatzigeorgiou, 
-						and Apostolοs Ampatzoglou</a> is licensed under a <Br><a
+						rel="dct:type">SCQAP: Smart Contracts Quality Analysis Platform</span> by  <br>
+						<a xmlns:cc="http://creativecommons.org/ns#" href="http://geomel.github.io"
+						property="cc:attributionName" rel="cc:attributionURL">George Melas,</a> 
+						<a xmlns:cc="http://creativecommons.org/ns#" href="https://users.uom.gr/~achat/"
+						property="cc:attributionName" rel="cc:attributionURL">Alexander Chatzigeorgiou,</a> 
+						<a xmlns:cc="http://creativecommons.org/ns#" href="https://users.uom.gr/~a.ampatzoglou/"
+						property="cc:attributionName" rel="cc:attributionURL">Apostolοs Ampatzoglou</a> is licensed under a <Br><a
 						rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/" target="_blank">Creative
 						Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a><p>
 			</div>
