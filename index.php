@@ -44,7 +44,7 @@ include("inc/nav.php");
     <div id="content">
         <div class="row">
             <div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
-                <h1 class="page-title txt-color-blueDark"><img src="<?php echo ASSETS_URL; ?>/img/SCQAP.png" width="50px" height="50px" alt="SCAP">&nbsp SCQAP - Home </h1>
+                <h1 class="page-title txt-color-blueDark"><img src="<?php echo ASSETS_URL; ?>/img/SCQAP.png" width="50px" height="50px" alt="SCAP">&nbsp SCQAP - Smart Contracts Quality Analysis Platform </h1>
             </div>
             <div class="col-xs-12 col-sm-5 col-md-5 col-lg-8">
                 <ul id="sparks" class="">
@@ -79,10 +79,10 @@ include("inc/nav.php");
 				
 				<div class="well">
 					
-					<h1><span class="semi-bold">SCQAP</span> <i class="ultra-light"></i> (Smart Contracts Quality Analysis Platform) <sup class="badge bg-color-red bounceIn animated">v 1.0</sup> <br>
-						<small class="text-danger slideInRight fast animated"><strong><a href="https://se.uom.gr" target="_blank">By the Software Engineering Group</a>  <a href="www.uom.gr" target="_blank"> @ UoM</a></strong></small></h1>
+					<h1><span class="semi-bold">SCQAP</span> <i class="ultra-light"></i> <sup class="badge bg-color-red bounceIn animated">v 1.0</sup> <br>
+						<small class="text-danger slideInRight fast animated"><strong><a href="https://se.uom.gr" target="_blank">By the Software Engineering Group</a>  <a href="www.uom.gr" target="_blank"> of UoM</a></strong></small></h1>
 					
-					<p>SCQAP was created to facilitate the analysis of Smart Contracts from a <b>software quality</b> and <b>gas efficiency</b> perspective.
+					<p>SCQAP was created to facilitate the analysis of Smart Contracts from a <b>Software Quality</b> and <b>Gas efficiency</b> perspective.
                         We have implemented a public repository of Solidity SC metrics accessible via a public REST API along with a web based client,
                         where researchers can easily examine a massive number of smart contracts metrics with various charts and correlation diagrams.
                     <p>
@@ -91,7 +91,7 @@ include("inc/nav.php");
                          the limited space on each new block of Ethereum. A Gas cost is assigned to each calculation operation that alters the blockchains’ state based on its size and complexity. 
                     <p>
                         <div id="loadDataset" class="btn-header transparent"><span> <a href="javascript:void(0)" title="Load Dataset"><i class="fa fa-cloud-download"></i></a> </span></div>
-				        Load a randomly chosen dataset of 10000 Smart Contracts and start exploring various software quality metrics and the relationship 
+				        Load a randomly chosen dataset of 10,000 Smart Contracts and start exploring various software quality metrics and the relationship 
                         between GAS consumption and them. You can Search for a specific Smart Contract from the search page.
                             <hr>
                     <p>Our dataset of SCs consists of a collection of verified SCs, meaning contracts that their code has been verified to match the compiled sourcecode with the deployed 
@@ -256,6 +256,9 @@ include("inc/nav.php");
             
             <table class="table table-bordered">
                     <thead>
+                    <tr>
+                        <td colspan="4">We categorize the above metrics as Structural, Complexity and Object Oriented metrics.</td>
+                    </tr>
                         <tr>
                             <th style="width:25%">Metric</th>
                             <th style="width:15%">Example Value</th>
@@ -289,7 +292,7 @@ include("inc/nav.php");
                             <td>Comment Lines Of Code</td>
                         </tr>
                         <tr>
-                            <td>NOF</td>
+                            <td>NF</td>
                             <td><code>81</code></td>
                             <td>Number of Functions</td>
                         </tr> 
@@ -324,16 +327,33 @@ include("inc/nav.php");
                             <td>Number of attributes of Smart Contracts</td>
                         </tr> 
                         <tr>
-                            <td>NA</td>
+                            <td>NOI</td>
                             <td><code>37</code></td>
-                            <td>Number of attributes of Smart Contracts</td>
+                            <td>Number of outgoing invocations</td>
+                        </tr> 
+                        <tr>
+                            <td>DIT</td>
+                            <td><code>3</code></td>
+                            <td>Depth of Inheritance Tree</td>
+                        </tr> 
+                        <tr>
+                            <td>NOA</td>
+                            <td><code>4</code></td>
+                            <td>Number of Ascendants</td>
+                        </tr> 
+                        <tr>
+                            <td>NOD</td>
+                            <td><code>2</code></td>
+                            <td>Number of Descendants</td>
+                        </tr> 
+                        <tr>
+                            <td>CBO</td>
+                            <td><code>1</code></td>
+                            <td>Coupling Between Objects</td>
                         </tr> 
                     </tbody>    
                     <tfoot>
-                         <tr>
-                            <td colspan="4">We categorize the above metrics as Structural, Complexity and Object Oriented metrics.
-                            </td>
-                         </tr>
+                         
                     </tfoot>  
                 </table>
         

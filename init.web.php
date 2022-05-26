@@ -59,9 +59,14 @@ $page_nav = array(
         "url" => APP_URL."/search.php",
         "icon" => "fa-search"
     ),
-    "about" => array(
-        "title" => "About",
+    "Documentation" => array(
+        "title" => "Documentation",
         "url" => APP_URL,
+        "icon" => "fa-pencil-square-o (alias)"
+    ),
+    "About" => array(
+        "title" => "About",
+        "url" => APP_URL."/about.php",
         "icon" => "fa-institution (alias)"
     )
 );

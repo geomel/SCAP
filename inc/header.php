@@ -220,7 +220,6 @@
 								<div id="loading" class='btn-header transparent pull-right' style='margin-top:15px; margin-right:'>
 									<img src="img\load.gif" width="20" height="20"></img>																
 								</div>
-								<div id="completion_message" class='btn-header transparent pull-right'>
 							<!--	<a style='margin-top:10px; margin-right:' class="btn btn-success btn-header hidden-xs" id="loadDataset" href="javascript:void(0);"><i class="fa fa-cloud-download"></i> Load New Dataset</a>   -->
 							</div>
 						</div>
