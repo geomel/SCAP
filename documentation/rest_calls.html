@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>SEAgle - API Documentation</title>
+        <title>SCQAP - API Documentation</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
         <meta name="author" content="">
@@ -38,7 +38,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </a>
-                        <a class="brand" href="index.html">SEAgle Documentation</a>
+                        <a class="brand" href="index.html">SCQAP Documentation</a>
                         <div class="nav-collapse collapse">
                             <ul class="nav pull-right">
 								<!--
@@ -67,8 +67,8 @@
                 <div class="span9">
                     <div class="doc-content-box">
 						
-						Seagle REST services are available through: 
-					  <h3 class="tree-header class-name"><a href="#">http://java.uom.gr:8080/seagle2/rs/{service_path}</a></h3>	 
+						SCQAP REST services are available through: 
+					  <h3 class="tree-header class-name"><a href="#">http://195.251.210.147:8065/rest/{service_path}</a></h3>	 
 						
                         <div class="doc-index">
                             <a class="scroll" href="#get"><span class="label label-success">GET</span></a>
@@ -111,26 +111,26 @@
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
-                                    <th colspan="2">Get Project Name</th>
+                                    <th colspan="2">Get Smart Contract Metrics</th>
                                 </tr>
                             </thead>
                             <tbody>
 								<tr id="property-summary">
                                     <td><p class="class-scope">URI</p></td>
                                     <td>
-                                        <p class="class-desc"><a href="#" class="scroll class-name">/project/name?purl=projectUrl</a></p>
+                                        <p class="class-desc"><a href="#" class="scroll class-name">loadContracts.php?adr=scAdr</a></p>
                                     </td>	
                                 </tr>
 								<tr id="property-summary">
                                     <td><p class="class-scope">Parameters</p></td>
                                     <td>
-                                        <p class="class-desc"><a href="#" class="scroll class-name">projectUrl:</a>https git path url</p>
+                                        <p class="class-desc"><a href="#" class="scroll class-name">scAdr:</a>Smart Contract Address</p>
                                     </td>								
                                 </tr>
                                 <tr id="property-summary">
                                     <td><p class="class-scope">Description</p></td>
                                     <td>
-                                        <p class="class-desc">Returns the name of the project with the given url </p>
+                                        <p class="class-desc">Returns the metrics of the sc with the given address </p>
                                     </td>	
                                 </tr>
 								<tr id="property-summary">
