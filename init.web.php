@@ -61,7 +61,7 @@ $page_nav = array(
     ),
     "Documentation" => array(
         "title" => "Documentation",
-        "url" => APP_URL,
+        "url" => APP_URL."/Documentation",
         "icon" => "fa-pencil-square-o (alias)"
     ),
     "About" => array(

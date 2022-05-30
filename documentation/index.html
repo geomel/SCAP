@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Help - API Documentation</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <!-- styles -->
+        <link href="css/bootstrap.css" rel="stylesheet">
+        <link href="css/bootstrap-responsive.css" rel="stylesheet">
+        <link href="css/bootstrap-doc.css" rel="stylesheet">
+
+
+        <!-- favicon -->
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/apple-touch-icon-144-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png">
+        <link rel="shortcut icon" href="ico/favicon.png">
+
+
+        <!--[if lt IE 9]>
+          <script src="js/html5shiv.js"></script>
+        <![endif]-->
+        
+    </head>
+
+    <body>
+        <header>
+            <!--navbar -->
+            <div class="navbar navbar-inverse navbar-fixed-top">
+                <div class="navbar-inner">
+                    <div class="container">
+                        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </a>
+                        <a class="brand" href="index.html"> SCQAP Documentation</a>
+                        <div class="nav-collapse collapse">
+                            <ul class="nav pull-right">
+							<!--
+                                <li><a href="index.html">Index</a></li>
+                                <li><a href="tree.html">Tree</a></li>
+                                <li class="active"><a href="help.html">Help</a></li>
+							-->	
+                            </ul>
+                        </div><!--/.nav-collapse -->
+                    </div>
+                </div>
+            </div><!--/.navbar -->
+        </header>
+        
+        <article class="container">
+            <div class="row-fluid">
+                <div class="span3">
+                    <!--sidebar -->
+                    <ul class="nav nav-tabs nav-stacked">
+                        <li style="background-color: #E4E4E4"><a href="index.html"><i class="icon-chevron-right pull-right success"></i> How to use</a></li>
+                        <li><a href="rest_calls.html"><i class="icon-chevron-right pull-right"></i> REST services</a></li>
+                        <li><a href="graph_metrics.html"><i class="icon-chevron-right pull-right"></i> Size Metrics</a></li>
+                        <li><a href="repo_metrics.html"><i class="icon-chevron-right pull-right"></i> Complexity Metrics</a></li>
+                        <li><a href="source_metrics.html"><i class="icon-chevron-right pull-right"></i> Object-Oriented Metrics</a></li>
+						
+                    </ul>
+                </div><!--/.span3 -->
+                
+                
+                <div class="span9">
+                    <div class="doc-content-box">
+                        <h1 class="heading">SCQAP: Smart Contract Quality Analysis Platform</h1>
+                        <p>SCQAP is an online platform for Smart Contracts Metrics Exploration, and also correlation analysis between software metrics and Gas consumption. 
+                            It facilitates Smart Contracts analysis, organizes relevant information in comprehensible reports and provides a useful tool for empirical research.</p>
+
+
+                        <h2>Overview</h2>
+                        <blockquote><p>
+						
+						The development of the platform was driven by the following key issues: <p>
+				<ul>		
+					<li>The platform should be easy to use. To this end we opted for a Web based platform enabling users to analyze random SC datasets by a single click.</li>
+                    <li>Large variety  of charts  to easily examine software quality and complexity metrics against Gas values for randomly chosen datasets of  SCs </li>
+					<li>Fined-grained analysis of Smart Contracts code via links to Etherscan.io </li>
+					<li>Any software system has several facets, so do SCs. Therefore, we offer multiple views concerning sizet-related metrics, complexity metrics and object-oriented metrics.</li>
+                    <li>All software metrics can be easily copied or extracted from UI options</li>
+					<li>Empirical studies very often focus on the investigation of relations among variables. To satisfy this need we offer on demand correlation analysis between any two monitored variables.  (for this reason the x-axis is common on all diagrams and represents software versions)</li>
+				</ul>
+												
+						</p></blockquote>
+
+                        <h2>Homepage</h2>
+                        <blockquote><p>
+							The homepage of SCQAP awaits a single user click, to load a randomly chosen dataset for start exploring various SC facets:
+						<img src="img/main_page.png" style="margin: 20px; margin-bottom:20px" />
+                        The home page offers some usefull insights and reports for all dataset metrics (currently consisting of 91008 contracts).
+						This includes a correlation matrix of all software metrics and the distribution of them as well as some interesting correlation scatter plots.	
+						<img src="img/home_diagrams.png" style="margin: 20px; margin-bottom:20px"/>	
+						</p></blockquote>
+
+                        <h2>Metrics</h2>
+                        <blockquote><p>
+							Detailed information concering the metrics of the loaded dataset for the three examined views (size, complexity and object-oriented) can be displayed by selecting “Metrics” on the left menu. <p>
+							<img src="img/menu.png" width="200px" heigt="400px" style="margin: 20px; margin-bottom:20px"/>	
+						<p>	As an example, the overview of size metrics over a randomly loaded dataset are shown in graphs bellow. The results are also shown as Tables with columns corresponding to metrics, and rows to examined SCs. 
+							By clicking the corresponding button on every tabular representation, data can be copied or exported in CSV, Excel or PDF format to allow further experimentation. The available metrics of SCQAP are summarized in Table 
+							<img src="img/c01.png" style="margin: 20px; margin-bottom:20px"/>
+                            The following charts contain on the x axis Gas values in anscending order and the corresponding size metrics on the y axis for every SC
+							<img src="img/c02.png" style="margin: 20px; margin-bottom:20px"/>
+						</p></blockquote>
+						 <!-- pagination -->
+                        <div class="page-nav">
+                            <ul class="pager">
+                                    <li class="next">
+                                    <a href="rest_calls.html">Next &rarr;</a>
+                                </li>
+                            </ul>
+                        </div><!-- /pagination -->
+						<div class="shadow-right"> </div><!-- shadow doc-content-box -->
+                    </div><!--/.doc-content-box -->
+                </div><!--/.span9 -->
+            </div><!--/.row-fluid -->
+        </article>
+        
+        
+       <!-- footer -->
+        <footer style="text-align: center">
+            <div style="text-align: center" >
+                <p>&copy; <a href="http://www.uom.gr" target="_blank">UOM</a> - <a href="http://se.uom.gr" target="_blank">Software Engineering Group 2022</a></p>
+                <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/" target="_blank">
+                <img alt="Creative Commons License" style="border-width:0; margin-top:15px;"
+                src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" /></a><br /><span
+                xmlns:dct="http://purl.org/dc/terms/"
+                href="http://purl.org/dc/dcmitype/Dataset" property="dct:title"
+                rel="dct:type">SCQAP: Smart Contracts Quality Analysis Platform</span> by  <br>
+                <a xmlns:cc="http://creativecommons.org/ns#" href="http://geomel.github.io"
+                property="cc:attributionName" rel="cc:attributionURL">George Melas,</a> 
+                <a xmlns:cc="http://creativecommons.org/ns#" href="https://users.uom.gr/~achat/"
+                property="cc:attributionName" rel="cc:attributionURL">Alexander Chatzigeorgiou,</a> 
+                <a xmlns:cc="http://creativecommons.org/ns#" href="https://users.uom.gr/~a.ampatzoglou/"
+                property="cc:attributionName" rel="cc:attributionURL">Apostolοs Ampatzoglou</a> is licensed under a <Br><a
+                rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/" target="_blank">Creative
+                Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a><p>
+    </div>
+        </footer><!--/.footer -->
+        
+        <!-- javascript
+        ================================================== -->
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+    </body>
+</html>
