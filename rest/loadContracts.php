@@ -10,8 +10,7 @@ if (isset($_GET["adr"])){
 	$adr = mysqli_real_escape_string($con, $_GET["adr"]);
 
 	if($adr==0){
-			$rand=rand (1,80000);
-			$query_adr = "SELECT * FROM solmetrics ORDER BY GAS ASC LIMIT $rand,10000";
+			$query_adr = "SELECT * FROM solmetrics";
 			$dbquery = mysqli_query($con, $query_adr);
 			$arr = array();
 			//$result = mysqli_num_rows($dbquery);
@@ -49,6 +48,307 @@ if (isset($_GET["adr"])){
 		}
 	}
 }
- 
+
+if (isset($_GET["lloc"])){
+
+	$lloc = mysqli_real_escape_string($con, $_GET["lloc"]);
+			$query_adr = "SELECT * FROM solmetrics WHERE LLOC >= $lloc";
+			$dbquery = mysqli_query($con, $query_adr);
+			$arr = array();
+		$result = mysqli_num_rows($dbquery);
+		if($result){
+			while($row =  mysqli_fetch_assoc($dbquery))
+				{
+					// $arr[] = array ('GAS'=>$row['GAS'], 'SLOC'=>$row['SLOC'], 'LLOC'=>$row['LLOC'], 'CLOC'=>$row['CLOC'], 'NF'=>$row['NF'], 'WMC'=>$row['WMC'], 'NL'=>$row['NL'], 'NLE'=>$row['NLE'], 'NUMPAR'=>$row['NUMPAR'], 'NOS'=>$row['NOS'], 'DIT'=>$row['DIT'], 'NOA'=>$row['NOA'], 'NOD'=>$row['NOD'], 'CBO'=>$row['CBO'], 'NA'=>$row['NA'], 'NOI'=>$row['NOI'], 'ADR'=>$row['ADR']);
+					$arr[] = $row;
+					//echo json_encode($arr);
+				}	
+
+				echo json_encode($arr);
+				
+	}else{
+			$arr['solmetrics: '][] = array ('adr'=>0, 'msg'=>"A Smart Contract with these characteristics was not found in our database");
+			echo utf8_encode(json_encode($arr));
+			mysqli_free_result($dbquery);
+		}
+	}
+
+if (isset($_GET["nf"])){
+
+		$nf = mysqli_real_escape_string($con, $_GET["nf"]);
+				$query_adr = "SELECT * FROM solmetrics WHERE NF >= $nf";
+				$dbquery = mysqli_query($con, $query_adr);
+				$arr = array();
+			$result = mysqli_num_rows($dbquery);
+			if($result){
+				while($row =  mysqli_fetch_assoc($dbquery))
+					{
+						// $arr[] = array ('GAS'=>$row['GAS'], 'SLOC'=>$row['SLOC'], 'LLOC'=>$row['LLOC'], 'CLOC'=>$row['CLOC'], 'NF'=>$row['NF'], 'WMC'=>$row['WMC'], 'NL'=>$row['NL'], 'NLE'=>$row['NLE'], 'NUMPAR'=>$row['NUMPAR'], 'NOS'=>$row['NOS'], 'DIT'=>$row['DIT'], 'NOA'=>$row['NOA'], 'NOD'=>$row['NOD'], 'CBO'=>$row['CBO'], 'NA'=>$row['NA'], 'NOI'=>$row['NOI'], 'ADR'=>$row['ADR']);
+						$arr[] = $row;
+						//echo json_encode($arr);
+					}	
+	
+					echo json_encode($arr);
+					
+		}else{
+				$arr['solmetrics: '][] = array ('adr'=>0, 'msg'=>"A Smart Contract with these characteristics was not found in our database");
+				echo utf8_encode(json_encode($arr));
+				mysqli_free_result($dbquery);
+			}
+		}	
+if (isset($_GET["gas"])){
+
+			$gas = mysqli_real_escape_string($con, $_GET["gas"]);
+					$query_adr = "SELECT * FROM solmetrics WHERE GAS >= $gas";
+					$dbquery = mysqli_query($con, $query_adr);
+					$arr = array();
+				$result = mysqli_num_rows($dbquery);
+				if($result){
+					while($row =  mysqli_fetch_assoc($dbquery))
+						{
+							// $arr[] = array ('GAS'=>$row['GAS'], 'SLOC'=>$row['SLOC'], 'LLOC'=>$row['LLOC'], 'CLOC'=>$row['CLOC'], 'NF'=>$row['NF'], 'WMC'=>$row['WMC'], 'NL'=>$row['NL'], 'NLE'=>$row['NLE'], 'NUMPAR'=>$row['NUMPAR'], 'NOS'=>$row['NOS'], 'DIT'=>$row['DIT'], 'NOA'=>$row['NOA'], 'NOD'=>$row['NOD'], 'CBO'=>$row['CBO'], 'NA'=>$row['NA'], 'NOI'=>$row['NOI'], 'ADR'=>$row['ADR']);
+							$arr[] = $row;
+							//echo json_encode($arr);
+						}	
+		
+						echo json_encode($arr);
+						
+			}else{
+					$arr['solmetrics: '][] = array ('adr'=>0, 'msg'=>"A Smart Contract with these characteristics was not found in our database");
+					echo utf8_encode(json_encode($arr));
+					mysqli_free_result($dbquery);
+				}
+			}		
+if (isset($_GET["wmc"])){
+
+				$wmc = mysqli_real_escape_string($con, $_GET["wmc"]);
+						$query_adr = "SELECT * FROM solmetrics WHERE WMC >= $wmc";
+						$dbquery = mysqli_query($con, $query_adr);
+						$arr = array();
+					$result = mysqli_num_rows($dbquery);
+					if($result){
+						while($row =  mysqli_fetch_assoc($dbquery))
+							{
+								// $arr[] = array ('wmc'=>$row['GAS'], 'SLOC'=>$row['SLOC'], 'LLOC'=>$row['LLOC'], 'CLOC'=>$row['CLOC'], 'NF'=>$row['NF'], 'WMC'=>$row['WMC'], 'NL'=>$row['NL'], 'NLE'=>$row['NLE'], 'NUMPAR'=>$row['NUMPAR'], 'NOS'=>$row['NOS'], 'DIT'=>$row['DIT'], 'NOA'=>$row['NOA'], 'NOD'=>$row['NOD'], 'CBO'=>$row['CBO'], 'NA'=>$row['NA'], 'NOI'=>$row['NOI'], 'ADR'=>$row['ADR']);
+								$arr[] = $row;
+								//echo json_encode($arr);
+							}	
+			
+							echo json_encode($arr);
+							
+				}else{
+						$arr['solmetrics: '][] = array ('adr'=>0, 'msg'=>"A Smart Contract with these characteristics was not found in our database");
+						echo utf8_encode(json_encode($arr));
+						mysqli_free_result($dbquery);
+					}
+				}	
+if (isset($_GET["nl"])){
+
+					$nl = mysqli_real_escape_string($con, $_GET["nl"]);
+							$query_adr = "SELECT * FROM solmetrics WHERE NL >= $nl";
+							$dbquery = mysqli_query($con, $query_adr);
+							$arr = array();
+						$result = mysqli_num_rows($dbquery);
+						if($result){
+							while($row =  mysqli_fetch_assoc($dbquery))
+								{
+									// $arr[] = array ('wmc'=>$row['GAS'], 'SLOC'=>$row['SLOC'], 'LLOC'=>$row['LLOC'], 'CLOC'=>$row['CLOC'], 'NF'=>$row['NF'], 'WMC'=>$row['WMC'], 'NL'=>$row['NL'], 'NLE'=>$row['NLE'], 'NUMPAR'=>$row['NUMPAR'], 'NOS'=>$row['NOS'], 'DIT'=>$row['DIT'], 'NOA'=>$row['NOA'], 'NOD'=>$row['NOD'], 'CBO'=>$row['CBO'], 'NA'=>$row['NA'], 'NOI'=>$row['NOI'], 'ADR'=>$row['ADR']);
+									$arr[] = $row;
+									//echo json_encode($arr);
+								}	
+				
+								echo json_encode($arr);
+								
+					}else{
+							$arr['solmetrics: '][] = array ('adr'=>0, 'msg'=>"A Smart Contract with these characteristics was not found in our database");
+							echo utf8_encode(json_encode($arr));
+							mysqli_free_result($dbquery);
+						}
+					}							
+if (isset($_GET["numpar"])){
+
+						$numpar = mysqli_real_escape_string($con, $_GET["numpar"]);
+								$query_adr = "SELECT * FROM solmetrics WHERE NUMPAR >= $numpar";
+								$dbquery = mysqli_query($con, $query_adr);
+								$arr = array();
+							$result = mysqli_num_rows($dbquery);
+							if($result){
+								while($row =  mysqli_fetch_assoc($dbquery))
+									{
+										// $arr[] = array ('wmc'=>$row['GAS'], 'SLOC'=>$row['SLOC'], 'LLOC'=>$row['LLOC'], 'CLOC'=>$row['CLOC'], 'NF'=>$row['NF'], 'WMC'=>$row['WMC'], 'numpar'=>$row['NL'], 'NLE'=>$row['NLE'], 'NUMPAR'=>$row['NUMPAR'], 'NOS'=>$row['NOS'], 'DIT'=>$row['DIT'], 'NOA'=>$row['NOA'], 'NOD'=>$row['NOD'], 'CBO'=>$row['CBO'], 'NA'=>$row['NA'], 'NOI'=>$row['NOI'], 'ADR'=>$row['ADR']);
+										$arr[] = $row;
+										//echo json_encode($arr);
+									}	
+					
+									echo json_encode($arr);
+									
+						}else{
+								$arr['solmetrics: '][] = array ('adr'=>0, 'msg'=>"A Smart Contract with these characteristics was not found in our database");
+								echo utf8_encode(json_encode($arr));
+								mysqli_free_result($dbquery);
+							}
+						}		
+if (isset($_GET["nos"])){
+
+							$nos = mysqli_real_escape_string($con, $_GET["nos"]);
+									$query_adr = "SELECT * FROM solmetrics WHERE NOS >= $nos";
+									$dbquery = mysqli_query($con, $query_adr);
+									$arr = array();
+								$result = mysqli_num_rows($dbquery);
+								if($result){
+									while($row =  mysqli_fetch_assoc($dbquery))
+										{
+											// $arr[] = array ('wmc'=>$row['GAS'], 'SLOC'=>$row['SLOC'], 'LLOC'=>$row['LLOC'], 'CLOC'=>$row['CLOC'], 'NF'=>$row['NF'], 'WMC'=>$row['WMC'], 'nos'=>$row['NL'], 'NLE'=>$row['NLE'], 'NUMPAR'=>$row['NUMPAR'], 'NOS'=>$row['NOS'], 'DIT'=>$row['DIT'], 'NOA'=>$row['NOA'], 'NOD'=>$row['NOD'], 'CBO'=>$row['CBO'], 'NA'=>$row['NA'], 'NOI'=>$row['NOI'], 'ADR'=>$row['ADR']);
+											$arr[] = $row;
+											//echo json_encode($arr);
+										}	
+						
+										echo json_encode($arr);
+										
+							}else{
+									$arr['solmetrics: '][] = array ('adr'=>0, 'msg'=>"A Smart Contract with these characteristics was not found in our database");
+									echo utf8_encode(json_encode($arr));
+									mysqli_free_result($dbquery);
+								}
+							}	
+if (isset($_GET["dit"])){
+
+								$dit = mysqli_real_escape_string($con, $_GET["dit"]);
+										$query_adr = "SELECT * FROM solmetrics WHERE DIT >= $dit";
+										$dbquery = mysqli_query($con, $query_adr);
+										$arr = array();
+									$result = mysqli_num_rows($dbquery);
+									if($result){
+										while($row =  mysqli_fetch_assoc($dbquery))
+											{
+												// $arr[] = array ('wmc'=>$row['GAS'], 'SLOC'=>$row['SLOC'], 'LLOC'=>$row['LLOC'], 'CLOC'=>$row['CLOC'], 'NF'=>$row['NF'], 'WMC'=>$row['WMC'], 'nos'=>$row['NL'], 'NLE'=>$row['NLE'], 'NUMPAR'=>$row['NUMPAR'], 'NOS'=>$row['NOS'], 'DIT'=>$row['DIT'], 'NOA'=>$row['NOA'], 'NOD'=>$row['NOD'], 'CBO'=>$row['CBO'], 'NA'=>$row['NA'], 'NOI'=>$row['NOI'], 'ADR'=>$row['ADR']);
+												$arr[] = $row;
+												//echo json_encode($arr);
+											}	
+							
+											echo json_encode($arr);
+											
+								}else{
+										$arr['solmetrics: '][] = array ('adr'=>0, 'msg'=>"A Smart Contract with these characteristics was not found in our database");
+										echo utf8_encode(json_encode($arr));
+										mysqli_free_result($dbquery);
+									}
+								}	
+if (isset($_GET["noa"])){
+
+									$noa = mysqli_real_escape_string($con, $_GET["noa"]);
+											$query_adr = "SELECT * FROM solmetrics WHERE NOA >= $noa";
+											$dbquery = mysqli_query($con, $query_adr);
+											$arr = array();
+										$result = mysqli_num_rows($dbquery);
+										if($result){
+											while($row =  mysqli_fetch_assoc($dbquery))
+												{
+													// $arr[] = array ('wmc'=>$row['GAS'], 'SLOC'=>$row['SLOC'], 'LLOC'=>$row['LLOC'], 'CLOC'=>$row['CLOC'], 'NF'=>$row['NF'], 'WMC'=>$row['WMC'], 'nos'=>$row['NL'], 'NLE'=>$row['NLE'], 'NUMPAR'=>$row['NUMPAR'], 'NOS'=>$row['NOS'], 'DIT'=>$row['DIT'], 'NOA'=>$row['NOA'], 'NOD'=>$row['NOD'], 'CBO'=>$row['CBO'], 'NA'=>$row['NA'], 'NOI'=>$row['NOI'], 'ADR'=>$row['ADR']);
+													$arr[] = $row;
+													//echo json_encode($arr);
+												}	
+								
+												echo json_encode($arr);
+												
+									}else{
+											$arr['solmetrics: '][] = array ('adr'=>0, 'msg'=>"A Smart Contract with these characteristics was not found in our database");
+											echo utf8_encode(json_encode($arr));
+											mysqli_free_result($dbquery);
+										}
+									}	
+if (isset($_GET["nod"])){
+
+										$nod = mysqli_real_escape_string($con, $_GET["nod"]);
+												$query_adr = "SELECT * FROM solmetrics WHERE NOD >= $nod";
+												$dbquery = mysqli_query($con, $query_adr);
+												$arr = array();
+											$result = mysqli_num_rows($dbquery);
+											if($result){
+												while($row =  mysqli_fetch_assoc($dbquery))
+													{
+														// $arr[] = array ('wmc'=>$row['GAS'], 'SLOC'=>$row['SLOC'], 'LLOC'=>$row['LLOC'], 'CLOC'=>$row['CLOC'], 'NF'=>$row['NF'], 'WMC'=>$row['WMC'], 'nos'=>$row['NL'], 'NLE'=>$row['NLE'], 'NUMPAR'=>$row['NUMPAR'], 'NOS'=>$row['NOS'], 'DIT'=>$row['DIT'], 'NOA'=>$row['NOA'], 'NOD'=>$row['NOD'], 'CBO'=>$row['CBO'], 'NA'=>$row['NA'], 'NOI'=>$row['NOI'], 'ADR'=>$row['ADR']);
+														$arr[] = $row;
+														//echo json_encode($arr);
+													}	
+									
+													echo json_encode($arr);
+													
+										}else{
+												$arr['solmetrics: '][] = array ('adr'=>0, 'msg'=>"A Smart Contract with these characteristics was not found in our database");
+												echo utf8_encode(json_encode($arr));
+												mysqli_free_result($dbquery);
+											}
+										}	
+if (isset($_GET["cbo"])){
+
+											$cbo = mysqli_real_escape_string($con, $_GET["cbo"]);
+													$query_adr = "SELECT * FROM solmetrics WHERE CBO >= $cbo";
+													$dbquery = mysqli_query($con, $query_adr);
+													$arr = array();
+												$result = mysqli_num_rows($dbquery);
+												if($result){
+													while($row =  mysqli_fetch_assoc($dbquery))
+														{
+															// $arr[] = array ('wmc'=>$row['GAS'], 'SLOC'=>$row['SLOC'], 'LLOC'=>$row['LLOC'], 'CLOC'=>$row['CLOC'], 'NF'=>$row['NF'], 'WMC'=>$row['WMC'], 'nos'=>$row['NL'], 'NLE'=>$row['NLE'], 'NUMPAR'=>$row['NUMPAR'], 'NOS'=>$row['NOS'], 'DIT'=>$row['DIT'], 'NOA'=>$row['NOA'], 'NOD'=>$row['NOD'], 'CBO'=>$row['CBO'], 'NA'=>$row['NA'], 'NOI'=>$row['NOI'], 'ADR'=>$row['ADR']);
+															$arr[] = $row;
+															//echo json_encode($arr);
+														}	
+										
+														echo json_encode($arr);
+														
+											}else{
+													$arr['solmetrics: '][] = array ('adr'=>0, 'msg'=>"A Smart Contract with these characteristics was not found in our database");
+													echo utf8_encode(json_encode($arr));
+													mysqli_free_result($dbquery);
+												}
+											}		
+if (isset($_GET["na"])){
+
+												$na = mysqli_real_escape_string($con, $_GET["na"]);
+														$query_adr = "SELECT * FROM solmetrics WHERE NA >= $na";
+														$dbquery = mysqli_query($con, $query_adr);
+														$arr = array();
+													$result = mysqli_num_rows($dbquery);
+													if($result){
+														while($row =  mysqli_fetch_assoc($dbquery))
+															{
+																// $arr[] = array ('wmc'=>$row['GAS'], 'SLOC'=>$row['SLOC'], 'LLOC'=>$row['LLOC'], 'CLOC'=>$row['CLOC'], 'NF'=>$row['NF'], 'WMC'=>$row['WMC'], 'nos'=>$row['NL'], 'NLE'=>$row['NLE'], 'NUMPAR'=>$row['NUMPAR'], 'NOS'=>$row['NOS'], 'DIT'=>$row['DIT'], 'NOA'=>$row['NOA'], 'NOD'=>$row['NOD'], 'CBO'=>$row['CBO'], 'NA'=>$row['NA'], 'NOI'=>$row['NOI'], 'ADR'=>$row['ADR']);
+																$arr[] = $row;
+																//echo json_encode($arr);
+															}	
+											
+															echo json_encode($arr);
+															
+												}else{
+														$arr['solmetrics: '][] = array ('adr'=>0, 'msg'=>"A Smart Contract with these characteristics was not found in our database");
+														echo utf8_encode(json_encode($arr));
+														mysqli_free_result($dbquery);
+													}
+												}	
+if (isset($_GET["noi"])){
+
+													$noi = mysqli_real_escape_string($con, $_GET["noi"]);
+															$query_adr = "SELECT * FROM solmetrics WHERE NOI >= $noi";
+															$dbquery = mysqli_query($con, $query_adr);
+															$arr = array();
+														$result = mysqli_num_rows($dbquery);
+														if($result){
+															while($row =  mysqli_fetch_assoc($dbquery))
+																{
+																	// $arr[] = array ('wmc'=>$row['GAS'], 'SLOC'=>$row['SLOC'], 'LLOC'=>$row['LLOC'], 'CLOC'=>$row['CLOC'], 'NF'=>$row['NF'], 'WMC'=>$row['WMC'], 'nos'=>$row['NL'], 'NLE'=>$row['NLE'], 'NUMPAR'=>$row['NUMPAR'], 'NOS'=>$row['NOS'], 'DIT'=>$row['DIT'], 'NOA'=>$row['NOA'], 'NOD'=>$row['NOD'], 'CBO'=>$row['CBO'], 'NA'=>$row['NA'], 'NOI'=>$row['NOI'], 'ADR'=>$row['ADR']);
+																	$arr[] = $row;
+																	//echo json_encode($arr);
+																}	
+												
+																echo json_encode($arr);
+																
+													}else{
+															$arr['solmetrics: '][] = array ('adr'=>0, 'msg'=>"A Smart Contract with these characteristics was not found in our database");
+															echo utf8_encode(json_encode($arr));
+															mysqli_free_result($dbquery);
+														}
+													}																																									
+			
  mysqli_close($con);
 
