@@ -150,27 +150,35 @@
 						 <table class="table table-bordered">
                             <thead>
                                 <tr>
-                                    <th colspan="2">Get Project Version</th>
+                                    <th colspan="2">Get Contracts Based on deploymnet <a href="#" class="scroll class-name">GAS</a></th>
                                 </tr>
                             </thead>
                             <tbody>
 								<tr id="property-summary">
                                     <td><p class="class-scope">URI</p></td>
                                     <td>
-                                        <p class="class-desc"><a href="#" class="scroll class-name">/project/versions?purl=projectUrl</a></p>
+                                        <p class="class-desc"><a href="#" class="scroll class-name">/loadContracts.php?gas=scGAS</a></p>
                                     </td>	
                                 </tr>
 								<tr id="property-summary">
                                     <td><p class="class-scope">Parameters</p></td>
                                     <td>
-                                        <p class="class-desc"><a href="#" class="scroll class-name">projectUrl:</a>https git path url</p>
+                                        <p class="class-desc"><a href="#" class="scroll class-name">scGAS:</a>Deployment GAS of a Smart Contract</p>
                                     </td>								
                                 </tr>
                                 <tr id="property-summary">
                                     <td><p class="class-scope">Description</p></td>
                                     <td>
-                                        <p class="class-desc">Returns a list with version IDs, version names and version dates of the project with the given path in json format  </p>
-                                    </td>	
+                                        <p class="class-desc">Returns all Smart Contracts with deployment GAS equal or larger than <a href="#" class="scroll class-name">scGAS</a></p>
+                                        <pre class="prettyprint linenums">
+Example: 
+[{"ADR":"06589479a31f826410bbd6d43410e7ff2d8eB1b0","GAS":"1040259","SLOC":"7533","LLOC":"6136","CLOC":"697","NF":"564","WMC":"584","NL":"19","NLE":"19","NUMPAR":"1525","NOS":"718","DIT":"17","NOA":"28","NOD":"28","CBO":"12","NA":"46","NOI":"562","CNT":"1"},
+{"ADR":"3C3f236aF79769C593b5f173e5A3584afBE1e876","GAS":"5011440","SLOC":"7581","LLOC":"6225","CLOC":"752","NF":"531","WMC":"573","NL":"35","NLE":"29","NUMPAR":"1549","NOS":"736","DIT":"51","NOA":"87","NOD":"87","CBO":"2","NA":"64","NOI":"533","CNT":"1"},
+{"ADR":"AB21b44B87411C7276568c73a348E72Bfc093730","GAS":"3330093","SLOC":"9316","LLOC":"6465","CLOC":"2082","NF":"215","WMC":"613","NL":"130","NLE":"126","NUMPAR":"410","NOS":"1998","DIT":"11","NOA":"15","NOD":"15","CBO":"14","NA":"95","NOI":"626","CNT":"1"},
+{"ADR":"b5366ccdf5fd7da7c2aca2cb51877da96b1973b4","GAS":"5240440","SLOC":"10149","LLOC":"6278","CLOC":"2672","NF":"660","WMC":"899","NL":"159","NLE":"149","NUMPAR":"1270","NOS":"2591","DIT":"122","NOA":"332","NOD":"332","CBO":"95","NA":"478","NOI":"1079","CNT":"1"},
+{"ADR":"cf8Fe5bB819359Ea02DF65E50B6194D12b69aB88","GAS":"3278226","SLOC":"9315","LLOC":"6465","CLOC":"2081","NF":"215","WMC":"613","NL":"130","NLE":"126","NUMPAR":"410","NOS":"1998","DIT":"11","NOA":"15","NOD":"15","CBO":"14","NA":"95","NOI":"626","CNT":"1"}]
+                                        </pre>
+                                </td>	
                                 </tr>
 								<tr id="property-summary">
                                     <td><p class="class-scope">Response</p></td>
@@ -183,31 +191,31 @@
                                 </tr>
                             </tbody>
                         </table><!-- /table Property Summary -->
-						
-						<table class="table table-bordered">
+                        <table class="table table-bordered">
                             <thead>
                                 <tr>
-                                    <th colspan="2">Get Project Registered Metrics</th>
+                                    <th colspan="2">Get Contracts Based on Logical Lines Of Code <a href="#" class="scroll class-name">LLOC</a></th>
                                 </tr>
                             </thead>
                             <tbody>
 								<tr id="property-summary">
                                     <td><p class="class-scope">URI</p></td>
                                     <td>
-                                        <p class="class-desc"><a href="#" class="scroll class-name">/metric/project-url?purl=projectUrl</a></p>
+                                        <p class="class-desc"><a href="#" class="scroll class-name">/loadContracts.php?lloc=scLLOC</a></p>
                                     </td>	
                                 </tr>
 								<tr id="property-summary">
                                     <td><p class="class-scope">Parameters</p></td>
                                     <td>
-                                        <p class="class-desc"><a href="#" class="scroll class-name">projectUrl:</a>https git path url</p>
+                                        <p class="class-desc"><a href="#" class="scroll class-name">scLLOC:</a>Logical Lines of Code for a SC</p>
                                     </td>								
                                 </tr>
                                 <tr id="property-summary">
                                     <td><p class="class-scope">Description</p></td>
                                     <td>
-                                        <p class="class-desc">Returns a list with the metrics registered to this project</p>
-                                    </td>	
+                                        <p class="class-desc">Returns all Smart Contracts with LLOC equal or larger than <a href="#" class="scroll class-name">scLLOC</a></p>
+
+                                </td>	
                                 </tr>
 								<tr id="property-summary">
                                     <td><p class="class-scope">Response</p></td>
@@ -220,33 +228,31 @@
                                 </tr>
                             </tbody>
                         </table><!-- /table Property Summary -->
-						
-						
-						<table class="table table-bordered">
+                        <table class="table table-bordered">
                             <thead>
                                 <tr>
-                                    <th colspan="2">Get Metric values for the whole history of a project </th>
+                                    <th colspan="2">Get Contracts Based on total Number of Functions <a href="#" class="scroll class-name">NF</a></th>
                                 </tr>
                             </thead>
                             <tbody>
 								<tr id="property-summary">
                                     <td><p class="class-scope">URI</p></td>
                                     <td>
-                                        <p class="class-desc"><a href="#" class="scroll class-name">/metric/single/values/project/?purl=projectUrl&metricMnemonic=MNEM </a></p>
+                                        <p class="class-desc"><a href="#" class="scroll class-name">/loadContracts.php?nf=scNF</a></p>
                                     </td>	
                                 </tr>
 								<tr id="property-summary">
                                     <td><p class="class-scope">Parameters</p></td>
                                     <td>
-                                        <p class="class-desc"><a href="#" class="scroll class-name">projectUrl:</a>https git path url</p>
-										<p class="class-desc"><a href="#" class="scroll class-name">metricMnemonic:</a>The mnemonic of the desired metric </p>
+                                        <p class="class-desc"><a href="#" class="scroll class-name">scNF:</a>Total Number of Functions for a SC</p>
                                     </td>								
                                 </tr>
                                 <tr id="property-summary">
                                     <td><p class="class-scope">Description</p></td>
                                     <td>
-                                        <p class="class-desc">Returns a list with the value of the specified metric for this project for all analyzed versions. </p>
-                                    </td>	
+                                        <p class="class-desc">Returns all Smart Contracts with NF equal or larger than <a href="#" class="scroll class-name">scNF</a></p>
+
+                                </td>	
                                 </tr>
 								<tr id="property-summary">
                                     <td><p class="class-scope">Response</p></td>
@@ -259,34 +265,31 @@
                                 </tr>
                             </tbody>
                         </table><!-- /table Property Summary -->
-						
-						
-						<table class="table table-bordered">
+                        <table class="table table-bordered">
                             <thead>
                                 <tr>
-                                    <th colspan="2">Get Metric values specific version of a project</th>
+                                    <th colspan="2">Get Contracts Based on their weighted sum of McCabe's style complexity over the functions of a contract <a href="#" class="scroll class-name">WMC</a></th>
                                 </tr>
                             </thead>
                             <tbody>
 								<tr id="property-summary">
                                     <td><p class="class-scope">URI</p></td>
                                     <td>
-                                        <p class="class-desc"><a href="#" class="scroll class-name">/metric/single/values/project/forVersion?purl=projectUrl&metricMnemonic=MNEM&versionID=commitVersionHashID</a></p>
+                                        <p class="class-desc"><a href="#" class="scroll class-name">/loadContracts.php?wmc=scWMC</a></p>
                                     </td>	
                                 </tr>
 								<tr id="property-summary">
                                     <td><p class="class-scope">Parameters</p></td>
                                     <td>
-                                        <p class="class-desc"><a href="#" class="scroll class-name">projectUrl:</a>https git path url</p>
-										<p class="class-desc"><a href="#" class="scroll class-name">metricMnemonic:</a>The mnemonic of the desired metric </p>
-										<p class="class-desc"><a href="#" class="scroll class-name">versionID:</a>The hash id from the commit of the desired version</p>
+                                        <p class="class-desc"><a href="#" class="scroll class-name">scWMC:</a> Weighted sum of McCabe's style complexity</p>
                                     </td>								
                                 </tr>
                                 <tr id="property-summary">
                                     <td><p class="class-scope">Description</p></td>
                                     <td>
-                                        <p class="class-desc">Returns a list with the value of the specified metric for this project for the specified version. </p>
-                                    </td>	
+                                        <p class="class-desc">Returns all Smart Contracts with WMC equal or larger than <a href="#" class="scroll class-name">scWMC</a></p>
+
+                                </td>	
                                 </tr>
 								<tr id="property-summary">
                                     <td><p class="class-scope">Response</p></td>
@@ -299,32 +302,31 @@
                                 </tr>
                             </tbody>
                         </table><!-- /table Property Summary -->
-										
-						<table class="table table-bordered">
+                        <table class="table table-bordered">
                             <thead>
                                 <tr>
-                                    <th colspan="2">Get the evolution of a Metric</th>
+                                    <th colspan="2">Get Contracts Based on their  deepest nesting level of control structures in functions summed for a contract <a href="#" class="scroll class-name">NL</a></th>
                                 </tr>
                             </thead>
                             <tbody>
 								<tr id="property-summary">
                                     <td><p class="class-scope">URI</p></td>
                                     <td>
-                                        <p class="class-desc"><a href="#" class="scroll class-name">/metric/evolution?purl=projectUrl&metricMnemonic=MNEM</a></p>
+                                        <p class="class-desc"><a href="#" class="scroll class-name">/loadContracts.php?wmc=scNL</a></p>
                                     </td>	
                                 </tr>
 								<tr id="property-summary">
                                     <td><p class="class-scope">Parameters</p></td>
                                     <td>
-                                        <p class="class-desc"><a href="#" class="scroll class-name">projectUrl:</a>https git path url</p>
-										<p class="class-desc"><a href="#" class="scroll class-name">metricMnemonic:</a>The mnemonic of the desired metric </p>
+                                        <p class="class-desc"><a href="#" class="scroll class-name">scNL:</a> The deepest nesting level of control structures in functions summed for a contrac</p>
                                     </td>								
                                 </tr>
                                 <tr id="property-summary">
                                     <td><p class="class-scope">Description</p></td>
                                     <td>
-                                        <p class="class-desc">Returns values of the specified metric for all available versions. </p>
-                                    </td>	
+                                        <p class="class-desc">Returns all Smart Contracts with NL equal or larger than <a href="#" class="scroll class-name">scNL</a></p>
+
+                                </td>	
                                 </tr>
 								<tr id="property-summary">
                                     <td><p class="class-scope">Response</p></td>
@@ -336,78 +338,32 @@
                                     </td>
                                 </tr>
                             </tbody>
-                        </table><!-- /table Property Summary -->				
-						
-						
-						<table class="table table-bordered">
+                        </table><!-- /table Property Summary -->
+                        <table class="table table-bordered">
                             <thead>
                                 <tr>
-                                    <th colspan="2">Get Project smell summary</th>
+                                    <th colspan="2">Get Contracts Based on their total number of Parameters <a href="#" class="scroll class-name">NUMPAR</a></th>
                                 </tr>
                             </thead>
                             <tbody>
 								<tr id="property-summary">
                                     <td><p class="class-scope">URI</p></td>
                                     <td>
-                                        <p class="class-desc"><a href="#" class="scroll class-name">/smells/summary</a></p>
-										 <p class="class-desc"><a href="#" class="scroll class-name">/smells/summary/{projectName}</a></p>
+                                        <p class="class-desc"><a href="#" class="scroll class-name">/loadContracts.php?numpar=scNUMPAR</a></p>
                                     </td>	
                                 </tr>
 								<tr id="property-summary">
                                     <td><p class="class-scope">Parameters</p></td>
                                     <td>
-                                        <p class="class-desc"><a href="#" class="scroll class-name">Path parameter {projectName}</a></p>								
+                                        <p class="class-desc"><a href="#" class="scroll class-name">scNUMPAR:</a> Number of Parameters of a Contract</p>
                                     </td>								
                                 </tr>
                                 <tr id="property-summary">
                                     <td><p class="class-scope">Description</p></td>
                                     <td>
-                                            <pre class="prettyprint linenums">
-												Returns a summary with the smells of all projects of the given project. Example: 
-{ 
-      "metrics": [], 
-      "name": "v0.4.12", 
-      "smells": [ 
-        { 
-          "className": "project version", 
-          "quantity": 5, 
-          "smellName": "God Class" 
-        }, 
-        { 
-          "className": "project version", 
-          "quantity": 11, 
-          "smellName": "Data Class" 
-        }, 
-        { 
-          "className": "project version", 
-          "quantity": 0, 
-          "smellName": "Feature Envy" 
-        } 
-      ] 
-    }, 
-    { 
-      "metrics": [], 
-      "name": "v0.4.13", 
-      "smells": [ 
-        { 
-          "className": "project version", 
-          "quantity": 5, 
-          "smellName": "God Class" 
-        }, 
-        { 
-          "className": "project version", 
-          "quantity": 0, 
-          "smellName": "Feature Envy" 
-        }, 
-        { 
-          "className": "project version", 
-          "quantity": 11, 
-          "smellName": "Data Class" 
-        } 
-      ] 
-    } 
-											</pre>
-                                    </td>	
+                                        <p class="class-desc">Returns all Smart Contracts with NUMPAR equal or larger than <a href="#" class="scroll class-name">scNUMPAR</a></p>
+
+                                </td>	
                                 </tr>
 								<tr id="property-summary">
                                     <td><p class="class-scope">Response</p></td>
@@ -419,41 +375,32 @@
                                     </td>
                                 </tr>
                             </tbody>
-                        </table><!-- /table Property Summary -->		
-					
-							
-							
-							
-                        
-                        <!-- doc-index-block -->
-                        <div class="doc-index-block">
-                            <h2 id="post" class="label label-warning">POST</h2>
-                            
-						<table class="table table-bordered">
+                        </table><!-- /table Property Summary -->
+                        <table class="table table-bordered">
                             <thead>
                                 <tr>
-                                    <th colspan="2">Trigger Project Analysis</th>
+                                    <th colspan="2">Get Contracts Based on their total number of Statements <a href="#" class="scroll class-name">NOS</a></th>
                                 </tr>
                             </thead>
                             <tbody>
 								<tr id="property-summary">
                                     <td><p class="class-scope">URI</p></td>
                                     <td>
-                                        <p class="class-desc"><a href="#" class="scroll class-name">project/analysis?purl=projectUrl&requestorEmail=foo@bla.com</a></p>
+                                        <p class="class-desc"><a href="#" class="scroll class-name">/loadContracts.php?nos=scNOS</a></p>
                                     </td>	
                                 </tr>
 								<tr id="property-summary">
-                                    <td><p class="class-scope">Parameters</p></td>
+                                    <td><p class="class-scope">Statements</p></td>
                                     <td>
-                                        <p class="class-desc"><a href="#" class="scroll class-name">purl:</a>https git path url</p>
-										<p class="class-desc"><a href="#" class="scroll class-name">requestorEmail:</a>The email to which the completion notification will be sent  </p>
+                                        <p class="class-desc"><a href="#" class="scroll class-name">scNOS:</a> Number of Statements of a Contract</p>
                                     </td>								
                                 </tr>
                                 <tr id="property-summary">
                                     <td><p class="class-scope">Description</p></td>
                                     <td>
-                                        <p class="class-desc">Triggers analysis for the specified project and notifies the user in the specified email address upon the completion. </p>
-                                    </td>	
+                                        <p class="class-desc">Returns all Smart Contracts with NOS equal or larger than <a href="#" class="scroll class-name">scNOS</a></p>
+
+                                </td>	
                                 </tr>
 								<tr id="property-summary">
                                     <td><p class="class-scope">Response</p></td>
@@ -465,40 +412,32 @@
                                     </td>
                                 </tr>
                             </tbody>
-                        </table><!-- /table Property Summary -->				
-						
-                    
-                        </div><!-- /doc-index-block -->
-                        
-                        
-						  <!-- doc-index-block -->
-                        <div class="doc-index-block">
-                            <h2 id="put" class="label label-info">PUT</h2>
-								
-						<table class="table table-bordered">
+                        </table><!-- /table Property Summary -->
+                        <table class="table table-bordered">
                             <thead>
                                 <tr>
-                                    <th colspan="2">Update project by project URL</th>
+                                    <th colspan="2">Get Contracts Based on their Depth of Inheritance Tree <a href="#" class="scroll class-name">DIT</a></th>
                                 </tr>
                             </thead>
                             <tbody>
 								<tr id="property-summary">
                                     <td><p class="class-scope">URI</p></td>
                                     <td>
-                                        <p class="class-desc"><a href="#" class="scroll class-name">/project/?purl=projectUrl</a></p>
+                                        <p class="class-desc"><a href="#" class="scroll class-name">/loadContracts.php?dit=scDIT</a></p>
                                     </td>	
                                 </tr>
 								<tr id="property-summary">
-                                    <td><p class="class-scope">Parameters</p></td>
+                                    <td><p class="class-scope">Statements</p></td>
                                     <td>
-                                        <p class="class-desc"><a href="#" class="scroll class-name">purl:</a>https git path url</p>
+                                        <p class="class-desc"><a href="#" class="scroll class-name">scDIT:</a> Depth Of Inheritence Tree of a Contract</p>
                                     </td>								
                                 </tr>
                                 <tr id="property-summary">
                                     <td><p class="class-scope">Description</p></td>
                                     <td>
-                                        <p class="class-desc">Triggers update of the specified project </p>
-                                    </td>	
+                                        <p class="class-desc">Returns all Smart Contracts with DIT equal or larger than <a href="#" class="scroll class-name">scDIT</a></p>
+
+                                </td>	
                                 </tr>
 								<tr id="property-summary">
                                     <td><p class="class-scope">Response</p></td>
@@ -510,33 +449,32 @@
                                     </td>
                                 </tr>
                             </tbody>
-                        </table><!-- /table Property Summary -->	
-						
-						
-						<table class="table table-bordered">
+                        </table><!-- /table Property Summary -->
+                        <table class="table table-bordered">
                             <thead>
                                 <tr>
-                                    <th colspan="2">Update project by name</th>
+                                    <th colspan="2">Get Contracts Based on their Number of Ancestors <a href="#" class="scroll class-name">NOA</a></th>
                                 </tr>
                             </thead>
                             <tbody>
 								<tr id="property-summary">
                                     <td><p class="class-scope">URI</p></td>
                                     <td>
-                                        <p class="class-desc"><a href="#" class="scroll class-name">/project/projectName</a></p>
+                                        <p class="class-desc"><a href="#" class="scroll class-name">/loadContracts.php?noa=scNOA</a></p>
                                     </td>	
                                 </tr>
 								<tr id="property-summary">
-                                    <td><p class="class-scope">Parameters</p></td>
+                                    <td><p class="class-scope">Statements</p></td>
                                     <td>
-                                        <p class="class-desc"><a href="#" class="scroll class-name">projectName:</a>the name of the project </p>
+                                        <p class="class-desc"><a href="#" class="scroll class-name">scNOA:</a> Number of Ancestors of a Contract</p>
                                     </td>								
                                 </tr>
                                 <tr id="property-summary">
                                     <td><p class="class-scope">Description</p></td>
                                     <td>
-                                        <p class="class-desc">Triggers update of the specified project </p>
-                                    </td>	
+                                        <p class="class-desc">Returns all Smart Contracts with NOA equal or larger than <a href="#" class="scroll class-name">scNOA</a></p>
+
+                                </td>	
                                 </tr>
 								<tr id="property-summary">
                                     <td><p class="class-scope">Response</p></td>
@@ -548,8 +486,155 @@
                                     </td>
                                 </tr>
                             </tbody>
-                        </table><!-- /table Property Summary -->	
-                 
+                        </table><!-- /table Property Summary -->
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th colspan="2">Get Contracts Based on their Number of Descendants <a href="#" class="scroll class-name">NOD</a></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+								<tr id="property-summary">
+                                    <td><p class="class-scope">URI</p></td>
+                                    <td>
+                                        <p class="class-desc"><a href="#" class="scroll class-name">/loadContracts.php?noa=scNOD</a></p>
+                                    </td>	
+                                </tr>
+								<tr id="property-summary">
+                                    <td><p class="class-scope">Statements</p></td>
+                                    <td>
+                                        <p class="class-desc"><a href="#" class="scroll class-name">scNOD:</a> Number of Descendants of a Contract</p>
+                                    </td>								
+                                </tr>
+                                <tr id="property-summary">
+                                    <td><p class="class-scope">Description</p></td>
+                                    <td>
+                                        <p class="class-desc">Returns all Smart Contracts with NOD equal or larger than <a href="#" class="scroll class-name">scNOD</a></p>
+
+                                </td>	
+                                </tr>
+								<tr id="property-summary">
+                                    <td><p class="class-scope">Response</p></td>
+                                    <td>
+                                        <p class="class-desc">200 OK <br>
+																202 Accepted – If the required process has been scheduled successfully  <br>
+																404 Not Found <br> 
+																500 Internal Server Error  </p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table><!-- /table Property Summary -->
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th colspan="2">Get Contracts Based on their Coupling Between Object classes <a href="#" class="scroll class-name">CBO</a></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+								<tr id="property-summary">
+                                    <td><p class="class-scope">URI</p></td>
+                                    <td>
+                                        <p class="class-desc"><a href="#" class="scroll class-name">/loadContracts.php?cbo=scCBO</a></p>
+                                    </td>	
+                                </tr>
+								<tr id="property-summary">
+                                    <td><p class="class-scope">Statements</p></td>
+                                    <td>
+                                        <p class="class-desc"><a href="#" class="scroll class-name">scCBO:</a>Coupling Between Object classes of a Contract</p>
+                                    </td>								
+                                </tr>
+                                <tr id="property-summary">
+                                    <td><p class="class-scope">Description</p></td>
+                                    <td>
+                                        <p class="class-desc">Returns all Smart Contracts with CBO equal or larger than <a href="#" class="scroll class-name">scCBO</a></p>
+
+                                </td>	
+                                </tr>
+								<tr id="property-summary">
+                                    <td><p class="class-scope">Response</p></td>
+                                    <td>
+                                        <p class="class-desc">200 OK <br>
+																202 Accepted – If the required process has been scheduled successfully  <br>
+																404 Not Found <br> 
+																500 Internal Server Error  </p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table><!-- /table Property Summary -->
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th colspan="2">Get Contracts Based on their number of Attributes (i.e. states) <a href="#" class="scroll class-name">NA</a></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+								<tr id="property-summary">
+                                    <td><p class="class-scope">URI</p></td>
+                                    <td>
+                                        <p class="class-desc"><a href="#" class="scroll class-name">/loadContracts.php?na=scNA</a></p>
+                                    </td>	
+                                </tr>
+								<tr id="property-summary">
+                                    <td><p class="class-scope">Statements</p></td>
+                                    <td>
+                                        <p class="class-desc"><a href="#" class="scroll class-name">scNA:</a>Number of Attributes (i.e. states) of a Contract</p>
+                                    </td>								
+                                </tr>
+                                <tr id="property-summary">
+                                    <td><p class="class-scope">Description</p></td>
+                                    <td>
+                                        <p class="class-desc">Returns all Smart Contracts with NA equal or larger than <a href="#" class="scroll class-name">scNA</a></p>
+
+                                </td>	
+                                </tr>
+								<tr id="property-summary">
+                                    <td><p class="class-scope">Response</p></td>
+                                    <td>
+                                        <p class="class-desc">200 OK <br>
+																202 Accepted – If the required process has been scheduled successfully  <br>
+																404 Not Found <br> 
+																500 Internal Server Error  </p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table><!-- /table Property Summary -->
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th colspan="2">Get Contracts Based on their number of outgoing invocations (i.e. fan-out) <a href="#" class="scroll class-name">NOI</a></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+								<tr id="property-summary">
+                                    <td><p class="class-scope">URI</p></td>
+                                    <td>
+                                        <p class="class-desc"><a href="#" class="scroll class-name">/loadContracts.php?noi=scNOI</a></p>
+                                    </td>	
+                                </tr>
+								<tr id="property-summary">
+                                    <td><p class="class-scope">Statements</p></td>
+                                    <td>
+                                        <p class="class-desc"><a href="#" class="scroll class-name">scNOI:</a>Number of Outgoing Invocations (i.e. fan-out) of a Contract</p>
+                                    </td>								
+                                </tr>
+                                <tr id="property-summary">
+                                    <td><p class="class-scope">Description</p></td>
+                                    <td>
+                                        <p class="class-desc">Returns all Smart Contracts with NOI equal or larger than <a href="#" class="scroll class-name">scNOI</a></p>
+
+                                </td>	
+                                </tr>
+								<tr id="property-summary">
+                                    <td><p class="class-scope">Response</p></td>
+                                    <td>
+                                        <p class="class-desc">200 OK <br>
+																202 Accepted – If the required process has been scheduled successfully  <br>
+																404 Not Found <br> 
+																500 Internal Server Error  </p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table><!-- /table Property Summary -->
                         </div><!-- /doc-index-block -->
 						 <!-- pagination -->
                         <div class="page-nav">
