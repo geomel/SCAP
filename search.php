@@ -47,14 +47,8 @@ include("inc/nav.php");
 					<li class="active">
 						<a href="#s1" data-toggle="tab">Search All <i class="fa fa-caret-down"></i></a>
 					</li>
-					<li>
-						<a href="#s2" data-toggle="tab">Upgreadable</a>
-					</li>
-					<li>
-						<a href="#s3" data-toggle="tab">Search History</a>
-					</li>
 					<li class="pull-right hidden-mobile">
-						<a href="javascript:void(0);"> <span class="note">1 results (0.15 seconds) </span> </a>
+						<a href="javascript:void(0);"> <span class="note">0 results (0 seconds) </span> </a>
 					</li>
 				</ul>
 		
@@ -72,15 +66,6 @@ include("inc/nav.php");
 										<a href="javascript:void(0)"><i class="fa fa-check"></i> All Dataset</a>
 									</li>
 									<li class="divider"></li>
-									<li>
-										<a href="javascript:void(0)">Upgreadable</a>
-									</li>
-									<li>
-										<a href="javascript:void(0)">Dapp</a>
-									</li>
-									<li>
-										<a href="javascript:void(0)">Github</a>
-									</li>
 								</ul>
 							</div>
 							<input class="form-control input-lg" type="text" placeholder="Type Smart Contract Address..." id="search-project">
@@ -201,10 +186,7 @@ include("inc/nav.php");
 <!-- END MAIN PANEL -->
 <!-- ==========================CONTENT ENDS HERE ========================== -->
 
-<?php
-	// include page footer
-	include("inc/footer.php");
-?>
+
 
 <?php 
 	//include required scripts
@@ -222,7 +204,10 @@ include("inc/nav.php");
 	})
 
 </script>
-
+<?php
+	// include page footer
+	include("inc/footer.php");
+?>
 <?php 
 	//include footer
 	include("inc/google-analytics.php"); 
