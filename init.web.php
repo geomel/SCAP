@@ -54,11 +54,6 @@ $page_nav = array(
         "url" => APP_URL."/cgraphs.php",
         "icon" => "fa-random"
     ),
-    "sa" => array(
-        "title" => "Search",
-        "url" => APP_URL."/search.php",
-        "icon" => "fa-search"
-    ),
     "Documentation" => array(
         "title" => "Documentation",
         "url" => APP_URL."/Documentation",
