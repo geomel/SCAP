@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$json_solmetrics = file_get_contents('http://195.251.210.147:8065/loadContractsPlatform.php?adr=-1'); // load metrics	
+$json_solmetrics = file_get_contents('https://scqap.se.uom.gr/loadContractsPlatform.php?adr=-1'); // load metrics	
 $json_decoded = json_decode($json_solmetrics);
 
 //echo var_dump($json_decoded);

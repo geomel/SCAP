@@ -2,7 +2,23 @@
 
 // error_reporting(0);
 
-$con = mysqli_connect("195.251.210.147:3336","melas","melas", "scap");
+$servername = "dbPHDmelas";
+$username = "melas";
+$password = "melas";
+$dbname = "scap";
+$port = 3306; // replace with your MySQL port number if necessary
+
+define('DB_HOST', 'dbPHDmelas');
+define('DB_NAME', 'scap');
+define('DB_USER', 'melas');
+define('DB_PASSWORD', 'melas');
+
+// Create connection
+//$con = mysqli_connect($servername, $username, $password, $dbname, $port);
+//$con=mysqli_connect("dbPHDmelas:3306","melas","melas","scap");
+//$con=mysqli_connect("http:\/\/195.251.210.147:3336","melas","melas","scap");
+//$con=mysqli_connect("dbPHDmelas:3306","melas","melas","scap");
+$con=mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME, 3306);
 
 
 if (isset($_GET["adr"])){
@@ -10,8 +26,8 @@ if (isset($_GET["adr"])){
 	$adr = mysqli_real_escape_string($con, $_GET["adr"]);
 
 	if($adr==-1){
-			$rand=rand (1,81000);
-			$query_adr = "SELECT * FROM solmetrics ORDER BY GAS ASC LIMIT $rand,10000";
+			$rand=rand (1,90000);
+			$query_adr = "SELECT * FROM solmetrics ORDER BY GAS ASC LIMIT $rand,50000";
 			$dbquery = mysqli_query($con, $query_adr);
 			$arr = array();
 			//$result = mysqli_num_rows($dbquery);

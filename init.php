@@ -26,7 +26,7 @@ if (Common\Util::is_cli()) {
 	$request_uri = $_SERVER['REQUEST_URI'];
 }
 
-$document_url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS']=='on' ? 'https' : 'http').'://'.$server_name;
+$document_url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS']=='on' ? 'https' : 'https').'://'.$server_name;
 
 $app_path = $document_root;
 $app_url = $document_url;

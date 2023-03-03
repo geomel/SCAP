@@ -48,11 +48,11 @@ include("inc/nav.php");
             </div>
             <div class="col-xs-12 col-sm-5 col-md-5 col-lg-8">
                 <ul id="sparks" class="">
-                    <li class="sparks-info">
-                        <h5> Dataset Loaded <span class="txt-color-blue"><i class="fa fa-cloud-download" data-rel="bootstrap-tooltip" title="Versions"></i>&nbsp;&nbsp<?php echo count($_SESSION["adr"]); ?> Contracts</span></h5>
+                    <li class="sparks-info" style="margin-top: 5px">
+                        <h5 style="margin-top: 5px"> Dataset Loaded <span class="txt-color-blue"><i class="fa fa-cloud-download" data-rel="bootstrap-tooltip" title="Versions"></i>&nbsp;&nbsp<?php echo count($_SESSION["adr"]); ?> Contracts</span></h5>
                     </li>
                   <li class="sparks-info">
-                        <h5> Total Contracts Analyzed <span class="txt-color-blue"><i class="fa fa-database" data-rel="bootstrap-tooltip" title="Versions"></i>&nbsp;&nbsp<?php echo "91008"; ?></span></h5>
+                        <h5 style="margin-top: 5px"> Total Contracts Analyzed <span class="txt-color-blue"><i class="fa fa-database" data-rel="bootstrap-tooltip" title="Versions"></i>&nbsp;&nbsp<?php echo "91008"; ?></span></h5>
                     </li>
                  <!--     
                     <li class="sparks-info">
@@ -83,7 +83,7 @@ include("inc/nav.php");
 						<small class="text-danger slideInRight fast animated"><strong><a href="https://se.uom.gr" target="_blank">By the Software Engineering Group</a>  <a href="www.uom.gr" target="_blank"> of UoM</a></strong></small></h1>
 					
 					<p>SCQAP was created to facilitate the analysis of Smart Contracts from a <b>Software Quality</b> and <b>Gas efficiency</b> perspective.
-                        We have implemented a public repository of Solidity SC metrics accessible via a public REST API along with a web based client,
+                        We have implemented a public repository of Solidity SC metrics accessible via a public <a href="https://scqap.se.uom.gr/Documentation/rest_calls.html">REST API</a> along with a web based client,
                         where researchers can easily examine a massive number of smart contracts metrics with various charts and correlation diagrams.
                     <p>
                         Smart Contracts are computer programs that run on blockchains and can be executed automatically in a deterministic way when predetermined conditions are met.

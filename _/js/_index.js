@@ -1,5 +1,5 @@
 
-var url = "http://localhost:5000/record/";
+var url = "https://localhost:5000/record/";
 // _/php/_startProjectSession.php?pname=pname&githubpath=purl&versions=pversions
 
 var resultHTML = "";
@@ -48,7 +48,7 @@ $(document).ready(function () {
 })
 
 function searchQuery() { // query based searching by url or project name
-    var url = "http://localhost:5000/";
+    var url = "https://localhost:5000/";
     //('#project_analysis').hide();
     var isgit = 1;
     $('#search-res').show();
@@ -185,7 +185,7 @@ function getContractCode(adr, resp){
             "</p></p>" +
             "<pre class='prettyprint linenums'><code class='javascript'></code>" + code + "</code></pre>" +
             "<div class='url text-success'>" +
-            "<a href='http://www.etherscan.io//address/" + adr + "'><span class='url text-success'>http://www.etherscan.io//address/" + adr +  "</span><i class='fa fa-caret-down'></i>" +
+            "<a href='https://www.etherscan.io//address/" + adr + "'><span class='url text-success'>http://www.etherscan.io//address/" + adr +  "</span><i class='fa fa-caret-down'></i>" +
             "</div>";
              
             sc_metricsHTML = "<table class='table table-bordered'>" +
@@ -293,7 +293,7 @@ $("#loadDataset").click(function () {
 $("#triggerSmellDetection").click(function () {
     purl = $('#projectURL').val();
     
-    $.post("http://se.uom.gr:8080/seagle2/rs/project/smells/identify?purl=" + purl , function (data, status) {
+    $.post("https://se.uom.gr:8080/seagle2/rs/project/smells/identify?purl=" + purl , function (data, status) {
         console.log("Smell dection triggered for project "+purl);
         console.log(status);
     });

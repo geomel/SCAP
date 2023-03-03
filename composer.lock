@@ -40,11 +40,11 @@
                 {
                     "name": "Emanuil Rusev",
                     "email": "hello@erusev.com",
-                    "homepage": "http://erusev.com"
+                    "homepage": "https://erusev.com"
                 }
             ],
             "description": "Parser for Markdown.",
-            "homepage": "http://parsedown.org",
+            "homepage": "https://parsedown.org",
             "keywords": [
                 "markdown",
                 "parser"

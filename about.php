@@ -118,7 +118,7 @@ include("inc/nav.php");
                             <li class="media">
                                 <a class="pull-left" href="javascript:void(0);"> <img class="media-object" alt="Giorgos Melas" src="<?php echo ASSETS_URL; ?>/img/giorgos.jpg"> </a>
                                 <div class="media-body">
-                                    <h4 class="media-heading"><a href="http://geomel.github.io" target="_blank">Giorgos Melas</a></h4>
+                                    <h4 class="media-heading"><a href="https://geomel.github.io" target="_blank">Giorgos Melas</a></h4>
                                     <p>
                                         Giorgos Melas is a PhD candidate working at the Software Engineering group. His research interests are on the area of software design, quality, evolution analysis and maintenability.
                                     </p>

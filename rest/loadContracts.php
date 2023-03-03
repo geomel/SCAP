@@ -1,8 +1,33 @@
 <?php
 
-// error_reporting(0);
+//error_reporting(1);
 
-$con = mysqli_connect("195.251.210.147:3336","melas","melas", "scap");
+$servername = "dbPHDmelas";
+$username = "melas";
+$password = "melas";
+$dbname = "scap";
+$port = 3306; // replace with your MySQL port number if necessary
+
+define('DB_HOST', 'dbPHDmelas');
+define('DB_NAME', 'scap');
+define('DB_USER', 'melas');
+define('DB_PASSWORD', 'melas');
+
+// Create connection
+//$con = mysqli_connect($servername, $username, $password, $dbname, $port);
+//$con=mysqli_connect("dbPHDmelas:3306","melas","melas","scap");
+//$con=mysqli_connect("http:\/\/195.251.210.147:3336","melas","melas","scap");
+//$con=mysqli_connect("dbPHDmelas:3306","melas","melas","scap");
+$con=mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME, 3306);
+
+// Check connection
+//if (!$conn) {
+ //echo "Failed to connect to MySQL: " . mysqli_connect_error();
+    //die("Connection failed: " . mysqli_connect_error());
+//}
+//echo "Connected successfully";
+
+// $con = mysqli_connect("https://scqap.se.uom.gr:3336","melas","melas", "scap");
 
 
 if (isset($_GET["adr"])){
