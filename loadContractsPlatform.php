@@ -27,7 +27,7 @@ if (isset($_GET["adr"])){
 
 	if($adr==-1){
 			$rand=rand (1,90000);
-			$query_adr = "SELECT * FROM solmetrics ORDER BY GAS ASC LIMIT $rand,50000";
+			$query_adr = "SELECT * FROM solmetrics ORDER BY GAS ASC LIMIT $rand,10000";
 			$dbquery = mysqli_query($con, $query_adr);
 			$arr = array();
 			//$result = mysqli_num_rows($dbquery);
